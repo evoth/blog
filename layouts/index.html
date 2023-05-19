@@ -1,0 +1,14 @@
+{{- define "main" -}}
+    <h1>{{ .Title }}</h1>
+    <div>
+        {{ .Content }}
+    </div>
+    {{ with .Site.GetPage "posts" }}
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}<a href="{{ .RelPermalink }}"></a></h2>
+        <ul>
+            {{ range .Pages }}
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            {{ end }}
+        </ul>
+    {{ end }}
+{{- end -}}

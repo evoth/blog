@@ -1,0 +1,10 @@
+baseURL: http://evoth.dev/
+defaultContentLanguage: en
+languages:
+  en:
+    languageCode: en-US
+    languageName: English
+    weight: 1
+    title: Ethan Voth
+
+disableKinds: ["sitemap", "RSS"]
