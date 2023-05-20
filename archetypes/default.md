@@ -1,7 +1,11 @@
 ---
 {{ $slug := index (split .Name "_") 1 -}}
-title: "{{ replace $slug "-" " " | title }}"
-slug: "{{ $slug }}"
 date: {{ .Date }}
+title: {{ replace $slug "-" " " | title }}
+slug: {{ $slug }}
+projects:
+series:
+tags:
 draft: true
+publishDate:
 ---

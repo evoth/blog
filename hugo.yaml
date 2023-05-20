@@ -6,5 +6,11 @@ languages:
     languageName: English
     weight: 1
     title: Ethan Voth
-
-disableKinds: ["sitemap", "RSS"]
+disableKinds:
+  - "sitemap"
+  - "RSS"
+taxonomies:
+  tag: tags
+  project: projects
+  series: series
+enableGitInfo: true

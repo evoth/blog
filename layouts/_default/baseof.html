@@ -6,20 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
     {{/* NOTE: For Production make sure you add `HUGO_ENV="production"` before your build command */}}
-    {{- $production := eq (getenv "HUGO_ENV") "production" | or (eq site.Params.env "production") -}}
-    {{- $public := not .Params.private -}}
-    {{- if and $production $public -}}
+    {{ $production := eq (getenv "HUGO_ENV") "production" | or (eq site.Params.env "production") }}
+    {{ $public := not .Params.private }}
+    {{ if and $production $public }}
       <meta name="robots" content="index, follow">
-    {{- else -}}
+    {{ else }}
       <meta name="robots" content="noindex, nofollow">
-    {{- end }}
+    {{ end }}
   </head>
 
   <body>
-    {{ range partial "reverse-slice.html" .Ancestors }}
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a> /
+    <div>
+        {{ range partial "reverse-slice.html" .Ancestors }}
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <span> /</span>
+        {{ end }}
+        <span>{{ .Title }}</span>
+    </div>
+    {{ block "title" . }}
+    <h1>{{ .Title }}</h1>
+    <div>
+    {{ .Content }}
+    </div>
     {{ end }}
-    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     {{ block "main" . }}
       <!-- The part of the page that begins to differ between templates -->
     {{ end }}

@@ -1,0 +1,21 @@
+{{ define "title" }}
+<h1>{{ .Title }}</h1>
+{{ end }}
+{{ define "main" }}
+    <p><strong>Created:</strong> {{ .Date }}</p>
+    <p><strong>Published:</strong> {{ .PublishDate }}</p>
+    <p><strong>Updated:</strong> {{ .Lastmod }}</p>
+    {{ with (index (.GetTerms "projects") 0 ) }}
+    <p><strong>Project:</strong> {{ partial "term-link.html" . }}</p>
+    {{ end }}
+    {{ with (index (.GetTerms "series") 0 ) }}
+    <p><strong>Series:</strong> {{ partial "term-link.html" . }}</p>
+    {{ end }}
+    {{ with (.GetTerms "tags") }}
+    <p><strong>Tags:</strong> {{ delimit (apply . "partial" "term-link.html" ".") ", " }}</p>
+    {{ end }}
+    <hr>
+    <div>
+    {{ .Content }}
+    </div>
+{{ end }}
