@@ -1,0 +1,20 @@
+<div class="tooltip">
+    {{ safeHTML .content }}
+    {{ if (or (hasPrefix .url "http://") (hasPrefix .url "https://")) }}
+        {{ with (index site.Data.links.linkData .url) }}
+        <div class="top">
+            <p><strong>{{ .title }}</strong></p>
+            <p><a href="{{ .url }}">{{ .url }}</a><p>
+            <i></i>
+        </div>
+        {{ end }}
+    {{ else }}
+        {{ with site.GetPage .url}}
+        <div class="top">
+            <p><strong>{{ .Title }}</strong></p>
+            <p><a href="{{ .Permalink }}">{{ .Permalink }}</a><p>
+            <i></i>
+        </div>
+        {{ end }}
+    {{ end }}
+</div>

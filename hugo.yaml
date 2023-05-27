@@ -13,4 +13,5 @@ taxonomies:
   tag: tags
   project: projects
   series: series
+  concept: concepts
 enableGitInfo: true

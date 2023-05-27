@@ -1,5 +1,5 @@
 {{ define "main" }}
-    {{ range .Site.Sections }}
+    {{ range site.Sections }}
         <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
         <ul>
             {{ range .Pages }}
@@ -7,7 +7,7 @@
             {{ end }}
         </ul>
     {{ end }}
-    {{ range $taxonomy, $terms := .Site.Taxonomies }}
+    {{ range $taxonomy, $terms := site.Taxonomies }}
         {{ with site.GetPage $taxonomy }}
         <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
         <ul>

@@ -4,4 +4,7 @@
         <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
         {{ end }}
     </ul>
+    {{ with (.Scratch.Get "references") }}
+        <p><strong>references:</strong> {{ . }}</p>
+    {{ end }}
 {{ end }}

@@ -1,0 +1,16 @@
+{{ $concept := (.Get 0) }}
+{{ if (not (in .Page.Params.concepts $concept)) }}
+    {{ errorf `Concept "%s" not in concepts list for page "%s".` $concept .Page.Title }}
+{{ end }}
+{{ .Page.Scratch.Add "conceptShortcodes" (slice $concept) }}
+{{ $scratch := .Page.Scratch }}
+{{ with site.GetPage (path.Join "concepts" $concept) }}
+    <p>[Begin concept {{ .Title }}]</p>
+    <div>
+    {{ .Content }}
+    </div>
+    {{ with (.Scratch.Get "references") }}
+        {{ $scratch.Add "references" . }}
+    {{ end }}
+    <p>[End concept {{ .Title }}]</p>
+{{ end }}

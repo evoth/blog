@@ -2,20 +2,32 @@
 <h1>{{ .Title }}</h1>
 {{ end }}
 {{ define "main" }}
+    {{ if (and (and .Params.concepts (.Scratch.Get "conceptShortcodes")) (ne (len (complement (.Scratch.Get "conceptShortcodes") .Params.concepts)) 0)) }}
+        {{ errorf `Page "%s" contains concept terms that are not used in concept shortcodes.` .Page.Title }}
+    {{ end }}
     <p><strong>Created:</strong> {{ .Date }}</p>
     <p><strong>Published:</strong> {{ .PublishDate }}</p>
     <p><strong>Updated:</strong> {{ .Lastmod }}</p>
     {{ with (index (.GetTerms "projects") 0 ) }}
-    <p><strong>Project:</strong> {{ partial "term-link.html" . }}</p>
+        <p><strong>Project:</strong> {{ partial "term-link.html" . }}</p>
     {{ end }}
     {{ with (index (.GetTerms "series") 0 ) }}
-    <p><strong>Series:</strong> {{ partial "term-link.html" . }}</p>
+        <p><strong>Series:</strong> {{ partial "term-link.html" . }}</p>
     {{ end }}
     {{ with (.GetTerms "tags") }}
-    <p><strong>Tags:</strong> {{ delimit (apply . "partial" "term-link.html" ".") ", " }}</p>
+        <p><strong>Tags:</strong> {{ delimit (apply . "partial" "term-link.html" ".") ", " }}</p>
+    {{ end }}
+    {{ with (.GetTerms "concepts") }}
+        <p><strong>Concepts:</strong> {{ delimit (apply . "partial" "term-link.html" ".") ", " }}</p>
+    {{ end }}
+    {{ with (.Scratch.Get "conceptShortcodes") }}
+        <p><strong>conceptShortcodes:</strong> {{ . }}</p>
+    {{ end }}
+    {{ with (.Scratch.Get "references") }}
+        <p><strong>references:</strong> {{ . }}</p>
     {{ end }}
     <hr>
     <div>
-    {{ .Content }}
+        {{ .Content }}
     </div>
 {{ end }}

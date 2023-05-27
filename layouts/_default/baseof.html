@@ -2,9 +2,9 @@
 <html lang="{{ site.LanguageCode | default site.Language.Lang  }}">
   <head>
     <meta charset="utf-8">
-    <title>{{ .Site.Params.Title }} | {{ .Title }}</title>
+    <title>{{ site.Params.Title }} | {{ .Title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
+    <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
     {{/* NOTE: For Production make sure you add `HUGO_ENV="production"` before your build command */}}
     {{ $production := eq (getenv "HUGO_ENV") "production" | or (eq site.Params.env "production") }}
     {{ $public := not .Params.private }}
@@ -13,6 +13,7 @@
     {{ else }}
       <meta name="robots" content="noindex, nofollow">
     {{ end }}
+    <link rel="stylesheet" href="/tooltips.css">
   </head>
 
   <body>

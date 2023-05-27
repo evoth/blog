@@ -1,0 +1,9 @@
+{{ $text := .Get 0 }}
+{{ $url := .Get 1 }}
+{{ $number := 0 }}
+{{ with (.Page.Scratch.Get "references") }}
+    {{ $number = len . }}
+{{ end }}
+{{ .Page.Scratch.Add "references" (slice (dict "Text" $text "Url" $url "Page" .Page.RelPermalink "Number" $number)) }}
+{{ $link := printf `<a href="%s" data-page="%s" data-number="%d">%s</a>` $url .Page.RelPermalink $number $text }}
+{{ partial "tooltip.html" (dict "content" $link "url" $url) }}
