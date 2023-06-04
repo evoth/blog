@@ -1,7 +1,7 @@
 ---
 date: 2023-05-20T01:36:15-06:00
-title: "Project 1 Post 1"
-slug: "project-1-post-1"
+title: Project 1 Post 1
+slug: project-1-post-1
 projects:
   - Project 1
 series:

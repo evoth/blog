@@ -1,7 +1,5 @@
-{{ define "title" }}
-<h1>{{ .Title }}</h1>
-{{ end }}
 {{ define "main" }}
+    <h1>{{ .Title }}</h1>
     {{ if (and (and .Params.concepts (.Scratch.Get "conceptShortcodes")) (ne (len (complement (.Scratch.Get "conceptShortcodes") .Params.concepts)) 0)) }}
         {{ errorf `Page "%s" contains concept terms that are not used in concept shortcodes.` .Page.Title }}
     {{ end }}

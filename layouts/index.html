@@ -1,20 +1,26 @@
-{{ define "main" }}
-    {{ range site.Sections }}
-        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        <ul>
-            {{ range .Pages }}
-            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-            {{ end }}
-        </ul>
-    {{ end }}
-    {{ range $taxonomy, $terms := site.Taxonomies }}
-        {{ with site.GetPage $taxonomy }}
-        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        <ul>
-            {{ range .Pages }}
-            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-            {{ end }}
-        </ul>
+{{ define "hero" }}
+{{ with site.GetPage "/home_resources" }}
+<div class="bg-zinc-200 dark:bg-zinc-900">
+    <div class="flex md:flex-row flex-col gap-8 md:gap-12 max-w-screen-xl mx-auto p-8 sm:p-20">
+        <div class="flex place-items-center">
+            <div>
+                {{ with .Resources.GetMatch "hero_title*.md"}}
+                <h1 class="text-6xl">
+                {{ .Content }}
+                </h1>
+                <br>
+                {{ end }}
+                {{ with .Resources.GetMatch "hero_subtitle*.md"}}
+                {{ .Content }}
+                {{ end }}
+            </div>
+        </div>
+        {{ with .Resources.GetMatch "ethan.jpg" }}
+        <div>
+            <img src="{{ .RelPermalink }}" alt="{{ .Params.alt }}" class="rounded-xl object-cover min-h-full">
+        </div>
         {{ end }}
-    {{ end }}
+        {{ end }}
+    </div>
+</div>
 {{ end }}

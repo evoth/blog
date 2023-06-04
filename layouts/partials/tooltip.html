@@ -12,7 +12,7 @@
         {{ with site.GetPage .url}}
         <div class="top">
             <p><strong>{{ .Title }}</strong></p>
-            <p><a href="{{ .Permalink }}">{{ .Permalink }}</a><p>
+            <p><a href="{{ .RelPermalink }}">{{ .RelPermalink }}</a><p>
             <i></i>
         </div>
         {{ end }}

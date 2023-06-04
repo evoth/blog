@@ -6,6 +6,23 @@ languages:
     languageName: English
     weight: 1
     title: Ethan Voth
+    menu:
+      main:
+        - name: Home
+          pageRef: /
+          weight: 1
+        - name: About
+          pageRef: /about
+          weight: 2
+        - name: Projects
+          pageRef: /projects
+          weight: 3
+        - name: Blog
+          pageRef: /posts
+          weight: 4
+        - name: Contact
+          pageRef: /contact
+          weight: 5
 disableKinds:
   - "sitemap"
   - "RSS"

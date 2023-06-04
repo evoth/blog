@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.LanguageCode | default site.Language.Lang  }}">
+<html lang="{{ site.LanguageCode | default site.Language.Lang  }}" class="dark">
   <head>
     <meta charset="utf-8">
     <title>{{ site.Params.Title }} | {{ .Title }}</title>
@@ -13,25 +13,35 @@
     {{ else }}
       <meta name="robots" content="noindex, nofollow">
     {{ end }}
-    <link rel="stylesheet" href="/tooltips.css">
+    <link rel="stylesheet" href="/css/main.css">
   </head>
 
   <body>
-    <div>
-        {{ range partial "reverse-slice.html" .Ancestors }}
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            <span> /</span>
+    <nav>
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-8 text-xl">
+            <a href="{{ site.BaseURL }}" class="flex items-center">
+                <span class="font-rubik font-semibold">{{ site.Title }}</span>
+            </a>
+            <button type="button" class="md:hidden" aria-controls="navbar-default" aria-expanded="false">
+              <span class="sr-only">Open main menu</span>
+              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+              <ul class="font-rubik flex flex-col md:flex-row gap-x-8">
+                {{ range site.Menus.main }}
+                <li>
+                  <a href="{{ .URL }}">{{ .Name }}</a>
+                </li>
+                {{ end }}
+              </ul>
+            </div>
+          </div>
+    </nav>
+    {{ block "hero" . }}
+    {{ end }}
+    <div class="max-w-screen-xl mx-auto px-8 sm:px-20 lg:px-28">
+        {{ block "main" . }}
         {{ end }}
-        <span>{{ .Title }}</span>
     </div>
-    {{ block "title" . }}
-    <h1>{{ .Title }}</h1>
-    <div>
-    {{ .Content }}
-    </div>
-    {{ end }}
-    {{ block "main" . }}
-      <!-- The part of the page that begins to differ between templates -->
-    {{ end }}
   </body>
 </html>

@@ -16,6 +16,6 @@ publishDate:
 
 {{< reference "Ethan Voth portfolio" "https://ethanvoth.com" >}}
 {{< reference "Ethan Voth GitHub" "https://github.com/evoth" >}}
-{{< reference "WCS concept" "/wcs" >}}
+{{< reference "WCS concept" "/concepts/wcs" >}}
 
 [Just another link](https://ethanvoth.com)
