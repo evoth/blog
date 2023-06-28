@@ -5,7 +5,8 @@ languages:
     languageCode: en-US
     languageName: English
     weight: 1
-    title: Ethan Voth
+    params:
+      title: Ethan Voth
     menu:
       main:
         - name: Home
@@ -24,11 +25,12 @@ languages:
           pageRef: /contact
           weight: 5
 disableKinds:
-  - "sitemap"
-  - "RSS"
+  - sitemap
+  - RSS
 taxonomies:
   tag: tags
   project: projects
   series: series
   concept: concepts
 enableGitInfo: true
+refLinksErrorLevel: WARNING
