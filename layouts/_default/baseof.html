@@ -18,7 +18,7 @@
 
   <body>
     <nav>
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-8 text-xl">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-8 text-lg">
             <a href="{{ site.BaseURL }}" class="flex items-center">
                 <span class="font-rubik font-semibold">{{ site.Params.Title }}</span>
             </a>
@@ -39,7 +39,7 @@
     </nav>
     {{ block "hero" . }}
     {{ end }}
-    <div class="max-w-screen-xl mx-auto px-8 sm:px-20 lg:px-28">
+    <div class="max-w-screen-lg mx-auto px-8 pb-8 md:px-12 md:pb-12 lg:px-20 lg:pb-20">
         {{ block "main" . }}
         {{ end }}
     </div>

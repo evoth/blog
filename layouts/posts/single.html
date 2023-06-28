@@ -1,5 +1,5 @@
 {{ define "main" }}
-    <h1>{{ .Title }}</h1>
+    <h1 class="text-5xl">{{ .Title }}</h1>
     {{ if (and (and .Params.concepts (.Scratch.Get "conceptShortcodes")) (ne (len (complement (.Scratch.Get "conceptShortcodes") .Params.concepts)) 0)) }}
         {{ errorf `Page "%s" contains concept terms that are not used in concept shortcodes.` .Page.Title }}
     {{ end }}
@@ -25,7 +25,7 @@
         <p><strong>references:</strong> {{ . }}</p>
     {{ end }}
     <hr>
-    <div>
+    <div class="prose prose-lg prose-zinc dark:prose-invert prose-headings:mb-4 prose-headings:mt-10 prose-h2:text-4xl prose-h2:mb-10">
         {{ .Content }}
     </div>
 {{ end }}

@@ -1,4 +1,4 @@
-<span class="tooltip">
+<span class="tooltip not-prose">
     {{ safeHTML .content }}
     {{ if (or (hasPrefix .url "http://") (hasPrefix .url "https://")) }}
         {{ with (index site.Data.links.linkData .url) }}

@@ -1,8 +1,8 @@
 {{ define "hero" }}
 {{ with site.GetPage "/home_resources" }}
 <div class="bg-zinc-200 dark:bg-zinc-900">
-    <div class="flex md:flex-row flex-col gap-8 md:gap-12 max-w-screen-xl mx-auto p-8 sm:p-20">
-        <div class="flex place-items-center">
+    <div class="flex md:flex-row flex-col gap-8 md:gap-12 max-w-screen-xl mx-auto p-8 md:p-12 lg:p-20">
+        <div class="flex place-items-center flex-1">
             <div>
                 {{ with .Resources.GetMatch "hero_title*.md"}}
                 <h1 class="text-6xl">
@@ -16,11 +16,11 @@
             </div>
         </div>
         {{ with .Resources.GetMatch "ethan.jpg" }}
-        <div>
+        <div class="flex-1">
             <img src="{{ .RelPermalink }}" alt="{{ .Params.alt }}" class="rounded-xl object-cover min-h-full">
         </div>
         {{ end }}
-        {{ end }}
     </div>
 </div>
+{{ end }}
 {{ end }}
