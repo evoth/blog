@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.LanguageCode | default site.Language.Lang  }}" class="dark">
+<html lang="{{ site.LanguageCode | default site.Language.Lang  }}">
   <head>
     <meta charset="utf-8">
     <title>{{ site.Params.Title }} | {{ .Title }}</title>
@@ -13,6 +13,7 @@
     {{ else }}
       <meta name="robots" content="noindex, nofollow">
     {{ end }}
+    <script src="/js/theme.js"></script>
     <link rel="stylesheet" href="/css/main.css">
   </head>
 
@@ -33,6 +34,9 @@
                   <a href="{{ .URL }}">{{ .Name }}</a>
                 </li>
                 {{ end }}
+                <li>
+                  <button id="theme-toggle" class="button">theme</button>
+                </li>
               </ul>
             </div>
           </div>

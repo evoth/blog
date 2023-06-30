@@ -43,13 +43,11 @@
                 "968882453",
                 "863105652",
                 "1068513050"
-            ],
-            "fillcolor": "rgb(224, 102, 102)"
+            ]
         }
     ],
     "layout": {
         "title": "Total Number of Websites",
-        "width": 800,
         "xaxis": {
             "type": "date",
             "range": [
@@ -59,7 +57,8 @@
             "title": "Source: <a href=\"http://www.scribblrs.com/\">Scribblrs</a><br>Source: <a href=\"http://www.internetlivestats.com/total-number-of-websites/\">Internet Live Stats</a>",
             "showgrid": false,
             "autorange": true,
-            "tickformat": "%Y"
+            "tickformat": "%Y",
+            "fixedrange": true
         },
         "yaxis": {
             "type": "linear",
@@ -68,10 +67,9 @@
                 1124750578.9473684
             ],
             "title": "",
-            "autorange": true
-        },
-        "height": 500,
-        "autosize": false
+            "autorange": true,
+            "fixedrange": true
+        }
     },
     "frames": [],
     "config": {"displayModeBar": false}

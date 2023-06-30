@@ -1,0 +1,31 @@
+{{ if not (.Page.Scratch.Get "plotNum") }}
+  {{ .Page.Scratch.Set "plotNum" 1 }}
+  <script src="/js/plotly-2.24.1.min.js"></script>
+{{ end }}
+{{ $num := .Page.Scratch.Get "plotNum" }}
+{{ .Page.Scratch.Set "plotNum" (add 1 $num) }}
+{{ $id := printf `plot-%d` $num }}
+{{ $height := .Get "height" | default "200px" }}
+<div id="{{ $id }}" class="bg-zinc-200 dark:bg-zinc-900 rounded-xl overflow-hidden" style="height: {{ $height }}"></div>
+<script type="module">
+import plot from '{{ .Get "json" }}' assert {type: 'json'};
+
+const plotDiv = document.getElementById("{{ $id }}");
+function updateTheme() {
+  const bgColor = getComputedStyle(plotDiv).getPropertyValue('background-color');
+  const fontColor = getComputedStyle(plotDiv).getPropertyValue('color');
+  const update = {
+    paper_bgcolor: bgColor,
+    plot_bgcolor: bgColor,
+    "font.color": fontColor,
+    "xaxis.color": fontColor,
+    "yaxis.color": fontColor,
+  };
+  Plotly.relayout(plotDiv, update)
+}
+
+Plotly.newPlot(plotDiv, plot.data, plot.layout, {...plot.config, responsive: true, displaylogo: false});
+updateTheme();
+
+document.documentElement.addEventListener("theme", updateTheme);
+</script>

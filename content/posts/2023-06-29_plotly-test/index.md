@@ -9,4 +9,4 @@ draft: true
 publishDate:
 ---
 
-{{< plotly json="./plot.json" height="500px">}}
+{{< plot json="./plot.json" height="500px">}}
