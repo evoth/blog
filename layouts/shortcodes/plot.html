@@ -6,14 +6,15 @@
 {{ .Page.Scratch.Set "plotNum" (add 1 $num) }}
 {{ $id := printf `plot-%d` $num }}
 {{ $height := .Get "height" | default "200px" }}
-<div id="{{ $id }}" class="bg-zinc-200 dark:bg-zinc-900 rounded-xl overflow-hidden" style="height: {{ $height }}"></div>
+<div id="{{ $id }}" class="bg-zinc-200 dark:bg-zinc-800 rounded-xl overflow-hidden" style="height: {{ $height }}"></div>
 <script type="module">
 import plot from '{{ .Get "json" }}' assert {type: 'json'};
 
 const plotDiv = document.getElementById("{{ $id }}");
 function updateTheme() {
-  const bgColor = getComputedStyle(plotDiv).getPropertyValue('background-color');
-  const fontColor = getComputedStyle(plotDiv).getPropertyValue('color');
+  const style = getComputedStyle(plotDiv);
+  const bgColor = style.getPropertyValue('background-color');
+  const fontColor = style.getPropertyValue('color');
   const update = {
     paper_bgcolor: bgColor,
     plot_bgcolor: bgColor,

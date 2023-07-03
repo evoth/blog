@@ -15,3 +15,4 @@ An outline of the relationship between posts, concepts, projects, series, and ta
 - Change hero color
 - Get local copy of Google fonts?
 - Even though plot shortcode is *technically* DRY as it is, should probably try to make that true for the resulting HTML as well
+- COMMENT AND ORGANIZE

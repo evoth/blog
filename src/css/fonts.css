@@ -7,32 +7,32 @@
 
   h1 {
     @apply text-4xl;
-    @apply text-zinc-900 dark:text-zinc-200;
+    @apply text-zinc-800 dark:text-zinc-200;
     @apply font-rubik font-semibold;
   }
   h2 {
     @apply text-3xl;
-    @apply text-zinc-900 dark:text-zinc-200;
+    @apply text-zinc-800 dark:text-zinc-200;
     @apply font-rubik font-semibold;
   }
   h3 {
     @apply text-2xl;
-    @apply text-zinc-900 dark:text-zinc-200;
+    @apply text-zinc-800 dark:text-zinc-200;
     @apply font-rubik font-semibold;
   }
   h4 {
     @apply text-xl;
-    @apply text-zinc-900 dark:text-zinc-200;
+    @apply text-zinc-800 dark:text-zinc-200;
     @apply font-rubik font-semibold;
   }
   h5 {
     @apply text-lg;
-    @apply text-zinc-900 dark:text-zinc-200;
+    @apply text-zinc-800 dark:text-zinc-200;
     @apply font-rubik font-semibold;
   }
   h6 {
     @apply text-base;
-    @apply text-zinc-900 dark:text-zinc-200;
+    @apply text-zinc-800 dark:text-zinc-200;
     @apply font-rubik font-semibold;
   }
   a {

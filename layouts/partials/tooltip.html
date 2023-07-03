@@ -1,21 +1,12 @@
-<span class="tooltip not-prose">
+<span class="tooltip not-prose group relative" data-counter="0" data-status="closed" data-hover="0">
     {{ safeHTML .content }}
     {{ if (or (hasPrefix .url "http://") (hasPrefix .url "https://")) }}
         {{ with (index site.Data.links.linkData .url) }}
-        <div class="top">
-            <p><strong>{{ .title }}</strong></p>
-            <p><a href="{{ .url }}">{{ .url }}</a></p>
-            <i></i>
-        </div>
+            {{ partial "tooltip-helper.html" . }}
         {{ end }}
     {{ else }}
         {{ with site.GetPage .url}}
-        <span class="top">
-            <span><strong>{{ .Title }}</strong></span>
-            <br>
-            <span><a href="{{ .RelPermalink }}">{{ .RelPermalink }}</a></span>
-            <i></i>
-        </span>
+            {{ partial "tooltip-helper.html" (dict "title" .Title "url" .RelPermalink) }}
         {{ end }}
     {{ end }}
 </span>
