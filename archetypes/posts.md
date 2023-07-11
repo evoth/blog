@@ -3,6 +3,12 @@
 date: {{ .Date }}
 title: {{ replace $slug "-" " " | title }}
 slug: {{ $slug }}
+resources:
+- name: thumb
+  src:
+  params:
+    alt:
+    loopSeconds:
 projects:
 series:
 tags:
