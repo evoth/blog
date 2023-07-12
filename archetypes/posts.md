@@ -9,6 +9,11 @@ resources:
   params:
     alt:
     loopSeconds:
+- name: hero
+  src:
+  params:
+    alt:
+    loopSeconds:
 projects:
 series:
 tags:

@@ -1,5 +1,15 @@
+{{ define "hero" }}
+    {{ with .Resources.GetMatch "hero" }}
+    <div class="flex-1 absolute -z-10 opacity-30">
+        <div class="relative after:absolute after:top-0 after:bottom-0 after:left-0 after:right-0 after:bg-gradient-to-b after:from-transparent after:to-zinc-50 after:dark:to-zinc-900">
+            <img src="{{ .RelPermalink }}" alt="{{ .Params.alt }}">
+        </div>
+    </div>
+    {{ end }}
+{{ end }}
+
 {{ define "main" }}
-    <h1 class="text-5xl">{{ .Title }}</h1>
+    <h1 class="text-5xl {{ if .Resources.GetMatch "hero" }}mt-12{{ end }} mb-6">{{ .Title }}</h1>
     {{ if (and (and .Params.concepts (.Scratch.Get "conceptShortcodes")) (ne (len (complement (.Scratch.Get "conceptShortcodes") .Params.concepts)) 0)) }}
         {{ errorf `Page "%s" contains concept terms that are not used in concept shortcodes.` .Page.Title }}
     {{ end }}
@@ -24,8 +34,8 @@
     {{ with (.Scratch.Get "references") }}
         <p><strong>references:</strong> {{ . }}</p>
     {{ end }}
-    <hr>
-    <div class="prose prose-lg prose-zinc dark:prose-invert prose-headings:mb-4 prose-headings:mt-10 prose-h2:text-4xl">
+    <hr class="my-6">
+    <div class="prose prose-lg prose-zinc dark:prose-invert prose-headings:mb-4 prose-h2:text-4xl">
         {{ .Content }}
     </div>
 {{ end }}
