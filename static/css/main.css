@@ -1530,6 +1530,14 @@ a{
   margin-top: 3rem;
 }
 
+.mt-0{
+  margin-top: 0px;
+}
+
+.mt-6{
+  margin-top: 1.5rem;
+}
+
 .block{
   display: block;
 }
@@ -1568,6 +1576,10 @@ a{
 
 .h-6{
   height: 1.5rem;
+}
+
+.h-full{
+  height: 100%;
 }
 
 .min-h-full{
@@ -1777,6 +1789,10 @@ a{
   background-color: rgb(250 250 250 / var(--tw-bg-opacity));
 }
 
+.bg-inherit{
+  background-color: inherit;
+}
+
 .object-cover{
   -o-object-fit: cover;
      object-fit: cover;
@@ -1809,6 +1825,14 @@ a{
 
 .pb-8{
   padding-bottom: 2rem;
+}
+
+.pt-0{
+  padding-top: 0px;
+}
+
+.pt-6{
+  padding-top: 1.5rem;
 }
 
 .text-justify{
@@ -1878,6 +1902,10 @@ a{
 
 .opacity-30{
   opacity: 0.3;
+}
+
+.opacity-20{
+  opacity: 0.2;
 }
 
 .shadow-lg{
@@ -2090,6 +2118,11 @@ a{
   background-color: rgb(39 39 42 / var(--tw-bg-opacity));
 }
 
+:is(.dark .dark\:bg-zinc-900){
+  --tw-bg-opacity: 1;
+  background-color: rgb(24 24 27 / var(--tw-bg-opacity));
+}
+
 :is(.dark .dark\:shadow-black\/50){
   --tw-shadow-color: rgb(0 0 0 / 0.5);
   --tw-shadow: var(--tw-shadow-colored);
@@ -2119,6 +2152,22 @@ a{
 }
 
 @media (min-width: 768px){
+  .md\:mt-10{
+    margin-top: 2.5rem;
+  }
+
+  .md\:mt-8{
+    margin-top: 2rem;
+  }
+
+  .md\:mt-4{
+    margin-top: 1rem;
+  }
+
+  .md\:mt-12{
+    margin-top: 3rem;
+  }
+
   .md\:block{
     display: block;
   }
@@ -2151,9 +2200,25 @@ a{
   .md\:pb-12{
     padding-bottom: 3rem;
   }
+
+  .md\:pt-12{
+    padding-top: 3rem;
+  }
+
+  .md\:pt-4{
+    padding-top: 1rem;
+  }
 }
 
 @media (min-width: 1024px){
+  .lg\:mt-8{
+    margin-top: 2rem;
+  }
+
+  .lg\:mt-10{
+    margin-top: 2.5rem;
+  }
+
   .lg\:p-20{
     padding: 5rem;
   }
@@ -2165,5 +2230,15 @@ a{
 
   .lg\:pb-20{
     padding-bottom: 5rem;
+  }
+
+  .lg\:pt-10{
+    padding-top: 2.5rem;
+  }
+}
+
+@media (min-width: 1280px){
+  .xl\:mt-8{
+    margin-top: 2rem;
   }
 }
