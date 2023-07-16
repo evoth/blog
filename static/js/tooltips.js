@@ -121,6 +121,20 @@ function tooltipEnter(event) {
   base.style.left = `${x - anchorBoundingRect.left}px`;
   base.style.top = `${y - anchorBoundingRect.top}px`;
 
+  const baseDiv = tooltip.closest("div");
+  if (baseDiv) {
+    const baseDivBoundingRect = baseDiv.getBoundingClientRect();
+    const maxWidth = isLeft
+      ? baseDivBoundingRect.right - x
+      : x - baseDivBoundingRect.left;
+    base.style.maxWidth = null;
+    if (maxWidth < body.getBoundingClientRect().width) {
+      base.style.maxWidth = `${maxWidth}px`;
+    } else {
+      base.style.maxWidth = null;
+    }
+  }
+
   if (tooltip.dataset.status == CLOSED) {
     tooltip.dataset.status = OPENING;
 

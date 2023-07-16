@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.LanguageCode | default site.Language.Lang  }}">
+<html lang="{{ site.LanguageCode | default site.Language.Lang  }}" class="overflow-x-hidden">
   <head>
     <meta charset="utf-8">
     <title>{{ site.Params.Title }} | {{ .Title }}</title>
@@ -18,33 +18,35 @@
     <link rel="stylesheet" href="/css/main.css">
   </head>
 
-  <body class="relative">
-    <nav>
-        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-6 text-lg">
+  <body class="relative overflow-x-hidden">
+    <div class="max-w-screen-xl mx-auto">
+        <nav class="flex flex-wrap items-center justify-between p-6 text-lg">
             <a href="{{ site.BaseURL }}" class="flex items-center text-inherit">
                 <span class="font-rubik font-semibold">{{ site.Params.Title }}</span>
             </a>
             <button type="button" class="md:hidden" aria-controls="navbar-default" aria-expanded="false">
-              <span class="sr-only">Open main menu</span>
-              <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+            <span class="sr-only">Open main menu</span>
+            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
             </button>
             <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-              <ul class="font-rubik flex flex-col md:flex-row gap-x-8">
+            <ul class="font-rubik flex flex-col md:flex-row gap-x-8">
                 {{ range site.Menus.main }}
                 <li>
-                  <a href="{{ .URL }}">{{ .Name }}</a>
+                <a href="{{ .URL }}">{{ .Name }}</a>
                 </li>
                 {{ end }}
                 <li>
-                  <button id="theme-toggle" class="button">theme</button>
+                <button id="theme-toggle" class="button">theme</button>
                 </li>
-              </ul>
+            </ul>
             </div>
-          </div>
-    </nav>
+        </nav>
+        {{ block "hero2" . }}
+        {{ end }}
+    </div>
     {{ block "hero" . }}
     {{ end }}
-    <div class="max-w-screen-lg mx-auto px-8 pb-8 md:px-12 md:pb-12 lg:px-20 lg:pb-20">
+    <div class="max-w-screen-lg mx-auto px-4 pb-4 sm:px-8 sm:pb-8 md:px-12 md:pb-12 lg:px-20 lg:pb-20">
         {{ block "main" . }}
         {{ end }}
     </div>

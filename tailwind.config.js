@@ -3,7 +3,7 @@ const plugin = require("tailwindcss/plugin");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./layouts/**/*.{html,js}", "./static/**/*.js"],
+  content: ["./layouts/**/*.{html,js}", "./static/**/*.js", "./public/**/*.{html,js}"],
   darkMode: "class",
   theme: {
     extend: {

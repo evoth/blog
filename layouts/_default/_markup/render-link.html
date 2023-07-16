@@ -1,1 +1,2 @@
-{{ partial "tooltip.html" (dict "content" (partial "markdown-link-helper.html" .) "url" .Destination) }}
+{{- $linkText := partial "tooltip.html" (dict "content" (partial "markdown-link-helper.html" .) "url" .Destination) -}}
+{{- safeHTML (replace $linkText "\n" "") -}}

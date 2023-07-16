@@ -1,41 +1,32 @@
-{{ define "hero" }}
-    {{ with .Resources.GetMatch "hero" }}
-    <div class="flex-1 absolute -z-10 opacity-20">
-        <div class="relative after:absolute after:top-0 after:bottom-0 after:left-0 after:right-0 after:bg-gradient-to-b after:from-transparent after:to-zinc-50 after:dark:to-zinc-900">
-            <img src="{{ .RelPermalink }}" alt="{{ .Params.alt }}">
-        </div>
-    </div>
-    {{ end }}
-{{ end }}
-
 {{ define "main" }}
-    <h1 class="text-5xl {{ if .Resources.GetMatch "hero" }}md:mt-12 mt-6{{ else }}lg:mt-10 md:mt-4 mt-0{{ end }} mb-6">{{ .Title }}</h1>
-    {{ if (and (and .Params.concepts (.Scratch.Get "conceptShortcodes")) (ne (len (complement (.Scratch.Get "conceptShortcodes") .Params.concepts)) 0)) }}
-        {{ errorf `Page "%s" contains concept terms that are not used in concept shortcodes.` .Page.Title }}
-    {{ end }}
-    <p><strong>Created:</strong> {{ .Date }}</p>
-    <p><strong>Published:</strong> {{ .PublishDate }}</p>
-    <p><strong>Updated:</strong> {{ .Lastmod }}</p>
-    {{ with (index (.GetTerms "projects") 0 ) }}
-        <p><strong>Project:</strong> {{ partial "term-link.html" . }}</p>
-    {{ end }}
-    {{ with (index (.GetTerms "series") 0 ) }}
-        <p><strong>Series:</strong> {{ partial "term-link.html" . }}</p>
-    {{ end }}
-    {{ with (.GetTerms "tags") }}
-        <p><strong>Tags:</strong> {{ delimit (apply . "partial" "term-link.html" ".") ", " }}</p>
-    {{ end }}
-    {{ with (.GetTerms "concepts") }}
-        <p><strong>Concepts:</strong> {{ delimit (apply . "partial" "term-link.html" ".") ", " }}</p>
-    {{ end }}
-    {{ with (.Scratch.Get "conceptShortcodes") }}
-        <p><strong>conceptShortcodes:</strong> {{ . }}</p>
-    {{ end }}
-    {{ with (.Scratch.Get "references") }}
-        <p><strong>references:</strong> {{ . }}</p>
-    {{ end }}
-    <hr class="my-6">
-    <div class="prose prose-lg prose-zinc dark:prose-invert prose-headings:mb-4 prose-h2:text-4xl">
+    <div class="mb-6 {{ with .Resources.GetMatch "hero" }}lg:p-8 md:p-6 p-4 relative before:absolute before:left-0 before:right-0 before:top-0 before:bottom-0 before:bg-[url('{{ .RelPermalink }}')] before:bg-cover before:bg-center before:opacity-30 before:-z-10 before:rounded-xl{{ end }}">
+        <h1 class="md:text-5xl md:mb-4 mb-2">{{ .Title }}</h1>
+        {{ if (and (and .Params.concepts (.Scratch.Get "conceptShortcodes")) (ne (len (complement (.Scratch.Get "conceptShortcodes") .Params.concepts)) 0)) }}
+            {{ errorf `Page "%s" contains concept terms that are not used in concept shortcodes.` .Page.Title }}
+        {{ end }}
+        <p><strong>Created:</strong> {{ .Date }}</p>
+        <p><strong>Published:</strong> {{ .PublishDate }}</p>
+        <p><strong>Updated:</strong> {{ .Lastmod }}</p>
+        {{ with (index (.GetTerms "projects") 0 ) }}
+            <p><strong>Project:</strong> {{ partial "term-link.html" . }}</p>
+        {{ end }}
+        {{ with (index (.GetTerms "series") 0 ) }}
+            <p><strong>Series:</strong> {{ partial "term-link.html" . }}</p>
+        {{ end }}
+        {{ with (.GetTerms "tags") }}
+            <p><strong>Tags:</strong> {{ delimit (apply . "partial" "term-link.html" ".") ", " }}</p>
+        {{ end }}
+        {{ with (.GetTerms "concepts") }}
+            <p><strong>Concepts:</strong> {{ delimit (apply . "partial" "term-link.html" ".") ", " }}</p>
+        {{ end }}
+        {{ with (.Scratch.Get "conceptShortcodes") }}
+            <p><strong>conceptShortcodes:</strong> {{ . }}</p>
+        {{ end }}
+        {{ with (.Scratch.Get "references") }}
+            <p><strong>references:</strong> {{ . }}</p>
+        {{ end }}
+    </div>
+    <div class="prose prose-lg prose-zinc dark:prose-invert prose-headings:mb-4 prose-h2:md:text-4xl">
         {{ .Content }}
     </div>
 {{ end }}

@@ -1496,10 +1496,6 @@ a{
   isolation: isolate;
 }
 
-.-z-10{
-  z-index: -10;
-}
-
 .z-10{
   z-index: 10;
 }
@@ -1517,25 +1513,20 @@ a{
   margin-right: auto;
 }
 
-.my-6{
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
 .mb-6{
   margin-bottom: 1.5rem;
 }
 
-.mt-12{
-  margin-top: 3rem;
+.mr-0{
+  margin-right: 0px;
 }
 
-.mt-0{
-  margin-top: 0px;
+.mb-4{
+  margin-bottom: 1rem;
 }
 
-.mt-6{
-  margin-top: 1.5rem;
+.mb-2{
+  margin-bottom: 0.5rem;
 }
 
 .block{
@@ -1582,6 +1573,10 @@ a{
   height: 100%;
 }
 
+.h-0{
+  height: 0px;
+}
+
 .min-h-full{
   min-height: 100%;
 }
@@ -1619,6 +1614,10 @@ a{
   width: max-content;
 }
 
+.w-0{
+  width: 0px;
+}
+
 .max-w-md{
   max-width: 28rem;
 }
@@ -1629,6 +1628,10 @@ a{
 
 .max-w-screen-xl{
   max-width: 1280px;
+}
+
+.max-w-sm{
+  max-width: 24rem;
 }
 
 .flex-1{
@@ -1729,6 +1732,10 @@ a{
   list-style-type: disc;
 }
 
+.flex-row{
+  flex-direction: row;
+}
+
 .flex-col{
   flex-direction: column;
 }
@@ -1762,6 +1769,10 @@ a{
   overflow: hidden;
 }
 
+.overflow-x-hidden{
+  overflow-x: hidden;
+}
+
 .rounded-lg{
   border-radius: 0.5rem;
 }
@@ -1789,8 +1800,20 @@ a{
   background-color: rgb(250 250 250 / var(--tw-bg-opacity));
 }
 
-.bg-inherit{
-  background-color: inherit;
+.bg-opacity-20{
+  --tw-bg-opacity: 0.2;
+}
+
+.bg-\[url\(\'\/posts\/chatgpt\/chatgpt\%20copy\.svg\'\)\]{
+  background-image: url('/posts/chatgpt/chatgpt%20copy.svg');
+}
+
+.bg-cover{
+  background-size: cover;
+}
+
+.bg-center{
+  background-position: center;
 }
 
 .object-cover{
@@ -1818,9 +1841,18 @@ a{
   padding: 2rem;
 }
 
+.p-4{
+  padding: 1rem;
+}
+
 .px-8{
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.px-4{
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .pb-8{
@@ -1831,8 +1863,12 @@ a{
   padding-top: 0px;
 }
 
-.pt-6{
-  padding-top: 1.5rem;
+.pb-4{
+  padding-bottom: 1rem;
+}
+
+.text-center{
+  text-align: center;
 }
 
 .text-justify{
@@ -1900,12 +1936,16 @@ a{
   opacity: 1;
 }
 
-.opacity-30{
-  opacity: 0.3;
-}
-
 .opacity-20{
   opacity: 0.2;
+}
+
+.mix-blend-normal{
+  mix-blend-mode: normal;
+}
+
+.mix-blend-overlay{
+  mix-blend-mode: overlay;
 }
 
 .shadow-lg{
@@ -1974,6 +2014,82 @@ a{
   --tw-prose-td-borders: var(--tw-prose-invert-td-borders);
 }
 
+.before\:absolute::before{
+  content: var(--tw-content);
+  position: absolute;
+}
+
+.before\:bottom-0::before{
+  content: var(--tw-content);
+  bottom: 0px;
+}
+
+.before\:left-0::before{
+  content: var(--tw-content);
+  left: 0px;
+}
+
+.before\:right-0::before{
+  content: var(--tw-content);
+  right: 0px;
+}
+
+.before\:top-0::before{
+  content: var(--tw-content);
+  top: 0px;
+}
+
+.before\:-z-10::before{
+  content: var(--tw-content);
+  z-index: -10;
+}
+
+.before\:h-full::before{
+  content: var(--tw-content);
+  height: 100%;
+}
+
+.before\:w-full::before{
+  content: var(--tw-content);
+  width: 100%;
+}
+
+.before\:rounded-xl::before{
+  content: var(--tw-content);
+  border-radius: 0.75rem;
+}
+
+.before\:bg-white::before{
+  content: var(--tw-content);
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.before\:bg-\[url\(\'\/posts\/chatgpt\/chatgpt\%20copy\.svg\'\)\]::before{
+  content: var(--tw-content);
+  background-image: url('/posts/chatgpt/chatgpt%20copy.svg');
+}
+
+.before\:bg-cover::before{
+  content: var(--tw-content);
+  background-size: cover;
+}
+
+.before\:bg-center::before{
+  content: var(--tw-content);
+  background-position: center;
+}
+
+.before\:opacity-20::before{
+  content: var(--tw-content);
+  opacity: 0.2;
+}
+
+.before\:opacity-30::before{
+  content: var(--tw-content);
+  opacity: 0.3;
+}
+
 .after\:absolute::after{
   content: var(--tw-content);
   position: absolute;
@@ -1987,11 +2103,6 @@ a{
 .after\:-top-4::after{
   content: var(--tw-content);
   top: -1rem;
-}
-
-.after\:bottom-0::after{
-  content: var(--tw-content);
-  bottom: 0px;
 }
 
 .after\:bottom-full::after{
@@ -2012,11 +2123,6 @@ a{
 .after\:right-0::after{
   content: var(--tw-content);
   right: 0px;
-}
-
-.after\:top-0::after{
-  content: var(--tw-content);
-  top: 0px;
 }
 
 .after\:top-full::after{
@@ -2069,23 +2175,6 @@ a{
   background-color: rgb(250 250 250 / var(--tw-bg-opacity));
 }
 
-.after\:bg-gradient-to-b::after{
-  content: var(--tw-content);
-  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
-}
-
-.after\:from-transparent::after{
-  content: var(--tw-content);
-  --tw-gradient-from: transparent var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.after\:to-zinc-50::after{
-  content: var(--tw-content);
-  --tw-gradient-to: #fafafa var(--tw-gradient-to-position);
-}
-
 .after\:shadow-lg::after{
   content: var(--tw-content);
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -2118,11 +2207,6 @@ a{
   background-color: rgb(39 39 42 / var(--tw-bg-opacity));
 }
 
-:is(.dark .dark\:bg-zinc-900){
-  --tw-bg-opacity: 1;
-  background-color: rgb(24 24 27 / var(--tw-bg-opacity));
-}
-
 :is(.dark .dark\:shadow-black\/50){
   --tw-shadow-color: rgb(0 0 0 / 0.5);
   --tw-shadow: var(--tw-shadow-colored);
@@ -2140,32 +2224,45 @@ a{
   background-color: rgb(39 39 42 / var(--tw-bg-opacity));
 }
 
-:is(.dark .after\:dark\:to-zinc-900)::after{
-  content: var(--tw-content);
-  --tw-gradient-to: #18181b var(--tw-gradient-to-position);
-}
-
 :is(.dark .after\:dark\:shadow-black\/50)::after{
   content: var(--tw-content);
   --tw-shadow-color: rgb(0 0 0 / 0.5);
   --tw-shadow: var(--tw-shadow-colored);
 }
 
+@media (min-width: 640px){
+  .sm\:px-8{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .sm\:pb-8{
+    padding-bottom: 2rem;
+  }
+
+  .sm\:text-5xl{
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .sm\:prose-h2\:text-4xl :is(:where(h2):not(:where([class~="not-prose"] *))){
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .prose-h2\:sm\:text-4xl :is(:where(h2):not(:where([class~="not-prose"] *))){
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
 @media (min-width: 768px){
-  .md\:mt-10{
-    margin-top: 2.5rem;
+  .md\:mb-6{
+    margin-bottom: 1.5rem;
   }
 
-  .md\:mt-8{
-    margin-top: 2rem;
-  }
-
-  .md\:mt-4{
-    margin-top: 1rem;
-  }
-
-  .md\:mt-12{
-    margin-top: 3rem;
+  .md\:mb-4{
+    margin-bottom: 1rem;
   }
 
   .md\:block{
@@ -2192,6 +2289,14 @@ a{
     padding: 3rem;
   }
 
+  .md\:p-4{
+    padding: 1rem;
+  }
+
+  .md\:p-6{
+    padding: 1.5rem;
+  }
+
   .md\:px-12{
     padding-left: 3rem;
     padding-right: 3rem;
@@ -2201,26 +2306,32 @@ a{
     padding-bottom: 3rem;
   }
 
-  .md\:pt-12{
-    padding-top: 3rem;
-  }
-
   .md\:pt-4{
     padding-top: 1rem;
+  }
+
+  .md\:text-5xl{
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .prose-h2\:md\:text-4xl :is(:where(h2):not(:where([class~="not-prose"] *))){
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 }
 
 @media (min-width: 1024px){
-  .lg\:mt-8{
-    margin-top: 2rem;
-  }
-
-  .lg\:mt-10{
-    margin-top: 2.5rem;
-  }
-
   .lg\:p-20{
     padding: 5rem;
+  }
+
+  .lg\:p-10{
+    padding: 2.5rem;
+  }
+
+  .lg\:p-8{
+    padding: 2rem;
   }
 
   .lg\:px-20{
@@ -2237,8 +2348,6 @@ a{
   }
 }
 
-@media (min-width: 1280px){
-  .xl\:mt-8{
-    margin-top: 2rem;
-  }
+.\[\&\>\*\]\:opacity-100>*{
+  opacity: 1;
 }
