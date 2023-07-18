@@ -18,7 +18,7 @@ languages:
         - name: Projects
           pageRef: /projects
           weight: 3
-        - name: Blog
+        - name: Posts
           pageRef: /posts
           weight: 4
         - name: Contact

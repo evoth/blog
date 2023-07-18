@@ -1,0 +1,4 @@
+{{ $svg := readFile .path}}
+{{ $svg := replaceRE `^<svg` (printf `<svg class="%s"` .class) $svg }}
+{{ $svg := replaceRE `fill="[^"]*"` (printf `class="%s"` .fillClass) $svg }}
+{{ $svg | safeHTML }}

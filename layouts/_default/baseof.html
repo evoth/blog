@@ -13,32 +13,42 @@
     {{ else }}
       <meta name="robots" content="noindex, nofollow">
     {{ end }}
+    <script src="https://kit.fontawesome.com/a00713ef8f.js" crossorigin="anonymous"></script>
     <script src="/js/theme.js"></script>
     <script src="/js/tooltips.js" defer></script>
     <link rel="stylesheet" href="/css/main.css">
   </head>
 
   <body class="relative overflow-x-hidden">
-    <div class="max-w-screen-xl mx-auto">
-        <nav class="flex flex-wrap items-center justify-between p-4">
-            <a href="{{ site.BaseURL }}" class="flex items-center text-inherit">
-                <span class="font-rubik font-semibold">{{ site.Params.Title }}</span>
-            </a>
-            <button type="button" class="md:hidden" aria-controls="navbar-default" aria-expanded="false">
-            <span class="sr-only">Open main menu</span>
-            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
-            </button>
-            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-            <ul class="font-rubik flex flex-col md:flex-row gap-x-8">
-                {{ range site.Menus.main }}
+    <div class="2xl:max-w-none max-w-screen-lg mx-auto px-4 sm:px-8 md:px-12 lg:px-20 2xl:px-8">
+        <nav class="flex flex-wrap items-center justify-between py-5">
+            <ul class="font-rubik flex flex-row gap-x-8">
                 <li>
-                <a href="{{ .URL }}">{{ .Name }}</a>
+                    <a href="{{ site.BaseURL }}" class="text-inherit">
+                        <span class="font-semibold">{{ site.Params.Title }}</span>
+                    </a>
                 </li>
-                {{ end }}
-                <li>
-                <button id="theme-toggle" class="button">theme</button>
+                <li class="hidden md:block">
+                    <div class="h-full flex justify-center">
+                    <button class="button theme-toggle">
+                        {{ partial "svg-fill.html" (dict "path" "/static/icons/moon.svg" "class" "hidden dark:block h-4" "fillClass" "fill-zinc-500") }}
+                        {{ partial "svg-fill.html" (dict "path" "/static/icons/sun.svg" "class" "dark:hidden h-5" "fillClass" "fill-zinc-400") }}
+                    </button>
+                </div>
                 </li>
             </ul>
+            <button type="button" class="md:hidden" aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul class="font-rubik flex flex-col md:flex-row gap-x-4 2xl:gap-x-8">
+                    {{ range site.Menus.main }}
+                    <li>
+                        <a href="{{ .URL }}">{{ .Name }}</a>
+                    </li>
+                    {{ end }}
+                </ul>
             </div>
         </nav>
         {{ block "hero2" . }}
