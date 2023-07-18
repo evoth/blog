@@ -1,6 +1,6 @@
 {{ define "main" }}
-    <div class="mb-6 {{ with .Resources.GetMatch "hero" }}lg:p-8 md:p-6 p-4 relative before:absolute before:left-0 before:right-0 before:top-0 before:bottom-0 before:bg-[url('{{ .RelPermalink }}')] before:bg-cover before:bg-center before:opacity-30 before:-z-10 before:rounded-xl{{ end }}">
-        <h1 class="md:text-5xl md:mb-4 mb-2">{{ .Title }}</h1>
+    <div class="mb-6 lg:p-8 md:p-6 p-4 relative before:absolute before:left-0 before:right-0 before:top-0 before:bottom-0 {{ with .Resources.GetMatch "hero" }}before:bg-[url('{{ .RelPermalink }}')] before:bg-cover before:bg-center before:opacity-30{{ else }}before:bg-zinc-200 before:dark:bg-zinc-800{{ end }} before:-z-10 before:rounded-xl">
+        <h1 class="md:mb-4 mb-2">{{ .Title }}</h1>
         {{ if (and (and .Params.concepts (.Scratch.Get "conceptShortcodes")) (ne (len (complement (.Scratch.Get "conceptShortcodes") .Params.concepts)) 0)) }}
             {{ errorf `Page "%s" contains concept terms that are not used in concept shortcodes.` .Page.Title }}
         {{ end }}
@@ -26,7 +26,7 @@
             <p><strong>references:</strong> {{ . }}</p>
         {{ end }}
     </div>
-    <div class="prose prose-lg prose-zinc dark:prose-invert prose-headings:mb-4 prose-h2:md:text-4xl">
+    <div class="prose prose-zinc dark:prose-invert prose-headings:mb-3 prose-h2:md:text-3xl">
         {{ .Content }}
     </div>
 {{ end }}
