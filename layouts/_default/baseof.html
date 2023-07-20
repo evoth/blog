@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
     {{/* NOTE: For Production make sure you add `HUGO_ENV="production"` before your build command */}}
-    {{ $production := eq (getenv "HUGO_ENV") "production" | or (eq site.Params.env "production") }}
-    {{ $public := not .Params.private }}
-    {{ if and $production $public }}
+    {{- $production := eq (getenv "HUGO_ENV") "production" | or (eq site.Params.env "production") -}}
+    {{- $public := not .Params.private -}}
+    {{- if and $production $public -}}
       <meta name="robots" content="index, follow">
-    {{ else }}
+    {{- else -}}
       <meta name="robots" content="noindex, nofollow">
-    {{ end }}
+    {{- end }}
     <script src="https://kit.fontawesome.com/a00713ef8f.js" crossorigin="anonymous"></script>
     <script src="/js/theme.js"></script>
     <script src="/js/tooltips.js" defer></script>
@@ -32,11 +32,11 @@
               </li>
               <li class="hidden md:block">
                   <div class="h-full flex justify-center">
-                  <button class="button theme-toggle">
-                      {{ partial "svg-fill.html" (dict "path" "/static/icons/moon.svg" "class" "hidden dark:block h-4" "fillClass" "fill-zinc-500") }}
-                      {{ partial "svg-fill.html" (dict "path" "/static/icons/sun.svg" "class" "dark:hidden h-5" "fillClass" "fill-zinc-400") }}
-                  </button>
-              </div>
+                    <button class="button theme-toggle">
+                        {{ partial "svg-fill.html" (dict "path" "/static/icons/moon.svg" "class" "hidden dark:block h-4" "fillClass" "fill-zinc-500") }}
+                        {{ partial "svg-fill.html" (dict "path" "/static/icons/sun.svg" "class" "dark:hidden h-5" "fillClass" "fill-zinc-400") }}
+                    </button>
+                </div>
               </li>
           </ul>
           <button type="button" class="md:hidden">
@@ -45,20 +45,20 @@
           </button>
           <div class="hidden w-full md:block md:w-auto" id="navbar-default">
               <ul class="font-rubik flex flex-col md:flex-row gap-x-4 2xl:gap-x-8">
-                  {{ range site.Menus.main }}
+                  {{- range site.Menus.main }}
                   <li>
                       <a href="{{ .URL }}">{{ .Name }}</a>
                   </li>
-                  {{ end }}
+                  {{- end }}
               </ul>
           </div>
       </nav>
     </div>
-    {{ block "hero" . }}
-    {{ end }}
+    {{- block "hero" . }}
+    {{- end }}
     <div class="max-w-screen-lg mx-auto px-4 pb-4 sm:px-8 sm:pb-8 md:px-12 md:pb-12 lg:px-20 lg:pb-20">
-        {{ block "main" . }}
-        {{ end }}
+        {{- block "main" . }}
+        {{- end }}
     </div>
   </body>
 </html>
