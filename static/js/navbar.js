@@ -1,5 +1,4 @@
 const navbar = document.getElementById("navbar");
-const navbarBackground = document.getElementById("navbar-background");
 const navbarShadow = document.getElementById("navbar-shadow");
 const topBuffer = 150;
 const bottomBuffer = 300;
@@ -7,7 +6,7 @@ const displayBuffer = 200;
 let stickY = window.scrollY;
 let oldStickY = -1;
 let isSticking = false;
-let backgroundOpacity = 1;
+let shadowOpacity = 0;
 let stickingY = window.scrollY;
 
 document.addEventListener("scroll", (event) => {
@@ -42,12 +41,10 @@ document.addEventListener("scroll", (event) => {
     const navbarY = (isSticking ? scrollY : stickingY);
 
     if (navbarY < displayBuffer) {
-        backgroundOpacity = 1 - navbarY / displayBuffer;
-        navbarBackground.style.opacity = backgroundOpacity;
-        navbarShadow.style.opacity = 1 - backgroundOpacity;
-    } else if (navbarY >= displayBuffer && backgroundOpacity != 0) {
-        backgroundOpacity = 0;
-        navbarBackground.style.opacity = backgroundOpacity;
-        navbarShadow.style.opacity = 1 - backgroundOpacity;
+        shadowOpacity = navbarY / displayBuffer;
+        navbarShadow.style.opacity = shadowOpacity;
+    } else if (navbarY >= displayBuffer && shadowOpacity != 1) {
+        shadowOpacity = 1;
+        navbarShadow.style.opacity = shadowOpacity;
     }
 });
