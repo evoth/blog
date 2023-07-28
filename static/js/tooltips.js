@@ -203,6 +203,7 @@ const tooltips = document.getElementsByClassName("tooltip");
 for (let i = 0; i < tooltips.length; i++) {
   const body = tooltips[i].getElementsByClassName("tooltip-body")[0];
   const link = tooltips[i].getElementsByTagName("a")[0];
+  if (!(body && link)) continue;
   link.addEventListener("mouseenter", tooltipEnter);
   link.addEventListener("mouseleave", tooltipLeave);
   body.addEventListener("mouseenter", tooltipEnter);
