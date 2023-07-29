@@ -10,6 +10,8 @@ A very barebones version of the site and structure.
 
 ## Todo
 
+- Fix spacing
+    - Concept shortcode
 - Design and style the website
 - Add content
 - Change hero color

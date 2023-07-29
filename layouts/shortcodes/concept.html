@@ -5,12 +5,9 @@
 {{ .Page.Scratch.Add "conceptShortcodes" (slice $concept) }}
 {{ $scratch := .Page.Scratch }}
 {{ with site.GetPage (path.Join "concepts" $concept) }}
-    <p>[Begin concept {{ .Title }}]</p>
-    <div>
+    {{ printf `### %s` .Title | .RenderString }}
     {{ .Content }}
-    </div>
     {{ with (.Scratch.Get "references") }}
         {{ $scratch.Add "references" . }}
     {{ end }}
-    <p>[End concept {{ .Title }}]</p>
 {{ end }}
