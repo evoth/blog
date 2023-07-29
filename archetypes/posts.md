@@ -2,6 +2,7 @@
 {{ $slug := index (split .Name "_") 1 -}}
 date: {{ .Date }}
 title: {{ replace $slug "-" " " | title }}
+summary:
 slug: {{ $slug }}
 resources:
 - name: thumb

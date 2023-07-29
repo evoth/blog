@@ -1,6 +1,9 @@
 {{- define "main" }}
         <div class="mb-6 lg:p-8 md:p-6 p-4 relative before:absolute before:left-0 before:right-0 before:top-0 before:bottom-0 {{ with .Resources.GetMatch "hero" }}before:bg-[url('{{ .RelPermalink }}')] before:bg-cover before:bg-center before:opacity-30{{ else }}before:bg-zinc-200 before:dark:bg-zinc-800{{ end }} before:-z-10 before:rounded-xl">
-            <h1 class="md:mb-4 mb-2">{{ .Title }}</h1>
+            <h1 class="mb-2">{{ .Title }}</h1>
+            {{- with .Params.summary }}
+            <p class="md:mb-4 mb-2 text-2xl">{{ . }}</h2>
+            {{- end }}
             {{- if (and (and .Params.concepts (.Scratch.Get "conceptShortcodes")) (ne (len (complement (.Scratch.Get "conceptShortcodes") .Params.concepts)) 0)) -}}
                 {{ errorf `Page "%s" contains concept terms that are not used in concept shortcodes.` .Page.Title }}
             {{- end }}
