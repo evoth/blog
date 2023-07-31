@@ -12,6 +12,9 @@ A very barebones version of the site and structure.
 
 - Fix spacing
     - Concept shortcode
+- Better responsiveness for mobile
+    - Home page
+    - Smaller text sizes below medium breakpoint
 - Design and style the website
 - Add content
 - Change hero color
