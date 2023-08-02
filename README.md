@@ -25,6 +25,6 @@ A very barebones version of the site and structure.
 - Change hero color
 - Get local copy of Google fonts?
 - Even though plot shortcode is *technically* DRY as it is, should probably try to make that true for the resulting HTML as well
-- COMMENT AND ORGANIZE
+- # ***COMMENT*** AND ORGANIZE
 - ARIA, accessibility in general, Schema, OpenGraph, correct use of tags where possible, etc.
 - Reduce use of pseudo elements
