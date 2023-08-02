@@ -25,10 +25,6 @@ const toggleClasses = {
     inline: [],
     block: ["hidden"],
   },
-  "space-2": {
-    inline: [],
-    block: ["hidden"],
-  },
   content: {
     inline: [
       "p-1",
@@ -48,13 +44,17 @@ const toggleClasses = {
     ],
   },
   sup: {
-    inline: ["[transition:background-color_0.2s]"],
+    inline: [
+      "[transition:background-color_0.2s]",
+      "hover:group-hover:bg-zinc-500",
+      "hover:group-hover:dark:bg-zinc-500",
+    ],
     block: [
       "group-hover:border",
       "[transition:background-color_0.2s,border_0.2s]",
     ],
   },
-  "button-2": {
+  button: {
     inline: ["hidden"],
     block: [],
   },
