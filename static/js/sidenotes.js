@@ -25,6 +25,10 @@ const toggleClasses = {
     inline: [],
     block: ["hidden"],
   },
+  "space-2": {
+    inline: [],
+    block: ["hidden"],
+  },
   content: {
     inline: [
       "p-1",
