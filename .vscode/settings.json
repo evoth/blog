@@ -1,8 +1,0 @@
-{
-  "[markdown]": {
-    "editor.formatOnSave": false
-  },
-  "files.associations": {
-    "*.css": "tailwindcss"
-  }
-}

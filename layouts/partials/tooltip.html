@@ -6,7 +6,7 @@
 {{ end }}
 {{- else -}}
 {{ with site.GetPage .url}}
-{{- partial "tooltip-helper.html" (dict "title" .Title "url" .RelPermalink) -}}
+{{- partial "tooltip-helper.html" (dict "title" .Title "url" .RelPermalink "description" .Params.summary) -}}
 {{ end }}
 {{- end -}}
 </span>

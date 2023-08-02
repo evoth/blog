@@ -1,1 +1,22 @@
-{{ if .Inner }}{{ end }}
+{{ $number := default 1 (.Page.Scratch.Get "sidenoteNum") -}}
+{{- .Page.Scratch.Set "sidenoteNum" (add 1 $number) -}}
+<span class="sidenote relative group">
+    {{- "" -}}
+    <span class="sidenote-space hidden"> </span>
+    {{- "" -}}
+    <button class="sidenote-button"><sup class="sidenote-sup bg-zinc-300 dark:bg-zinc-700 group-hover:bg-zinc-400 group-hover:dark:bg-zinc-600 border-zinc-50 dark:border-zinc-900 group-hover:border-zinc-500 group-hover:dark:border-zinc-500 hover:group-hover:bg-zinc-500 hover:group-hover:dark:bg-zinc-500 text-zinc-800 dark:text-zinc-200 px-1 mx-0.5 rounded-sm">{{ $number }}</sup></button>
+    {{- "" -}}
+    <span class="sidenote-content hidden bg-zinc-200 dark:bg-zinc-800 group-hover:bg-zinc-300 group-hover:dark:bg-zinc-700 border-zinc-50 dark:border-zinc-900 group-hover:border-zinc-500 group-hover:dark:border-zinc-500 text-zinc-800 dark:text-zinc-200 translate-x-[--sidenote-offset] max-w-[--sidenote-max-width] w-max">
+        {{- "" -}}
+        <button class="sidenote-button-2"><sup class="bg-zinc-300 dark:bg-zinc-700 [transition:background-color_0.2s] group-hover:bg-zinc-400 group-hover:dark:bg-zinc-600 hover:group-hover:bg-zinc-500 hover:group-hover:dark:bg-zinc-500 px-1 mx-0.5 rounded-sm">{{ $number }}</sup></button>
+        <span class="sidenote-prefix" data-prefix-inline="{{ .Get 0 }}" data-prefix-block="{{ .Get 2 }}"></span>
+        {{- "" -}}
+        <span class="sidenote-text-inline hidden">{{- .Inner | .Page.RenderString -}}</span>
+        {{- "" -}}
+        <span class="sidenote-text-block">{{- strings.FirstUpper .Inner | .Page.RenderString -}}</span>
+        {{- "" -}}
+        <span class="sidenote-suffix" data-suffix-inline="{{ .Get 1 }}" data-suffix-block="{{ .Get 3 }}"></span>
+        {{- "" -}}
+    </span>
+    {{- "" -}}
+</span>

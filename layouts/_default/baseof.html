@@ -16,6 +16,7 @@
     <script src="https://kit.fontawesome.com/a00713ef8f.js" crossorigin="anonymous"></script>
     <script src="/js/theme.js"></script>
     <script src="/js/tooltips.js" defer></script>
+    <script src="/js/sidenotes.js" defer></script>
     <script src="/js/navbar.js" defer></script>
     <link rel="stylesheet" href="/css/main.css">
   </head>
@@ -44,7 +45,7 @@
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
           </button>
           <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-              <ul class="font-rubik flex flex-col md:flex-row gap-x-4 2xl:gap-x-8">
+              <ul class="font-rubik flex flex-col md:flex-row gap-x-4 xl:gap-x-8">
                   {{- range site.Menus.main }}
                   <li>
                       <a href="{{ .URL }}">{{ .Name }}</a>
@@ -56,9 +57,13 @@
     </div>
     {{- block "hero" . }}
     {{- end }}
-    <div class="max-w-screen-lg mx-auto px-4 pb-4 sm:px-8 sm:pb-8 md:px-12 md:pb-12 lg:px-20 lg:pb-20">
-        {{- block "main" . }}
-        {{- end }}
+    <div class="max-w-screen-4xl mx-auto 3xl:px-12">
+        <div id="sidenote-border">
+            <div id="article" class="max-w-screen-lg mx-auto px-4 pb-4 sm:px-8 sm:pb-8 md:px-12 md:pb-12 lg:px-16 lg:pb-16 3xl:px-12" style="--sidenote-offset: 0px; --sidenote-max-width: 0px;">
+                {{- block "main" . }}
+                {{- end }}
+            </div>
+        </div>
     </div>
   </body>
 </html>

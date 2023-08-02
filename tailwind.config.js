@@ -3,12 +3,20 @@ const plugin = require("tailwindcss/plugin");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./layouts/**/*.{html,js}", "./static/**/*.js", "./public/**/*.{html,js}"],
+  content: [
+    "./layouts/**/*.{html,js}",
+    "./static/**/*.js",
+    "./public/**/*.{html,js}",
+  ],
   darkMode: "class",
   theme: {
     extend: {
       fontFamily: {
         rubik: ['"Rubik"', ...defaultTheme.fontFamily.sans],
+      },
+      screens: {
+        "3xl": "1792px",
+        "4xl": "2048px",
       },
     },
   },
