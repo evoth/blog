@@ -170,6 +170,59 @@ function updateOutline(element) {
         }
     }
 }
+// Enforced minimum vertical gap between sidenotes
+const MIN_SIDENOTE_GAP = 8;
+/**
+ * Arranges and prevents overlapping sidenotes using an algorithm I came up with
+ * today. Not exactly sure why it works, but it's perfect for the behavior I
+ * wanted.
+ *
+ * First, it tries to resolve the overlap by starting from the top, lowering the
+ * position of a sidenote if it overlaps with the previous one. Then, the same
+ * process is repeated, but starting from the bottom. The final positions are
+ * simply the average of those two calculations.
+ *
+ * It seems like this ends up leaving non-overlapping sidenotes untouched, while
+ * keeping the position of the overlapping notes near their original locations.
+ */
+function arrangeSidenotes() {
+    // Get only block sidenotes
+    const sidenotes = [...document.getElementsByClassName("sidenote")].filter((sidenote) => sidenote.dataset.status == BLOCK);
+    // Will store y position of each sidenote
+    const positions = [];
+    // Will store height of each sidenote
+    const heights = [];
+    // Will store button heights to correct for height of line
+    const buttonHeights = [];
+    // Calculate values based on bounding rectangles
+    for (const sidenote of sidenotes) {
+        const button = sidenote.getElementsByClassName("sidenote-button")[0];
+        const content = sidenote.getElementsByClassName("sidenote-content")[0];
+        const buttonRect = button.getBoundingClientRect();
+        const contentRect = content.getBoundingClientRect();
+        const height = contentRect.bottom - contentRect.top;
+        heights.push(height);
+        positions.push((buttonRect.top + buttonRect.bottom) / 2);
+        buttonHeights.push(buttonRect.bottom - buttonRect.top);
+    }
+    // First, calculate overlap correction starting from the top
+    const correctedFromTop = [positions[0]];
+    for (let i = 1; i < positions.length; i++) {
+        correctedFromTop.push(Math.max(positions[i], correctedFromTop[i - 1] + heights[i - 1] + MIN_SIDENOTE_GAP));
+    }
+    // Second, calculate overlap correction starting from the bottom
+    const correctedFromBottom = [...positions.slice(-1)];
+    for (let i = positions.length - 2; i >= 0; i--) {
+        correctedFromBottom.unshift(Math.min(positions[i], correctedFromBottom[0] - heights[i] - MIN_SIDENOTE_GAP));
+    }
+    // Then, use the average for the final positions
+    for (let i = 0; i < positions.length; i++) {
+        const content = sidenotes[i].getElementsByClassName("sidenote-content")[0];
+        const offset = (correctedFromTop[i] + correctedFromBottom[i]) / 2 -
+            (positions[i] + buttonHeights[i]);
+        content.style.translate = `0px ${offset}px`;
+    }
+}
 // Initialize sidenotes
 const sidenotes = document.getElementsByClassName("sidenote");
 for (const sidenote of sidenotes) {
@@ -184,6 +237,13 @@ for (const sidenote of sidenotes) {
     toggleInline(button);
 }
 if (sidenotes.length > 0) {
-    // Update outlines on window resize
-    window.addEventListener("resize", () => document.documentElement.dispatchEvent(sidenoteEvent));
+    // Dispatch sidenote event on window resize (arranges and updates outlines)
+    window.addEventListener("resize", () => {
+        document.documentElement.dispatchEvent(sidenoteEvent);
+        arrangeSidenotes();
+    });
+    // Arrange sidenotes on sidenote event
+    document.documentElement.addEventListener("sidenote", arrangeSidenotes);
+    // Initial sidenote event
+    document.documentElement.dispatchEvent(sidenoteEvent);
 }

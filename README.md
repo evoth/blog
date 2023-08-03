@@ -18,7 +18,6 @@ A very barebones version of the site and structure.
 - Hover cues
 - Fix color transition on theme change
     - Disable/reenable transitions on "theme" event
-- Handle sidenote overlap, center vertically
 - Better sidenote location cue? (gwern.net)
 - Design and style the website
 - Add content
