@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "outDir": "static/js",
+        "strict": true,
+        "strictNullChecks": false,
+    },
+    "include": ["src/ts/**/*"],
+  }
