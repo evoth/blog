@@ -42,16 +42,12 @@
                 <div class="hidden 3xl:block 3xl:h-0 3xl:sticky 3xl:top-28">
                     <nav class="bg-zinc-200 dark:bg-zinc-800 p-4 rounded-xl mb-6 3xl:mt-0 3xl:translate-x-[--side-content-offset-left] 3xl:max-w-[--side-content-max-width] 3xl:w-max">
                         <h2 class="text-lg">{{ i18n "tableOfContents" }}</h2>
-                        <hr class="mt-1 md:mt-2 mb-2 md:mb-4">
+                        <hr class="mt-1 md:mt-2 mb-2 md:mb-4 border-zinc-800 dark:border-zinc-200">
                         <ol>
                         {{ range $i, $e := .Scratch.Get "contentsSorted" }}
                             <li class="{{ if ne $i 0 }}mt-1 md:mt-2{{ end }} ml-{{ sub $e.Level 2 | mul 4 }}">
-                                <a href="#{{ $e.Anchor | safeURL }}" class="text-inherit {{ if ge $e.Level 3 }}text-xs md:text-sm{{ else }}text-sm md:text-base{{ end }}">
-                                    {{ if le $e.Level 2 }}
-                                        <strong>{{ $e.Text | safeHTML }}</strong>
-                                    {{ else }}
-                                        {{ $e.Text | safeHTML }}
-                                    {{ end }}
+                                <a href="#{{ $e.Anchor | safeURL }}" class="text-inherit {{ if ge $e.Level 3 }}text-xs md:text-sm text-zinc-700 dark:text-zinc-300{{ else }}text-sm md:text-base text-zinc-800 dark:text-zinc-200{{ end }}">
+                                    {{ $e.Text | safeHTML }}
                                 </a>
                             </li>
                         {{ end }}

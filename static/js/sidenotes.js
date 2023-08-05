@@ -13,7 +13,14 @@ const toggleClasses = {
         block: ["hidden"],
     },
     content: {
-        inline: ["p-1", "md:p-1.5", "rounded-md", "box-decoration-clone"],
+        inline: [
+            "px-1.5",
+            "py-1",
+            "md:px-2.5",
+            "md:py-2",
+            "rounded-md",
+            "box-decoration-clone",
+        ],
         block: ["hidden", "3xl:block", "absolute", "p-4", "rounded-xl", "border"],
     },
     sup: {
