@@ -6,7 +6,7 @@ A content-rich personal website featuring project posts and descriptions that co
 
 ## Current State
 
-A very barebones version of the site and structure.
+A very empty and feature-incomplete version of the site and structure.
 
 ## Todo
 
@@ -24,6 +24,6 @@ A very barebones version of the site and structure.
 - Change hero color
 - Get local copy of Google fonts?
 - Even though plot shortcode is *technically* DRY as it is, should probably try to make that true for the resulting HTML as well
-- # ***COMMENT*** AND ORGANIZE
-- ARIA, accessibility in general, Schema, OpenGraph, correct use of tags where possible, etc.
+- COMMENT AND ORGANIZE
+- ARIA, accessibility in general, Schema, OpenGraph, correct use of tags where possible (semantics), good tooltips and labels, button/link titles, etc.
 - Reduce use of pseudo elements

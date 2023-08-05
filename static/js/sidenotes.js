@@ -1,28 +1,4 @@
 "use strict";
-// Div that holds the actual text of the post
-const articleContent = document.getElementById("content");
-// Only update the sidenote variables if, you know, sidenotes are present
-if (articleContent && document.getElementsByClassName("sidenote").length > 0) {
-    // Div that holds entire article; includes padding which will be respected by
-    // the sidenotes
-    const inner = document.getElementById("article");
-    // An outer div that constrains itself to the maximum extent of sidenotes
-    const outer = document.getElementById("sidenote-border");
-    /**
-     * Updates CSS vars to reflect sidenote offsets and width
-     */
-    function updateSidenoteVars() {
-        const innerBoundingRect = inner.getBoundingClientRect();
-        const outerBoundingRect = outer.getBoundingClientRect();
-        const contentBoundingRect = articleContent.getBoundingClientRect();
-        const offset = innerBoundingRect.right - contentBoundingRect.left;
-        const maxWidth = outerBoundingRect.right - innerBoundingRect.right;
-        inner.style.setProperty("--sidenote-offset", `${offset}px`);
-        inner.style.setProperty("--sidenote-max-width", `${maxWidth}px`);
-    }
-    updateSidenoteVars();
-    window.addEventListener("resize", updateSidenoteVars);
-}
 // Status constants used in `sidenote.dataset.status`
 const INLINE = "inline";
 const BLOCK = "block";

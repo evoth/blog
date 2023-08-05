@@ -1,7 +1,7 @@
-{{- define "main" }}
+{{ define "main" }}
         <ul class="list-disc list-inside">
-            {{- range .Pages }}
+            {{ range .Pages }}
             <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-            {{- end }}
+            {{ end }}
         </ul>
-{{- end }}
+{{ end }}

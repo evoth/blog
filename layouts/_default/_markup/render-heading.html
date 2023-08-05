@@ -1,0 +1,15 @@
+{{ $level := .Page.Scratch.Get "headerLevelShift" | default 0 | add .Level }}
+{{ $anchor := .Anchor }}
+{{ $newAnchor := $anchor }}
+{{ with .Page.Scratch.Get "parentContents" }}
+    {{ if index . $newAnchor }}
+        {{ $parentContents := . }}
+        {{ range seq (len .) }}
+            {{ if index $parentContents $newAnchor }}
+                {{ $newAnchor = printf `%s-%d` $anchor . }}
+            {{ end }}
+        {{ end }}
+    {{ end }}
+{{ end }}
+<h{{ $level }} id="{{ $newAnchor | safeURL }}">{{ .Text | safeHTML }}</h{{ $level }}>
+{{ .Page.Scratch.SetInMap "contents" $newAnchor (dict "Text" .Text "Anchor" $newAnchor "Level" $level "Page" .Page.RelPermalink) }}

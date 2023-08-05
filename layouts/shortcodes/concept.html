@@ -4,10 +4,23 @@
 {{ end }}
 {{ .Page.Scratch.Add "conceptShortcodes" (slice $concept) }}
 {{ $scratch := .Page.Scratch }}
+{{ $shift := .Get 1 }}
 {{ with site.GetPage (path.Join "concepts" $concept) }}
-    {{ printf `### %s` .Title | .RenderString }}
-    {{ .Content }}
+    {{ .Scratch.Delete "contents" }}
+    {{ .Scratch.Delete "references" }}
+    {{ .Scratch.Delete "sidenoteNum" }}
+    {{ .Scratch.Set "headerLevelShift" $shift }}
+    {{ .Scratch.Set "parentContents" ($scratch.Get "contents") }}
+    {{ .Scratch.Set "parentSidenoteNum" ($scratch.Get "sidenoteNum") }}
+    {{ printf `# %s` .Title | .RenderString }}
+    {{ .RawContent | .RenderString }}
     {{ with (.Scratch.Get "references") }}
         {{ $scratch.Add "references" . }}
+    {{ end }}
+    {{ with (.Scratch.Get "contents") }}
+        {{ $scratch.Set "contents" ($scratch.Get "contents" | merge .) }}
+    {{ end }}
+    {{ with (.Scratch.Get "sidenoteNum") }}
+        {{ $scratch.Set "sidenoteNum" . }}
     {{ end }}
 {{ end }}

@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}">
     {{/* NOTE: For Production make sure you add `HUGO_ENV="production"` before your build command */}}
-    {{- $production := eq (getenv "HUGO_ENV") "production" | or (eq site.Params.env "production") -}}
-    {{- $public := not .Params.private -}}
-    {{- if and $production $public -}}
+    {{ $production := eq (getenv "HUGO_ENV") "production" | or (eq site.Params.env "production") }}
+    {{ $public := not .Params.private }}
+    {{ if and $production $public }}
       <meta name="robots" content="index, follow">
-    {{- else -}}
+    {{ else }}
       <meta name="robots" content="noindex, nofollow">
-    {{- end }}
+    {{ end }}
     <script src="https://kit.fontawesome.com/a00713ef8f.js" crossorigin="anonymous"></script>
     <script src="/js/theme.js"></script>
     <script src="/js/tooltips.js" defer></script>
+    <script src="/js/side-content.js" defer></script>
     <script src="/js/sidenotes.js" defer></script>
     <script src="/js/navbar.js" defer></script>
     <link rel="stylesheet" href="/css/main.css">
@@ -46,22 +47,24 @@
           </button>
           <div class="hidden w-full md:block md:w-auto" id="navbar-default">
               <ul class="font-rubik flex flex-col md:flex-row gap-x-4 xl:gap-x-8">
-                  {{- range site.Menus.main }}
+                  {{ range site.Menus.main }}
                   <li>
                       <a href="{{ .URL }}">{{ .Name }}</a>
                   </li>
-                  {{- end }}
+                  {{ end }}
               </ul>
           </div>
       </nav>
     </div>
-    {{- block "hero" . }}
-    {{- end }}
+    {{ block "hero" . }}
+    {{ end }}
     <div class="max-w-screen-4xl mx-auto 3xl:px-12">
-        <div id="sidenote-border">
-            <div id="article" class="max-w-screen-lg mx-auto px-4 pb-4 sm:px-8 sm:pb-8 md:px-12 md:pb-12 lg:px-16 lg:pb-16 3xl:px-12" style="--sidenote-offset: 0px; --sidenote-max-width: 0px;">
-                {{- block "main" . }}
-                {{- end }}
+        <div id="side-content-border">
+            <div class="max-w-screen-lg mx-auto px-4 pb-4 sm:px-8 sm:pb-8 md:px-12 md:pb-12 lg:px-16 lg:pb-16 3xl:px-4">
+                <div id="article" class="3xl:px-12" style="--side-content-offset-left: 0px; --side-content-offset-right: 0px; --side-content-max-width: 0px;">
+                    {{ block "main" . }}
+                    {{ end }}
+                </div>
             </div>
         </div>
     </div>

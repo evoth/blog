@@ -1,10 +1,11 @@
 {{ define "main" }}
     <ul class="list-disc list-inside">
         {{ range .Data.Pages }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
         {{ end }}
     </ul>
     {{ with (.Scratch.Get "references") }}
         <p><strong>references:</strong> {{ . }}</p>
     {{ end }}
+    {{ .Content }}
 {{ end }}

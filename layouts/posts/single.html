@@ -1,35 +1,66 @@
-{{- define "main" }}
+{{ define "main" }}
         <div class="mb-6 lg:p-8 md:p-6 p-4 relative before:absolute before:left-0 before:right-0 before:top-0 before:bottom-0 {{ with .Resources.GetMatch "hero" }}before:bg-[url('{{ .RelPermalink }}')] before:bg-cover before:bg-center before:opacity-30{{ else }}before:bg-zinc-200 before:dark:bg-zinc-800{{ end }} before:-z-10 before:rounded-xl">
             <h1 class="mb-2 text-2xl md:text-4xl">{{ .Title }}</h1>
-            {{- with .Params.summary }}
+            {{ with .Params.summary }}
             <p class="md:mb-4 mb-2 text-lg md:text-2xl">{{ . }}</h2>
-            {{- end }}
-            {{- if (and (and .Params.concepts (.Scratch.Get "conceptShortcodes")) (ne (len (complement (.Scratch.Get "conceptShortcodes") .Params.concepts)) 0)) -}}
+            {{ end }}
+            {{ if (and (and .Params.concepts (.Scratch.Get "conceptShortcodes")) (ne (len (complement (.Scratch.Get "conceptShortcodes") .Params.concepts)) 0)) }}
                 {{ errorf `Page "%s" contains concept terms that are not used in concept shortcodes.` .Page.Title }}
-            {{- end }}
+            {{ end }}
             <p><strong>Created:</strong> {{ .Date }}</p>
             <p><strong>Published:</strong> {{ .PublishDate }}</p>
             <p><strong>Updated:</strong> {{ .Lastmod }}</p>
-            {{- with (index (.GetTerms "projects") 0 ) }}
+            {{ with (index (.GetTerms "projects") 0 ) }}
             <p><strong>Project:</strong> {{ partial "term-link.html" . }}</p>
-            {{- end }}
-            {{- with (index (.GetTerms "series") 0 ) }}
+            {{ end }}
+            {{ with (index (.GetTerms "series") 0 ) }}
             <p><strong>Series:</strong> {{ partial "term-link.html" . }}</p>
-            {{- end }}
-            {{- with (.GetTerms "tags") }}
+            {{ end }}
+            {{ with (.GetTerms "tags") }}
             <p><strong>Tags:</strong> {{ delimit (apply . "partial" "term-link.html" ".") ", " }}</p>
-            {{- end }}
-            {{- with (.GetTerms "concepts") }}
+            {{ end }}
+            {{ with (.GetTerms "concepts") }}
             <p><strong>Concepts:</strong> {{ delimit (apply . "partial" "term-link.html" ".") ", " }}</p>
-            {{- end }}
-            {{- with (.Scratch.Get "conceptShortcodes") }}
+            {{ end }}
+            {{ with (.Scratch.Get "conceptShortcodes") }}
             <p><strong>conceptShortcodes:</strong> {{ . }}</p>
-            {{- end }}
-            {{- with (.Scratch.Get "references") }}
+            {{ end }}
+            {{ with (.Scratch.Get "references") }}
             <p><strong>references:</strong> {{ . }}</p>
-            {{- end }}
+            {{ end }}
         </div>
+        {{ $contents := .Scratch.Get "contents" }}
+        {{ if $contents }}
+            {{ if gt (len $contents) 1 }}
+                {{ $scratch := .Scratch }}
+                {{ .Scratch.Delete "contentsSorted" }}
+                {{ range findRESubmatch `(?s)<h[0-9]+.*?(?:id="([^"]*?)".*?)?>.*?</h[0-9]+>` .Content }}
+                    {{ with index $contents (index . 1) }}
+                        {{ $scratch.Add "contentsSorted" (slice .) }}
+                    {{ end }}
+                {{ end }}
+                <div class="hidden 3xl:block 3xl:h-0 3xl:sticky 3xl:top-28">
+                    <nav class="bg-zinc-200 dark:bg-zinc-800 p-4 rounded-xl mb-6 3xl:mt-0 3xl:translate-x-[--side-content-offset-left] 3xl:max-w-[--side-content-max-width] 3xl:w-max">
+                        <h2 class="text-lg">{{ i18n "tableOfContents" }}</h2>
+                        <hr class="mt-1 md:mt-2 mb-2 md:mb-4">
+                        <ol>
+                        {{ range $i, $e := .Scratch.Get "contentsSorted" }}
+                            <li class="{{ if ne $i 0 }}mt-1 md:mt-2{{ end }} ml-{{ sub $e.Level 2 | mul 4 }}">
+                                <a href="#{{ $e.Anchor | safeURL }}" class="text-inherit {{ if ge $e.Level 3 }}text-xs md:text-sm{{ else }}text-sm md:text-base{{ end }}">
+                                    {{ if le $e.Level 2 }}
+                                        <strong>{{ $e.Text | safeHTML }}</strong>
+                                    {{ else }}
+                                        {{ $e.Text | safeHTML }}
+                                    {{ end }}
+                                </a>
+                            </li>
+                        {{ end }}
+                        </ol>
+                    </nav>
+                </div>
+            {{ end }}
+        {{ end }}
         <div id="content" class="prose prose-sm md:prose-base prose-zinc dark:prose-invert prose-headings:mb-3 prose-headings:mt-6 prose-headings:md:mt-8 prose-h2:md:text-3xl max-w-none">
             {{ .Content }}
         </div>
-{{- end }}
+{{ end }}
