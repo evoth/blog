@@ -31,7 +31,7 @@ const toggleClasses: { [Name: string]: DisplayClasses } = {
   sup: {
     inline: [
       "[transition:background-color_0.2s]",
-      "hover:group-hover:bg-zinc-500",
+      "hover:group-hover:bg-zinc-400",
       "hover:group-hover:dark:bg-zinc-500",
     ],
     block: ["group-hover:border"],

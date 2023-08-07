@@ -18,6 +18,11 @@ module.exports = {
         "3xl": "1792px",
         "4xl": "2048px",
       },
+      colors: {
+        zinc: {
+          350: "#bbbbc1",
+        },
+      },
     },
   },
   plugins: [

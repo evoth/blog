@@ -9,3 +9,9 @@ switchTheme:
 
 toggleSidenote:
   other: Toggle sidenote {{ .SidenoteNum }}
+
+collapseTOC:
+  other: Collapse table of contents
+
+expandTOC:
+  other: Expand table of contents

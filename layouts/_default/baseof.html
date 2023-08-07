@@ -29,7 +29,7 @@
       <nav class="flex flex-wrap items-center justify-between py-2 sm:py-3 px-4 sm:px-8 md:px-12 lg:px-6 z-10">
           <ul class="font-rubik flex flex-row gap-x-4">
               <li>
-                  <a href="{{ site.BaseURL }}" class="text-inherit block p-2 hover:no-underline [transition:background-color_0.2s,color_0.2s] hover:bg-zinc-300 hover:dark:bg-zinc-700 hover:text-zinc-800 hover:dark:text-zinc-200 rounded-lg">
+                  <a href="{{ site.BaseURL }}" class="text-inherit block p-2 no-underline hover:no-underline [transition:background-color_0.2s,color_0.2s] hover:bg-zinc-300 hover:dark:bg-zinc-700 hover:text-zinc-800 hover:dark:text-zinc-200 rounded-lg">
                       <span class="font-semibold">{{ site.Params.Title }}</span>
                   </a>
               </li>
@@ -37,7 +37,7 @@
                   <div class="h-full flex justify-center">
                     <button title="{{ i18n "switchTheme" }}" class="button theme-toggle group p-2 [transition:background-color_0.2s] hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded-lg">
                         {{ partial "svg-fill.html" (dict "path" "/static/icons/moon.svg" "class" "hidden dark:block h-5" "fillClass" "fill-zinc-500 [transition:fill_0.2s] group-hover:fill-zinc-700 group-hover:dark:fill-zinc-300") }}
-                        {{ partial "svg-fill.html" (dict "path" "/static/icons/sun.svg" "class" "block dark:hidden h-5" "fillClass" "fill-zinc-400 [transition:fill_0.2s] group-hover:fill-zinc-700 group-hover:dark:fill-zinc-300") }}
+                        {{ partial "svg-fill.html" (dict "path" "/static/icons/sun.svg" "class" "block dark:hidden h-5" "fillClass" "fill-zinc-350 [transition:fill_0.2s] group-hover:fill-zinc-700 group-hover:dark:fill-zinc-300") }}
                     </button>
                 </div>
               </li>
@@ -50,7 +50,7 @@
               <ul class="font-rubik flex flex-col md:flex-row xl:gap-x-4">
                   {{ range site.Menus.main }}
                   <li>
-                      <a href="{{ .URL }}" class="text-inherit block p-2 hover:no-underline [transition:background-color_0.2s,color_0.2s] hover:bg-zinc-300 hover:dark:bg-zinc-700 hover:text-zinc-800 hover:dark:text-zinc-200 rounded-lg">{{ .Name }}</a>
+                      <a href="{{ .URL }}" class="text-inherit block p-2 no-underline hover:no-underline [transition:background-color_0.2s,color_0.2s] hover:bg-zinc-300 hover:dark:bg-zinc-700 hover:text-zinc-800 hover:dark:text-zinc-200 rounded-lg">{{ .Name }}</a>
                   </li>
                   {{ end }}
               </ul>
