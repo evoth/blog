@@ -22,7 +22,7 @@ let content: HTMLElement, chevron: HTMLElement;
  */
 function toggle() {
   // Toggle and store the status
-  toc.dataset.status = toc.dataset.status == EXPANDED ? COLLAPSED : EXPANDED;
+  toc.dataset.status = toc.dataset.status == COLLAPSED ? EXPANDED : COLLAPSED;
   const isCollapsed = toc.dataset.status == COLLAPSED;
 
   // Rotate chevron (arrow) according to status
@@ -74,4 +74,8 @@ if (toc != null) {
 
   // Get chevron element
   chevron = toc.getElementsByClassName("toc-chevron")[0] as HTMLElement;
+
+  // Sets initial state
+  toggle();
+  updateMaxHeight();
 }
