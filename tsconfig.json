@@ -4,6 +4,7 @@
         "outDir": "static/js",
         "strict": true,
         "strictNullChecks": false,
+        "moduleDetection": "force",
     },
     "include": ["src/ts/**/*"],
   }

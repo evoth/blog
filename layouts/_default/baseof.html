@@ -14,29 +14,30 @@
       <meta name="robots" content="noindex, nofollow">
     {{ end }}
     <script src="https://kit.fontawesome.com/a00713ef8f.js" crossorigin="anonymous"></script>
-    <script src="/js/theme.js"></script>
-    <script src="/js/tooltips.js" defer></script>
-    <script src="/js/side-content.js" defer></script>
-    <script src="/js/sidenotes.js" defer></script>
-    <script src="/js/navbar.js" defer></script>
+    <script src="/js/theme.js" type="module"></script>
+    <script src="/js/tooltips.js" type="module" defer></script>
+    <script src="/js/side-content.js" type="module" defer></script>
+    <script src="/js/sidenotes.js" type="module" defer></script>
+    <script src="/js/navbar.js" type="module" defer></script>
+    <script src="/js/toc.js" type="module" defer></script>
     <link rel="stylesheet" href="/css/main.css">
   </head>
 
   <body class="relative overflow-x-clip">
     <div id="navbar" class="bg-zinc-50 dark:bg-zinc-900 top-0 relative z-10">
       <div id="navbar-shadow" class="absolute left-0 right-0 top-0 bottom-0 shadow-lg shadow-black/20 dark:shadow-black/50 -z-10 opacity-0"></div>
-      <nav class="flex flex-wrap items-center justify-between py-4 sm:py-5 px-4 sm:px-8 md:px-12 lg:px-8 z-10">
-          <ul class="font-rubik flex flex-row gap-x-8">
+      <nav class="flex flex-wrap items-center justify-between py-2 sm:py-3 px-4 sm:px-8 md:px-12 lg:px-6 z-10">
+          <ul class="font-rubik flex flex-row gap-x-4">
               <li>
-                  <a href="{{ site.BaseURL }}" class="text-inherit">
+                  <a href="{{ site.BaseURL }}" class="text-inherit block p-2 hover:no-underline [transition:background-color_0.2s,color_0.2s] hover:bg-zinc-300 hover:dark:bg-zinc-700 hover:text-zinc-800 hover:dark:text-zinc-200 rounded-lg">
                       <span class="font-semibold">{{ site.Params.Title }}</span>
                   </a>
               </li>
               <li class="hidden md:block">
                   <div class="h-full flex justify-center">
-                    <button class="button theme-toggle">
-                        {{ partial "svg-fill.html" (dict "path" "/static/icons/moon.svg" "class" "hidden dark:block h-4" "fillClass" "fill-zinc-500") }}
-                        {{ partial "svg-fill.html" (dict "path" "/static/icons/sun.svg" "class" "dark:hidden h-5" "fillClass" "fill-zinc-400") }}
+                    <button title="{{ i18n "switchTheme" }}" class="button theme-toggle group p-2 [transition:background-color_0.2s] hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded-lg">
+                        {{ partial "svg-fill.html" (dict "path" "/static/icons/moon.svg" "class" "hidden dark:block h-5" "fillClass" "fill-zinc-500 [transition:fill_0.2s] group-hover:fill-zinc-700 group-hover:dark:fill-zinc-300") }}
+                        {{ partial "svg-fill.html" (dict "path" "/static/icons/sun.svg" "class" "block dark:hidden h-5" "fillClass" "fill-zinc-400 [transition:fill_0.2s] group-hover:fill-zinc-700 group-hover:dark:fill-zinc-300") }}
                     </button>
                 </div>
               </li>
@@ -46,10 +47,10 @@
               <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
           </button>
           <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-              <ul class="font-rubik flex flex-col md:flex-row gap-x-4 xl:gap-x-8">
+              <ul class="font-rubik flex flex-col md:flex-row xl:gap-x-4">
                   {{ range site.Menus.main }}
                   <li>
-                      <a href="{{ .URL }}">{{ .Name }}</a>
+                      <a href="{{ .URL }}" class="text-inherit block p-2 hover:no-underline [transition:background-color_0.2s,color_0.2s] hover:bg-zinc-300 hover:dark:bg-zinc-700 hover:text-zinc-800 hover:dark:text-zinc-200 rounded-lg">{{ .Name }}</a>
                   </li>
                   {{ end }}
               </ul>

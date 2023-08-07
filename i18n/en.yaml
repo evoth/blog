@@ -1,2 +1,11 @@
 tableOfContents:
   other: Table of Contents
+
+backToTop:
+  other: Back to top
+
+switchTheme:
+  other: Switch theme
+
+toggleSidenote:
+  other: Toggle sidenote {{ .SidenoteNum }}

@@ -1,4 +1,3 @@
-"use strict";
 // Main navbar element
 const navbar = document.getElementById("navbar");
 // Separate element underneath for shadow (so that it can be faded using opacity)
@@ -76,3 +75,4 @@ document.addEventListener("scroll", (event) => {
         navbarShadow.style.opacity = shadowOpacity.toString();
     }
 });
+export {};

@@ -18,6 +18,8 @@ A very empty and feature-incomplete version of the site and structure.
 - Hover cues
 - Fix color transition on theme change
     - Disable/reenable transitions on "theme" event
+    - Whole page sometimes flashes on reload
+- Sufficient button titles (TOC and others)
 - Better sidenote location cue? (gwern.net)
 - Design and style the website
 - Add content

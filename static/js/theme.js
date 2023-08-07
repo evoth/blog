@@ -1,4 +1,3 @@
-"use strict";
 // Theme event, which is used to notify any elements that need to actively
 // update their colors
 const themeEvent = new Event("theme");
@@ -37,3 +36,4 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+export {};

@@ -1,4 +1,3 @@
-"use strict";
 // Div that holds the actual text of the post
 const articleContent = document.getElementById("content");
 if (articleContent) {
@@ -24,3 +23,4 @@ if (articleContent) {
     updateSidenoteVars();
     window.addEventListener("resize", updateSidenoteVars);
 }
+export {};

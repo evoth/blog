@@ -1,4 +1,3 @@
-"use strict";
 // Status constants used in `sidenote.dataset.status`
 const INLINE = "inline";
 const BLOCK = "block";
@@ -230,3 +229,4 @@ if (sidenotes.length > 0) {
     // Initial sidenote event
     document.documentElement.dispatchEvent(sidenoteEvent);
 }
+export {};

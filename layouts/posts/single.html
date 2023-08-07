@@ -39,19 +39,33 @@
                         {{ $scratch.Add "contentsSorted" (slice .) }}
                     {{ end }}
                 {{ end }}
-                <div class="hidden 3xl:block 3xl:h-0 3xl:sticky 3xl:top-28">
-                    <nav class="bg-zinc-200 dark:bg-zinc-800 p-4 rounded-xl mb-6 3xl:mt-0 3xl:translate-x-[--side-content-offset-left] 3xl:max-w-[--side-content-max-width] 3xl:w-max">
-                        <h2 class="text-lg">{{ i18n "tableOfContents" }}</h2>
-                        <hr class="mt-1 md:mt-2 mb-2 md:mb-4 border-zinc-800 dark:border-zinc-200">
-                        <ol>
-                        {{ range $i, $e := .Scratch.Get "contentsSorted" }}
-                            <li class="{{ if ne $i 0 }}mt-1 md:mt-2{{ end }} ml-{{ sub $e.Level 2 | mul 4 }}">
-                                <a href="#{{ $e.Anchor | safeURL }}" class="text-inherit {{ if ge $e.Level 3 }}text-xs md:text-sm text-zinc-700 dark:text-zinc-300{{ else }}text-sm md:text-base text-zinc-800 dark:text-zinc-200{{ end }}">
-                                    {{ $e.Text | safeHTML }}
+                <div id="table-of-contents" class="3xl:block 3xl:h-0 3xl:sticky 3xl:top-28">
+                    <nav class="bg-zinc-200 dark:bg-zinc-800 [transition:background-color_0.2s,border-color_0.2s] group/toc hover:bg-zinc-300 hover:dark:bg-zinc-700 border border-zinc-50 dark:border-zinc-900 hover:border-zinc-500 hover:dark:border-zinc-500 p-4 rounded-xl mb-6 3xl:mt-0 3xl:translate-x-[--side-content-offset-left] 3xl:max-w-[--side-content-max-width] 3xl:w-max">
+                        <div class="flex justify-between content-center group/button">
+                            <h2 class="grow text-base md:text-lg">
+                                <a href="#" title="{{ i18n "backToTop" }}" class="hidden 3xl:block text-inherit w-full h-full">
+                                    {{ i18n "tableOfContents" }}
                                 </a>
-                            </li>
-                        {{ end }}
-                        </ol>
+                                <button class="toc-button block 3xl:hidden text-inherit w-full h-full text-left">
+                                    {{ i18n "tableOfContents" }}
+                                </a>
+                            </h2>
+                            <button class="toc-button flex-none 3xl:hidden h-max bg-zinc-200 dark:bg-zinc-800 [transition:background-color_0.2s] group-hover/toc:bg-zinc-400 group-hover/toc:dark:bg-zinc-600 group-hover/toc:group-hover/button:bg-zinc-500 group-hover/toc:group-hover/button:dark:bg-zinc-500 rounded-md p-0.5 my-auto">
+                                {{ partial "svg-fill.html" (dict "path" "/static/icons/chevron-down.svg" "class" "toc-chevron h-5 rotate-90 [transition:transform_0.2s]" "strokeClass" "stroke-zinc-700 dark:stroke-zinc-300") }}
+                            </button>
+                        </div>
+                        <div class="toc-content overflow-hidden max-h-0 3xl:max-h-none">
+                            <hr class="mt-1 mb-1 border-zinc-800 dark:border-zinc-200">
+                            <ol>
+                            {{ range $i, $e := .Scratch.Get "contentsSorted" }}
+                                <li>
+                                    <a href="#{{ $e.Anchor | safeURL }}" class="block w-full h-full text-inherit {{ if ge $e.Level 3 }}text-xs md:text-sm text-zinc-700 dark:text-zinc-300{{ else }}text-sm md:text-base text-zinc-800 dark:text-zinc-200{{ end }} pt-1 md:pt-2 pl-{{ sub $e.Level 2 | mul 4 }}">
+                                        {{ $e.Text | safeHTML }}
+                                    </a>
+                                </li>
+                            {{ end }}
+                            </ol>
+                        </div>
                     </nav>
                 </div>
             {{ end }}

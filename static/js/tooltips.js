@@ -1,4 +1,3 @@
-"use strict";
 // So let me start off by saying that this is kind of an abomination and there
 // are probably (definitely?) better ways to do this. But this works well, so
 // for now it's here to stay
@@ -206,3 +205,4 @@ for (let i = 0; i < tooltips.length; i++) {
     body.addEventListener("mouseenter", tooltipEnter);
     body.addEventListener("mouseleave", tooltipLeave);
 }
+export {};
