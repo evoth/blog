@@ -37,7 +37,7 @@ const bodyClasses: StateClasses = {
   open: {
     all: [
       "opacity-100",
-      "[transition:opacity_0.3s_ease-out,top_0.2s_ease-out]",
+      "[transition:opacity_0.3s_ease-out,top_0.2s_ease-out,background-color_0.2s]",
     ],
     left: [],
     right: [],
@@ -45,7 +45,7 @@ const bodyClasses: StateClasses = {
     bottom: ["-top-3"],
   },
   closed: {
-    all: ["opacity-0", "[transition:opacity_0.3s_ease-out,top_0.2s_ease-out]"],
+    all: ["opacity-0", "[transition:opacity_0.3s_ease-out,top_0.2s_ease-out,background-color_0.2s]"],
     left: [],
     right: [],
     top: ["top-5"],
