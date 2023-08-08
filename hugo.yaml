@@ -27,6 +27,10 @@ languages:
 disableKinds:
   - sitemap
   - RSS
+minify:
+  tdewolff:
+    html:
+      keepComments: true
 taxonomies:
   tag: tags
   project: projects

@@ -1,5 +1,8 @@
+{{/* Tooltip parent; we have to do all of this in spans to prevent breaking the flow */}}
 <span class="tooltip not-prose group relative" data-counter="0" data-status="closed" data-hover="0">
+{{/* Inline content of the tooltip */}}
 {{- safeHTML .content -}}
+{{/* If URL is external, get data from JSON. If internal, get page info directly. */}}
 {{- if (or (hasPrefix .url "http://") (hasPrefix .url "https://")) -}}
 {{ with (index site.Data.links.linkData .url) }}
 {{- partial "tooltip-helper.html" . -}}
