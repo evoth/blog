@@ -3,6 +3,7 @@
 {{ with (.Page.Scratch.Get "references") }}
     {{ $number = len . }}
 {{ end }}
-{{ .Page.Scratch.Add "references" (slice (dict "Content" .Inner "Url" $url "Page" .Page.RelPermalink "Number" $number)) }}
-{{ $link := printf `<a href="%s" data-page="%s" data-number="%d">%s</a>` $url .Page.RelPermalink $number (.Page.RenderString .Inner) }}
-{{ partial "tooltip.html" (dict "content" $link "url" $url) }}
+{{ .Page.Scratch.Add "references" (slice (dict "Url" $url "Title" (.Get 1) "Subtitle" (.Get 2) "Page" .Page.RelPermalink "Number" $number)) }}
+{{ if .Inner }}
+    {{- partial "tooltip-link.html" (dict "Destination" $url "Text" (.Page.RenderString .Inner)) -}}
+{{ end }}

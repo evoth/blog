@@ -1,0 +1,9 @@
+<a href="{{ .Url | safeURL }}" class="flex text-inherit no-underline p-2 rounded-md bg-zinc-200 dark:bg-zinc-800 group-hover/tooltip:bg-zinc-300 group-hover/tooltip:dark:bg-zinc-700 [transition:background-color_0.2s]">
+    {{ partial "svg-fill.html" (dict "path" "/static/icons/arrow-right.svg" "class" "flex-none h-4 md:h-5 mr-2") }}
+        <span>
+        <p class="text-sm md:text-base"><strong>{{ .Title }}</strong></p>
+        {{ with .Subtitle }}
+            <p class="text-xs md:text-xm">{{ . }}</p>
+        {{ end }}
+    </span>
+</a>

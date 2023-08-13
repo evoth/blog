@@ -19,14 +19,17 @@ expandTOC:
 postDates:
   other: "{{ .Published }}{{ if ne .Published .Updated }} (updated {{ .Updated }}){{ end }}"
 
-postProject:
+postProjects:
   one: Project
   other: Projects
 
-postConcept:
+postConcepts:
   one: Concept
   other: Concepts
 
-postTag:
+postTags:
   one: Tag
   other: Tags
+
+postReferences:
+  other: References and Further Reading

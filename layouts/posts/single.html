@@ -10,31 +10,22 @@
             {{ end }}
             <div class="leading-loose md:mb-4 mb-2">
                 {{ with .GetTerms "projects" }}
-                    <p class="mr-6"><strong>{{ i18n "postProject" (dict "Count" (len .)) }}:</strong>
-                        {{ range . }}
-                            {{ partial "tooltip.html" (dict "content" (partial "chip" (dict "Page" . "OverImage" $hero)) "url" .RelPermalink) }}
-                        {{ end }}
+                    <p class="mr-6"><strong>{{ i18n "postProjects" (dict "Count" (len .)) }}:</strong>
+                        {{ partial "chip-list.html" (dict "Pages" . "OverImage" $hero) }}
                     </p>
                 {{ end }}
                 {{ with .GetTerms "concepts" }}
-                    <p class="mr-6"><strong>{{ i18n "postConcept" (dict "Count" (len .)) }}:</strong>
-                        {{ range . }}
-                            {{ partial "tooltip.html" (dict "content" (partial "chip" (dict "Page" . "OverImage" $hero)) "url" .RelPermalink) }}
-                        {{ end }}
+                    <p class="mr-6"><strong>{{ i18n "postConcepts" (dict "Count" (len .)) }}:</strong>
+                        {{ partial "chip-list.html" (dict "Pages" . "OverImage" $hero) }}
                     </p>
                 {{ end }}
                 {{ with .GetTerms "tags" }}
-                    <p class="mr-6"><strong>{{ i18n "postTag" (dict "Count" (len .)) }}:</strong>
-                        {{ range . }}
-                            {{ partial "tooltip.html" (dict "content" (partial "chip" (dict "Page" . "OverImage" $hero)) "url" .RelPermalink) }}
-                        {{ end }}
+                    <p class="mr-6"><strong>{{ i18n "postTags" (dict "Count" (len .)) }}:</strong>
+                        {{ partial "chip-list.html" (dict "Pages" . "OverImage" $hero) }}
                     </p>
                 {{ end }}
             </div>
             <p><i>{{ i18n "postDates" (dict "Published" (.PublishDate | time.Format ":date_long") "Updated" (.Lastmod | time.Format ":date_long")) }}</i></p>
-            {{ with (.Scratch.Get "references") }}
-                <p><strong>references:</strong> {{ . }}</p>
-            {{ end }}
         </div>
         {{ $contents := .Scratch.Get "contents" }}
         {{ if $contents }}
@@ -64,10 +55,10 @@
                         <div class="toc-content overflow-hidden max-h-0 3xl:max-h-none">
                             <hr class="mt-1 mb-1 border-zinc-800 dark:border-zinc-200">
                             <ol>
-                            {{ range $i, $e := .Scratch.Get "contentsSorted" }}
+                            {{ range .Scratch.Get "contentsSorted" }}
                                 <li>
-                                    <a href="#{{ $e.Anchor | safeURL }}" data-anchor="{{ $e.Anchor | safeURL }}" class="toc-link block w-full h-full text-inherit {{ if ge $e.Level 3 }}text-xs md:text-sm text-zinc-700 dark:text-zinc-300{{ else }}text-sm md:text-base text-zinc-800 dark:text-zinc-200{{ end }} py-0.5 md:py-1 pr-0.5 md:pr-1 pl-{{ sub $e.Level 2 | mul 4 }} no-underline [transition:background-color_0.2s,border-radius_0.2s] hover:bg-zinc-350 hover:dark:bg-zinc-600 group-hover/toc:rounded-sm group-hover/toc:md:rounded-md">
-                                        <span class="block pl-0.5 md:pl-1">{{ $e.Text | safeHTML }}</span>
+                                    <a href="#{{ .Anchor | safeURL }}" data-anchor="{{ .Anchor | safeURL }}" class="toc-link block w-full h-full text-inherit {{ if ge .Level 3 }}text-xs md:text-sm text-zinc-700 dark:text-zinc-300{{ else }}text-sm md:text-base text-zinc-800 dark:text-zinc-200{{ end }} py-0.5 md:py-1 pr-0.5 md:pr-1 pl-{{ sub .Level 2 | mul 4 }} no-underline [transition:background-color_0.2s,border-radius_0.2s] hover:bg-zinc-350 hover:dark:bg-zinc-600 group-hover/toc:rounded-sm group-hover/toc:md:rounded-md">
+                                        <span class="block pl-0.5 md:pl-1">{{ .Text | safeHTML }}</span>
                                     </a>
                                 </li>
                             {{ end }}
@@ -80,4 +71,16 @@
         <div id="content" class="prose prose-sm md:prose-base prose-zinc dark:prose-invert prose-headings:mb-3 prose-headings:mt-6 prose-headings:md:mt-8 prose-h2:md:text-3xl max-w-none">
             {{ .Content }}
         </div>
+        {{ with (.Scratch.Get "references") }}
+            <div class="mt-6 lg:p-8 md:p-6 p-4 bg-zinc-200 dark:bg-zinc-800 rounded-xl">
+                <h1 class="mb-2 text-xl md:text-2xl">{{ i18n "postReferences" }}</h1>
+                <ul class="flex flex-col">
+                    {{ range . }}
+                        <li class="max-w-max">
+                            {{ partial "tooltip.html" (dict "content" (partial "reference-chip" .) "url" .Url) }}
+                        </li>
+                    {{ end }}
+                </ul>
+            </div>
+        {{ end }}
 {{ end }}

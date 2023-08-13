@@ -31,7 +31,10 @@ const bodyClasses = {
         bottom: ["-top-3"],
     },
     closed: {
-        all: ["opacity-0", "[transition:opacity_0.3s_ease-out,top_0.2s_ease-out,background-color_0.2s]"],
+        all: [
+            "opacity-0",
+            "[transition:opacity_0.3s_ease-out,top_0.2s_ease-out,background-color_0.2s]",
+        ],
         left: [],
         right: [],
         top: ["top-5"],
@@ -93,8 +96,10 @@ function tooltipEnter(event) {
     tooltip.dataset.hover = String(Number(tooltip.dataset.hover) + 1);
     // Incremented on enter and leave events; used later to check if we can close
     tooltip.dataset.counter = String(Number(tooltip.dataset.counter) + 1);
+    // Tooltip label text (inline)
+    const text = tooltip.children[0];
     // Gets individual bounding boxes for the tooltip label text
-    const rects = tooltip.getClientRects();
+    const rects = text.getClientRects();
     // Find box with y-coordinate closest to that of the mouse
     let lineRect = rects[0], minDeltaY = Infinity;
     for (const rect of rects) {

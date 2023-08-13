@@ -28,9 +28,17 @@ A very empty and feature-incomplete version of the site and structure.
 - Add content
 - Change hero color
 - Get local copy of Google fonts?
-- COMMENT AND ORGANIZE
+- **COMMENT AND ORGANIZE**
+    - Especially partials
+        - Explain input/output
+        - Organize into folders
+    - Organize layouts with partials for different sections
 - ARIA, accessibility in general, Schema, OpenGraph, correct use of tags where possible (semantics), good tooltips and labels, button/link titles, etc.
 - Reduce use of pseudo elements
 - Correct post published/updated dates (figure out GitInfo with submodules)
 - Responsive chip lists
 - Darker zinc-300 color? Or maybe add zinc-250 and shift everything down
+- Tooltip with image and domain name (or site name if it exists) like Discord
+- References behavior more like TOC
+- Include references on TOC?
+- Heading links
