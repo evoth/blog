@@ -20,12 +20,17 @@ A very empty and feature-incomplete version of the site and structure.
     - Disable/reenable transitions on "theme" event
     - Whole page sometimes flashes on reload
 - Sufficient button titles (TOC and others)
+- References
+- Concept framing
+- Footer
 - Better sidenote location cue? (gwern.net)
 - Design and style the website
 - Add content
 - Change hero color
 - Get local copy of Google fonts?
-- Even though plot shortcode is *technically* DRY as it is, should probably try to make that true for the resulting HTML as well
 - COMMENT AND ORGANIZE
 - ARIA, accessibility in general, Schema, OpenGraph, correct use of tags where possible (semantics), good tooltips and labels, button/link titles, etc.
 - Reduce use of pseudo elements
+- Correct post published/updated dates (figure out GitInfo with submodules)
+- Responsive chip lists
+- Darker zinc-300 color? Or maybe add zinc-250 and shift everything down

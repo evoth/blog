@@ -15,3 +15,18 @@ collapseTOC:
 
 expandTOC:
   other: Expand table of contents
+
+postDates:
+  other: "{{ .Published }}{{ if ne .Published .Updated }} (updated {{ .Updated }}){{ end }}"
+
+postProject:
+  one: Project
+  other: Projects
+
+postConcept:
+  one: Concept
+  other: Concepts
+
+postTag:
+  one: Tag
+  other: Tags
