@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.LanguageCode | default site.Language.Lang  }}" class="overflow-x-hidden">
+<html lang="{{ site.LanguageCode | default site.Language.Lang  }}" class="hidden overflow-x-hidden">
   <head>
     <meta charset="utf-8">
     <title>{{ site.Params.Title }} | {{ .Title }}</title>
@@ -36,8 +36,8 @@
               <li class="hidden md:block">
                   <div class="h-full flex justify-center">
                     <button title="{{ i18n "switchTheme" }}" class="button theme-toggle group p-2 [transition:background-color_0.2s] hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded-lg">
-                        {{ partial "svg-fill.html" (dict "path" "/static/icons/moon.svg" "class" "hidden dark:block h-5" "fillClass" "fill-zinc-500 [transition:fill_0.2s] group-hover:fill-zinc-700 group-hover:dark:fill-zinc-300") }}
-                        {{ partial "svg-fill.html" (dict "path" "/static/icons/sun.svg" "class" "block dark:hidden h-5" "fillClass" "fill-zinc-350 [transition:fill_0.2s] group-hover:fill-zinc-700 group-hover:dark:fill-zinc-300") }}
+                        {{ partial "svg-fill.html" (dict "path" "/static/icons/moon.svg" "class" "hidden dark:block h-5" "fillClass" "fill-zinc-500 [transition:fill_0.2s] group-hover:fill-zinc-800 group-hover:dark:fill-zinc-200") }}
+                        {{ partial "svg-fill.html" (dict "path" "/static/icons/sun.svg" "class" "block dark:hidden h-5" "fillClass" "fill-zinc-350 [transition:fill_0.2s] group-hover:fill-zinc-800 group-hover:dark:fill-zinc-200") }}
                     </button>
                 </div>
               </li>

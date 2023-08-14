@@ -19,7 +19,10 @@ if (
   themeIsDark = false;
 }
 
-// Applies class as soon as DOM is loaded to avoid flicker
+// Root element is hidden until theme update to avoid flicker
+document.documentElement.classList.remove("hidden");
+
+// Registers theme toggle buttons
 document.addEventListener("DOMContentLoaded", () => {
   const toggles = document.getElementsByClassName("theme-toggle");
   for (const toggle of toggles) {

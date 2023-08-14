@@ -138,7 +138,7 @@ function tooltipEnter(event) {
     base.style.left = `${x - anchorBoundingRect.left}px`;
     base.style.top = `${y - anchorBoundingRect.top}px`;
     // Gets nearest <div> ancestor
-    const containingDiv = tooltip.closest("div");
+    const containingDiv = tooltip.closest("div:not(.not-tooltip-container)");
     if (containingDiv) {
         // Sets `maxWidth` to the space available between `x` and the opposite edge
         // of the div

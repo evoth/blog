@@ -1,4 +1,4 @@
 {{ $overImage := .OverImage }}
 {{ range .Pages }}
-    {{ partial "tooltip.html" (dict "content" (partial "chip" (dict "Page" . "OverImage" $overImage)) "url" .RelPermalink) }}
+    {{ partial "tooltip.html" (dict "content" (partial "chip" (dict "Page" . "OverImage" $overImage)) "page" .) }}
 {{ end }}

@@ -5,8 +5,12 @@
             {{- partial "tooltip-helper.html" . -}}
         {{- end -}}
     {{- else -}}
-        {{- with site.GetPage .url -}}
+        {{- with .page -}}
             {{- partial "tooltip-helper.html" (dict "title" .Title "url" .RelPermalink "description" .Params.summary) -}}
+        {{- else -}}
+            {{- with site.GetPage .url -}}
+                {{- partial "tooltip-helper.html" (dict "title" .Title "url" .RelPermalink "description" .Params.summary) -}}
+            {{- end -}}
         {{- end -}}
     {{- end -}}
 </span>

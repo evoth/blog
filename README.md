@@ -42,3 +42,6 @@ A very empty and feature-incomplete version of the site and structure.
 - References behavior more like TOC
 - Include references on TOC?
 - Heading links
+- Series buttons at bottom
+- Organize Tailwind mess using components and stuff
+- Weird glitch where there's too much padding below references until reflow
