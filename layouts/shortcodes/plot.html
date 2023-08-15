@@ -21,7 +21,7 @@ function updatePlotTheme(plotDiv) {
 {{- .Page.Scratch.Set "plotNum" (add 1 $num) -}}
 {{- $id := printf `plot-%d` $num -}}
 {{- $height := .Get "height" | default "200px" }}
-<div id="{{ $id }}" class="bg-zinc-200 dark:bg-zinc-800 rounded-xl overflow-hidden" style="height: {{ $height }}"></div>
+<div id="{{ $id }}" class="fade-exclude bg-zinc-200 dark:bg-zinc-800 rounded-xl overflow-hidden" style="height: {{ $height }}"></div>
 <script type="module">
 import plot from '{{ .Get "json" }}' assert {type: 'json'};
 

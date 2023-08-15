@@ -1,9 +1,8 @@
 // TODO: Get breakpoint the correct way
 const BREAKPOINT_3XL = 1792;
 
-// Status constants used in `toc.dataset.status`
-const COLLAPSED = "collapsed";
-const EXPANDED = "expanded";
+// Whether TOC is collapsed
+let isCollapsed = false;
 
 // Animation duration (used to clear transition class after animation is done)
 const DURATION = 200;
@@ -38,9 +37,7 @@ let lastAnchor: string;
  * Expands/collapses table of contents by animating max-height
  */
 function toggle() {
-  // Toggle and store the status
-  toc.dataset.status = toc.dataset.status == COLLAPSED ? EXPANDED : COLLAPSED;
-  const isCollapsed = toc.dataset.status == COLLAPSED;
+  isCollapsed = !isCollapsed;
 
   // Rotate chevron (arrow) according to status and update button titles
   if (isCollapsed) {
@@ -74,7 +71,6 @@ function toggle() {
  * Update content max-height so it can collapse properly
  */
 function updateMaxHeight() {
-  const isCollapsed = toc.dataset.status == COLLAPSED;
   if (!isCollapsed && window.innerWidth < BREAKPOINT_3XL) {
     content.style.maxHeight = `${content.scrollHeight}px`;
   } else if (window.innerWidth >= BREAKPOINT_3XL) {

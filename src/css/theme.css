@@ -6,8 +6,8 @@
 
   html,
   body,
-  div[class^="bg-"],
-  div[class*=" bg-"] {
+  div[class^="bg-"]:not(.fade-exclude),
+  div[class*=" bg-"]:not(.fade-exclude) {
     @apply [transition:background-color_0.2s];
   }
 }

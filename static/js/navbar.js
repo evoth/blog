@@ -5,10 +5,10 @@ const navbarShadow = document.getElementById("navbar-shadow");
 // Amount that can be scrolled down before hiding navbar
 const topBuffer = 150;
 // Amount that can be scrolled up before showing navbar
-const bottomBuffer = 300;
+const bottomBuffer = 350;
 // Buffer (including height of navbar) within which the navbar will be updated
 // before it enters or leaves view
-const displayBuffer = 200;
+const displayBuffer = 400;
 // Absolute y-coordinate of the "buffer" that gets pushed up/down when scrolling
 let stickY = window.scrollY;
 // Used to determine if stickY has changed

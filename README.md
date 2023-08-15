@@ -26,7 +26,9 @@ A very empty version of the site and structure.
         - Explain input/output
         - Organize into folders
     - Organize layouts with partials for different sections
-- ARIA, accessibility in general, Schema, OpenGraph, correct use of tags where possible (semantics), good tooltips and labels, button/link titles, etc.
+- ARIA, accessibility in general, Schema, OpenGraph, correct use of tags and attributes where possible (semantic HTML), good tooltips and labels, button/link titles, etc.
+    - Test with accessibility tools
+    - Use visibility instead of display where appropriate to match visuals with accessibility tree
 - Eliminate last pseudo elements
 - Correct post published/updated dates (figure out GitInfo with submodules)
 - Darker zinc-300 color? Or maybe add zinc-250 and shift everything down
@@ -39,4 +41,7 @@ A very empty version of the site and structure.
 - Weird glitch where there's too much padding below references until reflow
 - Fix repetitive tooltip.html
 - Disable SVG animation and similar for prefers-reduced-motion
+- Minify CSS/JS, Tailwind classes and reformat HTML
+- Bundle JS or combine into modules instead of having a bunch of separate scripts
+- HTML comments (there are some on a branch but they're woefully outdated)
 - Add content

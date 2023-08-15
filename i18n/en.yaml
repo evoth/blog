@@ -33,3 +33,9 @@ postTags:
 
 postReferences:
   other: References and Further Reading
+
+collapseMenu:
+  other: Collapse navigation menu
+
+expandMenu:
+  other: Expand navigation menu
