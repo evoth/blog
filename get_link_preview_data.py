@@ -25,9 +25,9 @@ class LinkPreview:
     title: Optional[str] = None
     domain: Optional[str] = None
     description: Optional[str] = None
-    thumbnail_file: Optional[str] = None
-    thumbnail_url: Optional[str] = None
-    site_name: Optional[str] = None
+    thumbnailFile: Optional[str] = None
+    thumbnailUrl: Optional[str] = None
+    siteName: Optional[str] = None
 
 
 def process_existing(link_data: Dict[str, LinkPreview], url: str):
@@ -76,49 +76,53 @@ def process_new(link_data: Dict[str, LinkPreview], url: str):
         title=title,
         domain=domain,
         description=description,
-        thumbnail_file=thumbnail_file,
-        thumbnail_url=thumbnail_url,
-        site_name=site_name,
+        thumbnailFile=thumbnail_file,
+        thumbnailUrl=thumbnail_url,
+        siteName=site_name,
     )
 
 
-content_dir = "content"
-link_data_dir = join("data", "links")
-link_data_file = join(link_data_dir, "linkData.json")
-link_thumb_dir = join("static", "linkThumbnails")
+if __name__ == "__main__":
+    content_dir = "content"
+    link_data_dir = join("data", "links")
+    link_data_file = join(link_data_dir, "linkData.json")
+    link_thumb_dir = join("assets", "linkThumbnails")
 
-filetypes = ("md",)
+    filetypes = ("md",)
 
-# Restore from existing json
-link_data: Dict[str, LinkPreview] = {}
-if exists(link_data_file):
-    with open(link_data_file, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    previews = [
-        LinkPreview.from_json(json.dumps(preview_d)) for preview_d in data.values()
-    ]
-    link_data = {preview.url: preview for preview in previews}
+    # Restore from existing json
+    link_data: Dict[str, LinkPreview] = {}
+    if exists(link_data_file):
+        with open(link_data_file, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        previews = [
+            LinkPreview.from_json(json.dumps(preview_d)) for preview_d in data.values()
+        ]
+        link_data = {preview.url: preview for preview in previews}
 
+    url_regex = re.compile(
+        "((https?:\/\/)([A-Z]|[a-z]|[0-9]|[-._~:/?#[\]@!$&'*+,;%=])+)"
+    )
 
-url_regex = re.compile("((https?:\/\/)([A-Z]|[a-z]|[0-9]|[-._~:/?#[\]@!$&'*+,;%=])+)")
+    # Find all urls in source (content) files and process them
+    for root, dirs, files in walk(content_dir):
+        for file in files:
+            if not file.lower().endswith(filetypes):
+                continue
+            filepath = join(root, file)
+            with open(filepath) as f:
+                matches = url_regex.findall(f.read())
+            if len(matches):
+                print(f"Found in {filepath}")
+            for url, *_ in matches:
+                if url in link_data:
+                    process_existing(link_data, url)
+                else:
+                    process_new(link_data, url)
 
-# Find all urls in source (content) files and process them
-for root, dirs, files in walk(content_dir):
-    for file in files:
-        if not file.lower().endswith(filetypes):
-            continue
-        filepath = join(root, file)
-        with open(filepath) as f:
-            matches = url_regex.findall(f.read())
-        if len(matches):
-            print(f"Found in {filepath}")
-        for url, *_ in matches:
-            if url in link_data:
-                process_existing(link_data, url)
-            else:
-                process_new(link_data, url)
-
-# Save to json
-data = {preview.url: json.loads(preview.to_json()) for preview in link_data.values()}
-with open(link_data_file, "w", encoding="utf-8") as f:
-    json.dump(data, f)
+    # Save to json
+    data = {
+        preview.url: json.loads(preview.to_json()) for preview in link_data.values()
+    }
+    with open(link_data_file, "w", encoding="utf-8") as f:
+        json.dump(data, f)

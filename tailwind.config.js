@@ -23,6 +23,10 @@ module.exports = {
           350: "#bbbbc1",
         },
       },
+      aspectRatio: {
+        "3/2": "3 / 2",
+        og: "1200 / 630",
+      },
     },
   },
   plugins: [

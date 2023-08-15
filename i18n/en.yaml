@@ -33,6 +33,3 @@ postTags:
 
 postReferences:
   other: References and Further Reading
-
-postSeriesName:
-  other: "{{ .Title }} Series"

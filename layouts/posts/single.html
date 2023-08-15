@@ -24,21 +24,14 @@
             {{ with .Params.summary }}
             <p class="mb-2 md:mb-4 text-lg md:text-2xl">{{ . }}</h2>
             {{ end }}
-            <div class="leading-loose mb-2 md:mb-4">
-                {{ with .GetTerms "projects" }}
-                    <p class="mr-6"><strong>{{ i18n "postProjects" (dict "Count" (len .)) }}:</strong>
-                        {{ partial "chip-list.html" (dict "Pages" . "OverImage" $hero) }}
-                    </p>
-                {{ end }}
-                {{ with .GetTerms "concepts" }}
-                    <p class="mr-6"><strong>{{ i18n "postConcepts" (dict "Count" (len .)) }}:</strong>
-                        {{ partial "chip-list.html" (dict "Pages" . "OverImage" $hero) }}
-                    </p>
-                {{ end }}
-                {{ with .GetTerms "tags" }}
-                    <p class="mr-6"><strong>{{ i18n "postTags" (dict "Count" (len .)) }}:</strong>
-                        {{ partial "chip-list.html" (dict "Pages" . "OverImage" $hero) }}
-                    </p>
+            <div class="mb-2 md:mb-4">
+                {{ range (slice "projects" "concepts" "tags") }}
+                    {{ $taxonomy := . }}
+                    {{ with $page.GetTerms . }}
+                        <p class="mr-6 text-sm md:text-base leading-[2.1]"><strong>{{ i18n (strings.FirstUpper $taxonomy | printf `post%s`) (dict "Count" (len .)) }}:</strong>
+                            {{ partial "chip-list.html" (dict "Pages" . "OverImage" $hero) }}
+                        </p>
+                    {{ end }}
                 {{ end }}
             </div>
             <p><i>{{ i18n "postDates" (dict "Published" (.PublishDate | time.Format ":date_long") "Updated" (.Lastmod | time.Format ":date_long")) }}</i></p>

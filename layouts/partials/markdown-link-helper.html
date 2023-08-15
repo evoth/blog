@@ -1,2 +1,2 @@
-{{ $isExternal := or (hasPrefix .Destination "http://") (hasPrefix .Destination "https://") -}}
-<a href="{{ if $isExternal }}{{ .Destination | safeURL }}{{ else }}{{ with site.GetPage .Destination }}{{ .RelPermalink | safeURL }}{{ end }}{{ end }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $isExternal }} target="_blank" rel="noopener"{{ end }}>{{ .Text | safeHTML }}</a>
+{{ $isExternal := partial "link-is-external.html" .Destination -}}
+<a href="{{ if $isExternal }}{{ .Destination | safeURL }}{{ else }}{{ with site.GetPage .Destination }}{{ .RelPermalink | safeURL }}{{ end }}{{ end }}"{{ with .Title }} title="{{ . }}"{{ end }} {{ partial "link-attr.html" .Destination | safeHTMLAttr }}>{{ .Text | safeHTML }}</a>

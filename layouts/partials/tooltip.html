@@ -1,15 +1,15 @@
 <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0">
     {{- safeHTML .content -}}
-    {{- if (or (hasPrefix .url "http://") (hasPrefix .url "https://")) -}}
+    {{- if partial "link-is-external.html" .url -}}
         {{- with (index site.Data.links.linkData .url) -}}
-            {{- partial "tooltip-helper.html" . -}}
+            {{- dict "image"  (resources.GetMatch (printf `linkThumbnails/%s` .thumbnailFile)) | merge . | partial "tooltip-helper.html" -}}
         {{- end -}}
     {{- else -}}
         {{- with .page -}}
-            {{- partial "tooltip-helper.html" (dict "title" .Title "url" .RelPermalink "description" .Params.summary) -}}
+            {{- partial "tooltip-helper.html" (dict "title" .Title "url" .RelPermalink "description" .Params.summary "image" (.Resources.GetMatch "thumb")) -}}
         {{- else -}}
             {{- with site.GetPage .url -}}
-                {{- partial "tooltip-helper.html" (dict "title" .Title "url" .RelPermalink "description" .Params.summary) -}}
+                {{- partial "tooltip-helper.html" (dict "title" .Title "url" .RelPermalink "description" .Params.summary "image" (.Resources.GetMatch "thumb")) -}}
             {{- end -}}
         {{- end -}}
     {{- end -}}

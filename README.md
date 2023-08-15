@@ -6,7 +6,7 @@ A content-rich personal website featuring project posts and descriptions that co
 
 ## Current State
 
-A very empty and feature-incomplete version of the site and structure.
+A very empty version of the site and structure.
 
 ## Todo
 
@@ -14,19 +14,12 @@ A very empty and feature-incomplete version of the site and structure.
     - Concept shortcode
 - Better responsiveness for mobile
     - Home page
-    - Smaller text sizes below medium breakpoint
-- Hover cues
-- Fix color transition on theme change
-    - Disable/reenable transitions on "theme" event
-    - Whole page sometimes flashes on reload
+        - Smaller text sizes below medium breakpoint
 - Sufficient button titles (TOC and others)
-- References
 - Concept framing
 - Footer
 - Better sidenote location cue? (gwern.net)
-- Design and style the website
-- Add content
-- Change hero color
+- Change hero color?
 - Get local copy of Google fonts?
 - **COMMENT AND ORGANIZE**
     - Especially partials
@@ -34,9 +27,8 @@ A very empty and feature-incomplete version of the site and structure.
         - Organize into folders
     - Organize layouts with partials for different sections
 - ARIA, accessibility in general, Schema, OpenGraph, correct use of tags where possible (semantics), good tooltips and labels, button/link titles, etc.
-- Reduce use of pseudo elements
+- Eliminate last pseudo elements
 - Correct post published/updated dates (figure out GitInfo with submodules)
-- Responsive chip lists
 - Darker zinc-300 color? Or maybe add zinc-250 and shift everything down
 - Tooltip with image and domain name (or site name if it exists) like Discord
 - References behavior more like TOC
@@ -45,3 +37,6 @@ A very empty and feature-incomplete version of the site and structure.
 - Series buttons at bottom
 - Organize Tailwind mess using components and stuff
 - Weird glitch where there's too much padding below references until reflow
+- Fix repetitive tooltip.html
+- Disable SVG animation and similar for prefers-reduced-motion
+- Add content
