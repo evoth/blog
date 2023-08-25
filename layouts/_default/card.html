@@ -1,0 +1,17 @@
+<a href="{{ .RelPermalink }}" class="bg-zinc-200 dark:bg-zinc-800 group/summary hover:bg-zinc-300 hover:dark:bg-zinc-700 p-3 rounded-xl [transition:background-color_0.2s] no-underline text-inherit">
+    {{ with .Resources.GetMatch "thumb" }}
+        <div class="rounded-lg mb-3 overflow-hidden">
+            <img src="{{ .RelPermalink }}" class="aspect-video object-cover group-hover/summary:scale-110 [transition:transform_0.2s]">
+        </div>
+    {{ else }}
+        <div class="bg-zinc-300 dark:bg-zinc-700 group-hover/summary:bg-zinc-350 group-hover/summary:dark:bg-zinc-600 aspect-video rounded-lg mb-3"></div>
+    {{ end }}
+    <p class="md:text-lg mb-2"><strong>{{ .Title }}</strong></p>
+    <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
+        {{ with .Params.summary }}
+            {{ . }}
+        {{ else }}
+            {{ delimit (split .Summary " " | first 12) " " }} ...
+        {{ end }}
+    </p>
+</a>

@@ -5,12 +5,12 @@
             {{- dict "image"  (resources.GetMatch (printf `linkThumbnails/%s` .thumbnailFile)) | merge . | partial "tooltip-helper.html" -}}
         {{- end -}}
     {{- else -}}
-        {{- with .page -}}
+        {{- $page := .page -}}
+        {{- if and (not $page) .url -}}
+            {{ $page = site.GetPage .url }}
+        {{- end -}}
+        {{- with $page -}}
             {{- partial "tooltip-helper.html" (dict "title" .Title "url" .RelPermalink "description" .Params.summary "image" (.Resources.GetMatch "thumb")) -}}
-        {{- else -}}
-            {{- with site.GetPage .url -}}
-                {{- partial "tooltip-helper.html" (dict "title" .Title "url" .RelPermalink "description" .Params.summary "image" (.Resources.GetMatch "thumb")) -}}
-            {{- end -}}
         {{- end -}}
     {{- end -}}
 </span>

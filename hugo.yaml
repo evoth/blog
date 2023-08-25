@@ -33,4 +33,10 @@ taxonomies:
   series: series
   concept: concepts
 enableGitInfo: true
+markup:
+  highlight:
+    lineNos: true
+    lineNumbersInTable: false
+    style: github-dark
+    tabWidth: 4
 refLinksErrorLevel: WARNING

@@ -35,7 +35,13 @@ postReferences:
   other: References and Further Reading
 
 collapseMenu:
-  other: Collapse navigation menu
+  other: Close navigation menu
 
 expandMenu:
-  other: Expand navigation menu
+  other: Open navigation menu
+
+comingSoon:
+  other: More coming soon!
+
+viewAll:
+  other: View all
