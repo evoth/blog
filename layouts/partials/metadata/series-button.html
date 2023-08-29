@@ -3,9 +3,9 @@
         {{ .Page.Params.buttonTitle }}
     {{ end }}
     {{ if eq .ButtonIndex -1 }}
-        {{ partial "svg-fill.html" (dict "path" "/static/icons/chevron-left.svg" "class" "h-5" "strokeClass" "stroke-zinc-400 group-hover/tooltip:stroke-current [transition:stroke_0.2s]") }}
+        {{ partial "utilities/svg-fill.html" (dict "path" "/static/icons/chevron-left.svg" "class" "h-5" "strokeClass" "stroke-zinc-400 group-hover/tooltip:stroke-current [transition:stroke_0.2s]") }}
     {{ end }}
     {{ if eq .ButtonIndex 1 }}
-        {{ partial "svg-fill.html" (dict "path" "/static/icons/chevron-right.svg" "class" "h-5" "strokeClass" "stroke-zinc-400 group-hover/tooltip:stroke-current [transition:stroke_0.2s]") }}
+        {{ partial "utilities/svg-fill.html" (dict "path" "/static/icons/chevron-right.svg" "class" "h-5" "strokeClass" "stroke-zinc-400 group-hover/tooltip:stroke-current [transition:stroke_0.2s]") }}
     {{ end }}
 </a>

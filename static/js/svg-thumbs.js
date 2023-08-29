@@ -20,7 +20,6 @@ function cardLeave(svg) {
     // If loopSeconds is specified, wait until multiple of loopSeconds to pause.
     const loopSeconds = Number(svg.dataset.loopSeconds);
     const delay = loopSeconds - (svg.getCurrentTime() % loopSeconds);
-    console.log(loopSeconds, svg.getCurrentTime(), svg.getCurrentTime() % loopSeconds, delay);
     // Pauses after delay, unless counter has changed (another mouseenter event)
     setTimeout(function () {
         if (svg.dataset.counter != counter)

@@ -2,7 +2,7 @@
     {{ with .Resources.GetMatch "thumb" }}
         <div class="rounded-lg mb-3 overflow-hidden">
             {{ $attrs := cond (ne .Params.loopSeconds nil) (printf ` data-loop-seconds=%f` .Params.loopSeconds) "" }}
-            {{ partial "svg-fill.html" (dict "content" .Content "attrs" $attrs "class" "card-svg-thumb aspect-video group-hover/summary:scale-110 [transition:transform_0.2s]") }}
+            {{ partial "utilities/svg-fill.html" (dict "content" .Content "attrs" $attrs "class" "card-svg-thumb aspect-video group-hover/summary:scale-110 [transition:transform_0.2s]") }}
         </div>
     {{ else }}
         <div class="bg-zinc-300 dark:bg-zinc-700 group-hover/summary:bg-zinc-350 group-hover/summary:dark:bg-zinc-600 aspect-video rounded-lg mb-3"></div>

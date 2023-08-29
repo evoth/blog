@@ -11,11 +11,11 @@
                     <div class="not-tooltip-container flex mb-2 md:mb-4">
                         {{ $seriesPages := index site.Taxonomies.series .Data.Term }}
                         {{ with $seriesPages.Prev $page }}
-                            {{ partial "tooltip.html" (dict "content" (partial "series-button.html" (dict "Page" . "OverImage" $hero "ButtonIndex" -1)) "page" .) }}
+                            {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/series-button.html" (dict "Page" . "OverImage" $hero "ButtonIndex" -1)) "page" .) }}
                         {{ end }}
-                        {{ partial "tooltip.html" (dict "content" (partial "series-button.html" (dict "Page" . "OverImage" $hero "ButtonIndex" 0)) "page" .) }}
+                        {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/series-button.html" (dict "Page" . "OverImage" $hero "ButtonIndex" 0)) "page" .) }}
                         {{ with $seriesPages.Next $page }}
-                            {{ partial "tooltip.html" (dict "content" (partial "series-button.html" (dict "Page" . "OverImage" $hero "ButtonIndex" 1)) "page" .) }}
+                            {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/series-button.html" (dict "Page" . "OverImage" $hero "ButtonIndex" 1)) "page" .) }}
                         {{ end }}
                     </div>
                 {{ end }}
@@ -29,7 +29,7 @@
                     {{ $taxonomy := . }}
                     {{ with $page.GetTerms . }}
                         <p class="mr-6 text-sm md:text-base leading-[2.1]"><strong>{{ i18n (strings.FirstUpper $taxonomy | printf `post%s`) (dict "Count" (len .)) }}:</strong>
-                            {{ partial "chip-list.html" (dict "Pages" . "OverImage" $hero) }}
+                            {{ partial "metadata/chip-list.html" (dict "Pages" . "OverImage" $hero) }}
                         </p>
                     {{ end }}
                 {{ end }}
@@ -58,7 +58,7 @@
                                 </a>
                             </h2>
                             <button class="toc-button flex-none 3xl:hidden h-max bg-zinc-200 dark:bg-zinc-800 [transition:background-color_0.2s,color_0.2s] group-hover/toc:bg-zinc-300 group-hover/toc:dark:bg-zinc-700 group-hover/toc:group-hover/button:bg-zinc-350 group-hover/toc:group-hover/button:dark:bg-zinc-600 group-hover/toc:group-hover/button:text-zinc-800 group-hover/toc:group-hover/button:dark:text-zinc-200 rounded-md p-0.5 my-auto">
-                                {{ partial "svg-fill.html" (dict "path" "/static/icons/chevron-down.svg" "class" "toc-chevron h-5 rotate-90 [transition:transform_0.2s]") }}
+                                {{ partial "utilities/svg-fill.html" (dict "path" "/static/icons/chevron-down.svg" "class" "toc-chevron h-5 rotate-90 [transition:transform_0.2s]") }}
                             </button>
                         </div>
                         <div class="toc-content overflow-hidden max-h-0 3xl:max-h-none">
@@ -86,7 +86,7 @@
                 <ul class="flex flex-col">
                     {{ range . }}
                         <li class="max-w-max">
-                            {{ partial "tooltip.html" (dict "content" (partial "reference-chip" .) "url" .Url) }}
+                            {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/reference-chip" .) "url" .Url) }}
                         </li>
                     {{ end }}
                 </ul>

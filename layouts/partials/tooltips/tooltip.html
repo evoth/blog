@@ -1,8 +1,8 @@
 <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0">
     {{- safeHTML .content -}}
-    {{- if partial "link-is-external.html" .url -}}
+    {{- if partial "utilities/link-is-external.html" .url -}}
         {{- with (index site.Data.links.linkData .url) -}}
-            {{- dict "image"  (resources.GetMatch (printf `linkThumbnails/%s` .thumbnailFile)) | merge . | partial "tooltip-helper.html" -}}
+            {{- dict "image"  (resources.GetMatch (printf `linkThumbnails/%s` .thumbnailFile)) | merge . | partial "tooltips/tooltip-helper.html" -}}
         {{- end -}}
     {{- else -}}
         {{- $page := .page -}}
@@ -10,7 +10,7 @@
             {{ $page = site.GetPage .url }}
         {{- end -}}
         {{- with $page -}}
-            {{- partial "tooltip-helper.html" (dict "title" .Title "url" .RelPermalink "description" .Params.summary "image" (.Resources.GetMatch "thumb")) -}}
+            {{- partial "tooltips/tooltip-helper.html" (dict "title" .Title "url" .RelPermalink "description" .Params.summary "image" (.Resources.GetMatch "thumb")) -}}
         {{- end -}}
     {{- end -}}
 </span>

@@ -1,4 +1,0 @@
-{{ $overImage := .OverImage }}
-{{ range .Pages }}
-    {{ partial "tooltip.html" (dict "content" (partial "chip" (dict "Page" . "OverImage" $overImage)) "page" .) }}
-{{ end }}

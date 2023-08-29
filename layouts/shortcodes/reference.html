@@ -5,5 +5,5 @@
 {{ end }}
 {{ .Page.Scratch.Add "references" (slice (dict "Url" $url "Title" (.Get 1) "Subtitle" (.Get 2) "Page" .Page.RelPermalink "Number" $number)) }}
 {{ if .Inner }}
-    {{- partial "tooltip-link.html" (dict "Destination" $url "Text" (.Page.RenderString .Inner)) -}}
+    {{- partial "tooltips/tooltip-link.html" (dict "Destination" $url "Text" (.Page.RenderString .Inner)) -}}
 {{ end }}

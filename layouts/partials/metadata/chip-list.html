@@ -1,0 +1,4 @@
+{{ $overImage := .OverImage }}
+{{ range .Pages }}
+    {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/chip" (dict "Page" . "OverImage" $overImage)) "page" .) }}
+{{ end }}
