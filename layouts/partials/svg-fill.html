@@ -1,6 +1,15 @@
-{{ $svg := readFile .path -}}
+{{- $svg := "" -}}
+{{- with .path -}}
+    {{ $svg = readFile . -}}
+{{- end -}}
+{{- with .content -}}
+    {{ $svg = . -}}
+{{- end -}}
 {{- with .class -}}
     {{- $svg = replaceRE `^<svg` (printf `<svg class="%s"` .) $svg -}}
+{{- end -}}
+{{- with .attrs -}}
+    {{- $svg = replaceRE `^<svg` (printf `<svg%s` .) $svg -}}
 {{- end -}}
 {{- with .fillClass -}}
     {{- $svg = replaceRE `fill="[^"]*"` (printf `class="%s"` .) $svg -}}
