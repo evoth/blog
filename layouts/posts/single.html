@@ -1,95 +1,99 @@
 {{ define "main" }}
-        {{ $hero := .Resources.GetMatch "hero" }}
-        {{ if (and (and .Params.concepts (.Scratch.Get "conceptShortcodes")) (ne (len (complement (.Scratch.Get "conceptShortcodes") .Params.concepts)) 0)) }}
-            {{ errorf `Page "%s" contains concept terms that are not used in concept shortcodes.` .Page.Title }}
-        {{ end }}
-        <div class="mb-6 lg:p-8 md:p-6 p-4 relative">
-            <div class="absolute left-0 right-0 top-0 bottom-0 {{ with $hero }}bg-[url('{{ .RelPermalink }}')] bg-cover bg-center opacity-30{{ else }}bg-zinc-200 dark:bg-zinc-800{{ end }} -z-10 rounded-xl"></div>
-            {{ $page := . }}
-            <div class="flex flex-wrap justify-between gap-x-4">
-                {{ range .GetTerms "series" }}
-                    <div class="not-tooltip-container flex mb-2 md:mb-4">
-                        {{ $seriesPages := index site.Taxonomies.series .Data.Term }}
-                        {{ with $seriesPages.Prev $page }}
-                            {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/series-button.html" (dict "Page" . "OverImage" $hero "ButtonIndex" -1)) "page" .) }}
-                        {{ end }}
-                        {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/series-button.html" (dict "Page" . "OverImage" $hero "ButtonIndex" 0)) "page" .) }}
-                        {{ with $seriesPages.Next $page }}
-                            {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/series-button.html" (dict "Page" . "OverImage" $hero "ButtonIndex" 1)) "page" .) }}
-                        {{ end }}
-                    </div>
-                {{ end }}
-            </div>
-            <h1 class="mb-2 text-2xl md:text-4xl">{{ .Title }}</h1>
-            {{ with .Params.summary }}
-            <p class="mb-2 md:mb-4 text-lg md:text-2xl">{{ . }}</h2>
-            {{ end }}
-            <div class="mb-2 md:mb-4">
-                {{ range (slice "projects" "concepts" "tags") }}
-                    {{ $taxonomy := . }}
-                    {{ with $page.GetTerms . }}
-                        <p class="mr-6 text-sm md:text-base leading-[2.1]"><strong>{{ i18n (strings.FirstUpper $taxonomy | printf `post%s`) (dict "Count" (len .)) }}:</strong>
-                            {{ partial "metadata/chip-list.html" (dict "Pages" . "OverImage" $hero) }}
-                        </p>
+    {{ partial "posts/single.html" . | partial "pages/post-container.html" }}
+{{ end }}
+
+{{ define "partials/posts/single.html" }}
+    {{ $hero := .Resources.GetMatch "hero" }}
+    {{ if (and (and .Params.concepts (.Scratch.Get "conceptShortcodes")) (ne (len (complement (.Scratch.Get "conceptShortcodes") .Params.concepts)) 0)) }}
+        {{ errorf `Page "%s" contains concept terms that are not used in concept shortcodes.` .Page.Title }}
+    {{ end }}
+    <div class="mb-6 lg:p-8 md:p-6 p-4 relative">
+        <div class="absolute left-0 right-0 top-0 bottom-0 {{ with $hero }}bg-[url('{{ .RelPermalink }}')] bg-cover bg-center opacity-30{{ else }}bg-zinc-200 dark:bg-zinc-800{{ end }} -z-10 rounded-xl"></div>
+        {{ $page := . }}
+        <div class="flex flex-wrap justify-between gap-x-4">
+            {{ range .GetTerms "series" }}
+                <div class="not-tooltip-container flex mb-2 md:mb-4">
+                    {{ $seriesPages := index site.Taxonomies.series .Data.Term }}
+                    {{ with $seriesPages.Prev $page }}
+                        {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/series-button.html" (dict "Page" . "OverImage" $hero "ButtonIndex" -1)) "page" .) }}
                     {{ end }}
-                {{ end }}
-            </div>
-            <p><i>{{ i18n "postDates" (dict "Published" (.PublishDate | time.Format ":date_long") "Updated" (.Lastmod | time.Format ":date_long")) }}</i></p>
-        </div>
-        {{ $contents := .Scratch.Get "contents" }}
-        {{ if $contents }}
-            {{ if gt (len $contents) 1 }}
-                {{ $scratch := .Scratch }}
-                {{ .Scratch.Delete "contentsSorted" }}
-                {{ range findRESubmatch `(?s)<h[0-9]+.*?(?:id="([^"]*?)".*?)?>.*?</h[0-9]+>` .Content }}
-                    {{ with index $contents (index . 1) }}
-                        {{ $scratch.Add "contentsSorted" (slice .) }}
+                    {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/series-button.html" (dict "Page" . "OverImage" $hero "ButtonIndex" 0)) "page" .) }}
+                    {{ with $seriesPages.Next $page }}
+                        {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/series-button.html" (dict "Page" . "OverImage" $hero "ButtonIndex" 1)) "page" .) }}
                     {{ end }}
-                {{ end }}
-                <div id="table-of-contents" data-title-collapse="{{ i18n "collapseTOC" }}" data-title-expand="{{ i18n "expandTOC" }}" class="3xl:block 3xl:h-0 3xl:sticky 3xl:top-28">
-                    <nav class="bg-zinc-200 dark:bg-zinc-800 [transition:background-color_0.2s,border-color_0.2s] group/toc hover:bg-zinc-300 hover:dark:bg-zinc-700 border border-zinc-50 dark:border-zinc-900 hover:border-zinc-500 hover:dark:border-zinc-500 p-4 rounded-xl mb-6 3xl:mt-0 3xl:translate-x-[--side-content-offset-left] 3xl:max-w-[--side-content-max-width] 3xl:w-max">
-                        <div class="flex justify-between content-center group/button">
-                            <h2 class="grow text-base md:text-lg">
-                                <a href="#" title="{{ i18n "backToTop" }}" class="hidden 3xl:block text-inherit w-full h-full">
-                                    {{ i18n "tableOfContents" }}
-                                </a>
-                                <button class="toc-button block 3xl:hidden text-inherit w-full h-full text-left">
-                                    {{ i18n "tableOfContents" }}
-                                </a>
-                            </h2>
-                            <button class="toc-button flex-none 3xl:hidden h-max bg-zinc-200 dark:bg-zinc-800 [transition:background-color_0.2s,color_0.2s] group-hover/toc:bg-zinc-300 group-hover/toc:dark:bg-zinc-700 group-hover/toc:group-hover/button:bg-zinc-350 group-hover/toc:group-hover/button:dark:bg-zinc-600 group-hover/toc:group-hover/button:text-zinc-800 group-hover/toc:group-hover/button:dark:text-zinc-200 rounded-md p-0.5 my-auto">
-                                {{ partial "utilities/svg-fill.html" (dict "path" "/static/icons/chevron-down.svg" "class" "toc-chevron h-5 rotate-90 [transition:transform_0.2s]") }}
-                            </button>
-                        </div>
-                        <div class="toc-content overflow-hidden max-h-0 3xl:max-h-none">
-                            <hr class="mt-1 mb-1 border-zinc-800 dark:border-zinc-200">
-                            <ol>
-                            {{ range .Scratch.Get "contentsSorted" }}
-                                <li>
-                                    <a href="#{{ .Anchor | safeURL }}" data-anchor="{{ .Anchor | safeURL }}" class="toc-link block w-full h-full text-inherit {{ if ge .Level 3 }}text-xs md:text-sm text-zinc-700 dark:text-zinc-300{{ else }}text-sm md:text-base text-zinc-800 dark:text-zinc-200{{ end }} py-0.5 md:py-1 pr-0.5 md:pr-1 pl-{{ sub .Level 2 | mul 4 }} no-underline [transition:background-color_0.2s,border-radius_0.2s] hover:bg-zinc-350 hover:dark:bg-zinc-600 group-hover/toc:rounded-sm group-hover/toc:md:rounded-md">
-                                        <span class="block pl-0.5 md:pl-1">{{ .Text | safeHTML }}</span>
-                                    </a>
-                                </li>
-                            {{ end }}
-                            </ol>
-                        </div>
-                    </nav>
                 </div>
             {{ end }}
-        {{ end }}
-        <div id="content" class="prose prose-sm md:prose-base prose-zinc dark:prose-invert prose-headings:mb-3 prose-headings:mt-6 prose-headings:md:mt-8 prose-h2:md:text-3xl max-w-none">
-            {{ .Content }}
         </div>
-        {{ with (.Scratch.Get "references") }}
-            <div class="mt-6 lg:p-8 md:p-6 p-4 bg-zinc-200 dark:bg-zinc-800 rounded-xl">
-                <h1 class="mb-2 text-xl md:text-2xl">{{ i18n "postReferences" }}</h1>
-                <ul class="flex flex-col">
-                    {{ range . }}
-                        <li class="max-w-max">
-                            {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/reference-chip" .) "url" .Url) }}
-                        </li>
-                    {{ end }}
-                </ul>
+        <h1 class="mb-2 text-2xl md:text-4xl">{{ .Title }}</h1>
+        {{ with .Params.summary }}
+        <p class="mb-2 md:mb-4 text-lg md:text-2xl">{{ . }}</h2>
+        {{ end }}
+        <div class="mb-2 md:mb-4">
+            {{ range (slice "projects" "concepts" "tags") }}
+                {{ $taxonomy := . }}
+                {{ with $page.GetTerms . }}
+                    <p class="mr-6 text-sm md:text-base leading-[2.1]"><strong>{{ i18n (strings.FirstUpper $taxonomy | printf `post%s`) (dict "Count" (len .)) }}:</strong>
+                        {{ partial "metadata/chip-list.html" (dict "Pages" . "OverImage" $hero) }}
+                    </p>
+                {{ end }}
+            {{ end }}
+        </div>
+        <p><i>{{ i18n "postDates" (dict "Published" (.PublishDate | time.Format ":date_long") "Updated" (.Lastmod | time.Format ":date_long")) }}</i></p>
+    </div>
+    {{ $contents := .Scratch.Get "contents" }}
+    {{ if $contents }}
+        {{ if gt (len $contents) 1 }}
+            {{ $scratch := .Scratch }}
+            {{ .Scratch.Delete "contentsSorted" }}
+            {{ range findRESubmatch `(?s)<h[0-9]+.*?(?:id="([^"]*?)".*?)?>.*?</h[0-9]+>` .Content }}
+                {{ with index $contents (index . 1) }}
+                    {{ $scratch.Add "contentsSorted" (slice .) }}
+                {{ end }}
+            {{ end }}
+            <div id="table-of-contents" data-title-collapse="{{ i18n "collapseTOC" }}" data-title-expand="{{ i18n "expandTOC" }}" class="3xl:block 3xl:h-0 3xl:sticky 3xl:top-28">
+                <nav class="bg-zinc-200 dark:bg-zinc-800 [transition:background-color_0.2s,border-color_0.2s] group/toc hover:bg-zinc-300 hover:dark:bg-zinc-700 border border-zinc-50 dark:border-zinc-900 hover:border-zinc-500 hover:dark:border-zinc-500 p-4 rounded-xl mb-6 3xl:mt-0 3xl:translate-x-[--side-content-offset-left] 3xl:max-w-[--side-content-max-width] 3xl:w-max">
+                    <div class="flex justify-between content-center group/button">
+                        <h2 class="grow text-base md:text-lg">
+                            <a href="#" title="{{ i18n "backToTop" }}" class="hidden 3xl:block text-inherit w-full h-full">
+                                {{ i18n "tableOfContents" }}
+                            </a>
+                            <button class="toc-button block 3xl:hidden text-inherit w-full h-full text-left">
+                                {{ i18n "tableOfContents" }}
+                            </a>
+                        </h2>
+                        <button class="toc-button flex-none 3xl:hidden h-max bg-zinc-200 dark:bg-zinc-800 [transition:background-color_0.2s,color_0.2s] group-hover/toc:bg-zinc-300 group-hover/toc:dark:bg-zinc-700 group-hover/toc:group-hover/button:bg-zinc-350 group-hover/toc:group-hover/button:dark:bg-zinc-600 group-hover/toc:group-hover/button:text-zinc-800 group-hover/toc:group-hover/button:dark:text-zinc-200 rounded-md p-0.5 my-auto">
+                            {{ partial "utilities/svg-fill.html" (dict "path" "/static/icons/chevron-down.svg" "class" "toc-chevron h-5 rotate-90 [transition:transform_0.2s]") }}
+                        </button>
+                    </div>
+                    <div class="toc-content overflow-hidden max-h-0 3xl:max-h-none">
+                        <hr class="mt-1 mb-1 border-zinc-800 dark:border-zinc-200">
+                        <ol>
+                        {{ range .Scratch.Get "contentsSorted" }}
+                            <li>
+                                <a href="#{{ .Anchor | safeURL }}" data-anchor="{{ .Anchor | safeURL }}" class="toc-link block w-full h-full text-inherit {{ if ge .Level 3 }}text-xs md:text-sm text-zinc-700 dark:text-zinc-300{{ else }}text-sm md:text-base text-zinc-800 dark:text-zinc-200{{ end }} py-0.5 md:py-1 pr-0.5 md:pr-1 pl-{{ sub .Level 2 | mul 4 }} no-underline [transition:background-color_0.2s,border-radius_0.2s] hover:bg-zinc-350 hover:dark:bg-zinc-600 group-hover/toc:rounded-sm group-hover/toc:md:rounded-md">
+                                    <span class="block pl-0.5 md:pl-1">{{ .Text | safeHTML }}</span>
+                                </a>
+                            </li>
+                        {{ end }}
+                        </ol>
+                    </div>
+                </nav>
             </div>
         {{ end }}
+    {{ end }}
+    <div id="content" class="prose prose-sm md:prose-base prose-zinc dark:prose-invert prose-headings:mb-3 prose-headings:mt-6 prose-headings:md:mt-8 prose-h2:md:text-3xl max-w-none">
+        {{ .Content }}
+    </div>
+    {{ with (.Scratch.Get "references") }}
+        <div class="mt-6 lg:p-8 md:p-6 p-4 bg-zinc-200 dark:bg-zinc-800 rounded-xl">
+            <h1 class="mb-2 text-xl md:text-2xl">{{ i18n "postReferences" }}</h1>
+            <ul class="flex flex-col">
+                {{ range . }}
+                    <li class="max-w-max">
+                        {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/reference-chip" .) "url" .Url) }}
+                    </li>
+                {{ end }}
+            </ul>
+        </div>
+    {{ end }}
 {{ end }}

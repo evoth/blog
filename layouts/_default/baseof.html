@@ -26,49 +26,8 @@
   </head>
 
   <body class="relative overflow-x-clip">
-    <div id="navbar" class="bg-zinc-50 dark:bg-zinc-900 top-0 relative z-10">
-      <div id="navbar-shadow" class="absolute left-0 right-0 top-0 bottom-0 shadow-lg shadow-black/20 dark:shadow-black/50 -z-10 opacity-0"></div>
-      <nav class="flex flex-wrap items-center justify-between py-2 sm:py-3 px-4 sm:px-8 md:px-12 lg:px-6 z-10">
-          <ul class="font-rubik flex flex-row gap-x-4">
-              <li>
-                  <a href="{{ site.BaseURL }}" class="text-inherit block p-2 no-underline [transition:background-color_0.2s,color_0.2s] hover:bg-zinc-300 hover:dark:bg-zinc-700 hover:text-zinc-800 hover:dark:text-zinc-200 rounded-lg">
-                      <span class="font-semibold">{{ site.Params.Title }}</span>
-                  </a>
-              </li>
-              <li>
-                  <div class="h-full flex justify-center">
-                    <button title="{{ i18n "switchTheme" }}" class="button theme-toggle group p-2 [transition:background-color_0.2s] hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded-lg">
-                        {{ partial "utilities/svg-fill.html" (dict "path" "/static/icons/moon.svg" "class" "hidden dark:block h-5" "fillClass" "fill-zinc-500 [transition:fill_0.2s] group-hover:fill-zinc-800 group-hover:dark:fill-zinc-200") }}
-                        {{ partial "utilities/svg-fill.html" (dict "path" "/static/icons/sun.svg" "class" "block dark:hidden h-5" "fillClass" "fill-zinc-350 [transition:fill_0.2s] group-hover:fill-zinc-800 group-hover:dark:fill-zinc-200") }}
-                    </button>
-                </div>
-              </li>
-          </ul>
-          <button id="nav-menu-button" data-title-collapse="{{ i18n "collapseMenu" }}" data-title-expand="{{ i18n "expandMenu" }}" class="md:hidden p-2 [transition:background-color_0.2s] hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded-lg">
-              {{ partial "utilities/svg-fill.html" (dict "path" "/static/icons/menu.svg" "class" "h-6") }}
-          </button>
-          <div class="w-full md:w-auto [transition:display_0.2s]">
-              <ul id="nav-menu" class="absolute md:static font-rubik flex flex-col items-stretch p-4 md:p-0 md:flex-row xl:gap-x-4 bg-zinc-50 dark:bg-zinc-900 w-full left-0 shadow-lg shadow-black/20 dark:shadow-black/50 md:shadow-none invisible md:visible pointer-events-none -z-10 -translate-y-full opacity-0 md:pointer-events-auto md:z-auto md:translate-y-0 md:opacity-100 [transition:background-color_0.2s,transform_0.2s,opacity_0.2s]">
-                  {{ range site.Menus.main }}
-                  <li>
-                      <a href="{{ .URL }}" class="text-inherit text-center block p-2 no-underline [transition:background-color_0.2s,color_0.2s] hover:bg-zinc-300 hover:dark:bg-zinc-700 hover:text-zinc-800 hover:dark:text-zinc-200 rounded-lg">{{ .Name }}</a>
-                  </li>
-                  {{ end }}
-              </ul>
-          </div>
-      </nav>
-    </div>
-    {{ block "hero" . }}
+    {{ partial "pages/navbar.html" . }}
+    {{ block "main" . }}
     {{ end }}
-    <div class="max-w-screen-4xl mx-auto 3xl:px-12">
-        <div id="side-content-border">
-            <div class="max-w-screen-lg mx-auto px-4 pb-4 sm:px-8 sm:pb-8 md:px-12 md:pb-12 lg:px-16 lg:pb-16 3xl:px-4">
-                <div id="article" class="3xl:px-12" style="--side-content-offset-left: 0px; --side-content-offset-right: 0px; --side-content-max-width: 0px;">
-                    {{ block "main" . }}
-                    {{ end }}
-                </div>
-            </div>
-        </div>
-    </div>
   </body>
 </html>
