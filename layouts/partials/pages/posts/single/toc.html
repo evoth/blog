@@ -1,0 +1,41 @@
+{{ $contents := .Scratch.Get "contents" }}
+{{ if $contents }}
+    {{ if gt (len $contents) 1 }}
+        {{ $scratch := .Scratch }}
+        {{ .Scratch.Delete "contentsSorted" }}
+        {{ range findRESubmatch `(?s)<h[0-9]+.*?(?:id="([^"]*?)".*?)?>.*?</h[0-9]+>` .Content }}
+            {{ with index $contents (index . 1) }}
+                {{ $scratch.Add "contentsSorted" (slice .) }}
+            {{ end }}
+        {{ end }}
+        <div id="table-of-contents" data-title-collapse="{{ i18n "collapseTOC" }}" data-title-expand="{{ i18n "expandTOC" }}" class="3xl:block 3xl:h-0 3xl:sticky 3xl:top-28">
+            <nav class="bg-zinc-200 dark:bg-zinc-800 [transition:background-color_0.2s,border-color_0.2s] group/toc hover:bg-zinc-300 hover:dark:bg-zinc-700 border border-zinc-50 dark:border-zinc-900 hover:border-zinc-500 hover:dark:border-zinc-500 p-4 rounded-xl mb-6 3xl:mt-0 3xl:translate-x-[--side-content-offset-left] 3xl:max-w-[--side-content-max-width] 3xl:w-max">
+                <div class="flex justify-between content-center group/button">
+                    <h2 class="grow text-base md:text-lg">
+                        <a href="#" title="{{ i18n "backToTop" }}" class="hidden 3xl:block text-inherit w-full h-full">
+                            {{ i18n "tableOfContents" }}
+                        </a>
+                        <button class="toc-button block 3xl:hidden text-inherit w-full h-full text-left">
+                            {{ i18n "tableOfContents" }}
+                        </a>
+                    </h2>
+                    <button class="toc-button flex-none 3xl:hidden h-max bg-zinc-200 dark:bg-zinc-800 [transition:background-color_0.2s,color_0.2s] group-hover/toc:bg-zinc-300 group-hover/toc:dark:bg-zinc-700 group-hover/toc:group-hover/button:bg-zinc-350 group-hover/toc:group-hover/button:dark:bg-zinc-600 group-hover/toc:group-hover/button:text-zinc-800 group-hover/toc:group-hover/button:dark:text-zinc-200 rounded-md p-0.5 my-auto">
+                        {{ partial "utilities/svg-fill.html" (dict "path" "/static/icons/chevron-down.svg" "class" "toc-chevron h-5 rotate-90 [transition:transform_0.2s]") }}
+                    </button>
+                </div>
+                <div class="toc-content overflow-hidden max-h-0 3xl:max-h-none">
+                    <hr class="mt-1 mb-1 border-zinc-800 dark:border-zinc-200">
+                    <ol>
+                    {{ range .Scratch.Get "contentsSorted" }}
+                        <li>
+                            <a href="#{{ .Anchor | safeURL }}" data-anchor="{{ .Anchor | safeURL }}" class="toc-link block w-full h-full text-inherit {{ if ge .Level 3 }}text-xs md:text-sm text-zinc-700 dark:text-zinc-300{{ else }}text-sm md:text-base text-zinc-800 dark:text-zinc-200{{ end }} py-0.5 md:py-1 pr-0.5 md:pr-1 pl-{{ sub .Level 2 | mul 4 }} no-underline [transition:background-color_0.2s,border-radius_0.2s] hover:bg-zinc-350 hover:dark:bg-zinc-600 group-hover/toc:rounded-sm group-hover/toc:md:rounded-md">
+                                <span class="block pl-0.5 md:pl-1">{{ .Text | safeHTML }}</span>
+                            </a>
+                        </li>
+                    {{ end }}
+                    </ol>
+                </div>
+            </nav>
+        </div>
+    {{ end }}
+{{ end }}

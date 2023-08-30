@@ -1,0 +1,34 @@
+{{ $hero := .Resources.GetMatch "hero" }}
+<div class="mb-6 lg:p-8 md:p-6 p-4 relative">
+    <div class="absolute left-0 right-0 top-0 bottom-0 {{ with $hero }}bg-[url('{{ .RelPermalink }}')] bg-cover bg-center opacity-30{{ else }}bg-zinc-200 dark:bg-zinc-800{{ end }} -z-10 rounded-xl"></div>
+    {{ $page := . }}
+    <div class="flex flex-wrap justify-between gap-x-4">
+        {{ range .GetTerms "series" }}
+            <div class="not-tooltip-container flex mb-2 md:mb-4">
+                {{ $seriesPages := index site.Taxonomies.series .Data.Term }}
+                {{ with $seriesPages.Prev $page }}
+                    {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/series-button.html" (dict "Page" . "OverImage" $hero "ButtonIndex" -1)) "page" .) }}
+                {{ end }}
+                {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/series-button.html" (dict "Page" . "OverImage" $hero "ButtonIndex" 0)) "page" .) }}
+                {{ with $seriesPages.Next $page }}
+                    {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/series-button.html" (dict "Page" . "OverImage" $hero "ButtonIndex" 1)) "page" .) }}
+                {{ end }}
+            </div>
+        {{ end }}
+    </div>
+    <h1 class="mb-2 text-2xl md:text-4xl">{{ .Title }}</h1>
+    {{ with .Params.summary }}
+    <p class="mb-2 md:mb-4 text-lg md:text-2xl">{{ . }}</h2>
+    {{ end }}
+    <div class="mb-2 md:mb-4">
+        {{ range (slice "projects" "concepts" "tags") }}
+            {{ $taxonomy := . }}
+            {{ with $page.GetTerms . }}
+                <p class="mr-6 text-sm md:text-base leading-[2.1]"><strong>{{ i18n (strings.FirstUpper $taxonomy | printf `post%s`) (dict "Count" (len .)) }}:</strong>
+                    {{ partial "metadata/chip-list.html" (dict "Pages" . "OverImage" $hero) }}
+                </p>
+            {{ end }}
+        {{ end }}
+    </div>
+    <p><i>{{ i18n "postDates" (dict "Published" (.PublishDate | time.Format ":date_long") "Updated" (.Lastmod | time.Format ":date_long")) }}</i></p>
+</div>

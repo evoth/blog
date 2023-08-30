@@ -1,0 +1,12 @@
+{{ with (.Scratch.Get "references") }}
+    <div class="mt-6 lg:p-8 md:p-6 p-4 bg-zinc-200 dark:bg-zinc-800 rounded-xl">
+        <h1 class="mb-2 text-xl md:text-2xl">{{ i18n "postReferences" }}</h1>
+        <ul class="flex flex-col">
+            {{ range . }}
+                <li class="max-w-max">
+                    {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/reference-chip" .) "url" .Url) }}
+                </li>
+            {{ end }}
+        </ul>
+    </div>
+{{ end }}
