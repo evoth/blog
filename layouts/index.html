@@ -1,15 +1,19 @@
 {{ define "main" }}
     {{ with site.GetPage "/home_resources" }}
         <div class="bg-zinc-200 dark:bg-zinc-800">
-            {{ partial "index/hero.html" . | partial "pages/list/list-container.html" }}
+            <div class="max-w-screen-xl mx-auto">
+                {{ partial "index/hero.html" . | partial "pages/container.html" }}
+            </div>
         </div>
     {{ end }}
-    {{ partial "index/lists.html" . | partial "pages/list/list-container.html" }}
+    <div class="max-w-screen-xl mx-auto">
+        {{ partial "index/lists.html" . | partial "pages/container.html" }}
+    </div>
 {{ end }}
 
 {{ define "partials/index/hero.html" }}
     <div class="flex md:flex-row flex-col gap-8 md:gap-12">
-        <div class="flex place-items-center flex-1 not-tooltip-container">
+        <div class="not-tooltip-container flex place-items-center flex-1">
             <div class="not-tooltip-container">
                 {{ with .Resources.GetMatch "hero_title*.md" }}
                 <h1 class="text-6xl">

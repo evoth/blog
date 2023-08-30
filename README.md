@@ -59,4 +59,6 @@ A very empty version of the site and structure.
 - Add keywords to front matter just 'cause
 - Add svg icon names to front matter for placeholder generation
 - Repeated code between references and tooltip-- create partial for metadata generation
+- Reevaluate list vs single partial organization (esp. containers)
+- Fix spacing at top of post (has to do with TOC?)
 - Add content
