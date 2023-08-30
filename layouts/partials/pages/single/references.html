@@ -4,7 +4,7 @@
         <ul class="flex flex-col">
             {{ range . }}
                 <li class="max-w-max">
-                    {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/reference-chip" .) "url" .Url) }}
+                    {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/reference-chip" .) "url" .url) }}
                 </li>
             {{ end }}
         </ul>

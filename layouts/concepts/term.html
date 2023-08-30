@@ -1,0 +1,10 @@
+{{ define "main" }}
+    {{ partial "concepts/term.html" . | partial "pages/single/post-container.html" }}
+{{ end }}
+
+{{ define "partials/concepts/term.html" }}
+    {{ partial "pages/single/hero.html" . }}
+    {{ partial "pages/single/toc.html" . }}
+    {{ partial "pages/content.html" . }}
+    {{ partial "pages/single/references.html" . }}
+{{ end }}

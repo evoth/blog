@@ -58,4 +58,5 @@ A very empty version of the site and structure.
 - Just use parentheses plus dot (). instead of index if it makes it easier to read
 - Add keywords to front matter just 'cause
 - Add svg icon names to front matter for placeholder generation
+- Repeated code between references and tooltip-- create partial for metadata generation
 - Add content
