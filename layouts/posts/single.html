@@ -1,13 +1,13 @@
 {{ define "main" }}
-    {{ partial "posts/single.html" . | partial "pages/post-container.html" }}
+    {{ partial "posts/single.html" . | partial "pages/single/post-container.html" }}
 {{ end }}
 
 {{ define "partials/posts/single.html" }}
     {{ if (and (and .Params.concepts (.Scratch.Get "conceptShortcodes")) (ne (len (complement (.Scratch.Get "conceptShortcodes") .Params.concepts)) 0)) }}
         {{ errorf `Page "%s" contains concept terms that are not used in concept shortcodes.` .Page.Title }}
     {{ end }}
-    {{ partial "pages/posts/single/hero.html" . }}
-    {{ partial "pages/posts/single/toc.html" . }}
+    {{ partial "pages/single/hero.html" . }}
+    {{ partial "pages/single/toc.html" . }}
     {{ partial "pages/content.html" . }}
-    {{ partial "pages/posts/single/references.html" . }}
+    {{ partial "pages/single/references.html" . }}
 {{ end }}

@@ -1,10 +1,10 @@
 {{ define "main" }}
     {{ with site.GetPage "/home_resources" }}
         <div class="bg-zinc-200 dark:bg-zinc-800">
-            {{ partial "index/hero.html" . | partial "pages/list-container.html" }}
+            {{ partial "index/hero.html" . | partial "pages/list/list-container.html" }}
         </div>
     {{ end }}
-    {{ partial "index/lists.html" . | partial "pages/list-container.html" }}
+    {{ partial "index/lists.html" . | partial "pages/list/list-container.html" }}
 {{ end }}
 
 {{ define "partials/index/hero.html" }}
@@ -32,7 +32,7 @@
 
 {{ define "partials/index/lists.html" }}
     <div class="flex flex-col gap-6 md:gap-12">
-        {{ partial "pages/card-list.html" "projects" }}
-        {{ partial "pages/card-list.html" "posts" }}
+        {{ partial "pages/list/card-list.html" "projects" }}
+        {{ partial "pages/list/card-list.html" "posts" }}
     </div>
 {{ end }}
