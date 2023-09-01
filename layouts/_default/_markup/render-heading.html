@@ -11,5 +11,7 @@
         {{ end }}
     {{ end }}
 {{ end }}
-<h{{ $level }} id="{{ $newAnchor | safeURL }}">{{ .Text | safeHTML }}</h{{ $level }}>
+<a href="#{{ $newAnchor | safeURL }}" class="underline decoration-transparent [transition:text-decoration-color_0.2s] hover:decoration-current">
+    <h{{ $level }} id="{{ $newAnchor | safeURL }}">{{ .Text | safeHTML }}</h{{ $level }}>
+</a>
 {{ .Page.Scratch.SetInMap "contents" $newAnchor (dict "Text" .Text "Anchor" $newAnchor "Level" $level "Page" .Page.RelPermalink) }}

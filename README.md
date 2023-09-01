@@ -6,7 +6,7 @@ A content-rich personal website featuring project posts and descriptions that co
 
 ## Current State
 
-A very empty version of the site and structure.
+A sparse foundation.
 
 ## Todo
 
@@ -18,8 +18,6 @@ A very empty version of the site and structure.
 - Sufficient button titles (TOC and others)
 - Concept framing
 - Footer
-- Better sidenote location cue? (gwern.net)
-- Change hero color?
 - Get local copy of Google fonts?
 - **COMMENT AND ORGANIZE**
     - Especially partials
@@ -27,21 +25,26 @@ A very empty version of the site and structure.
         - Organize into folders
         - MODULARIZE
     - Organize layouts with partials for different sections
-- ARIA, accessibility in general, Schema, OpenGraph, correct use of tags and attributes where possible (semantic HTML), good tooltips and labels, button/link titles, etc.
+- Accessibility
+    - ARIA
     - Test with accessibility tools
     - Use visibility instead of display where appropriate to match visuals with accessibility tree
+    - Good tooltips and labels, button/link titles, etc.
+    - Research other stuff
+- Semantic HTML
+    - Correct use of tags and attributes and structure
+- Metadata (and SEO by extension)
+    - Schema
+    - OpenGraph
 - Eliminate last pseudo elements
 - Correct post published/updated dates (figure out GitInfo with submodules)
 - Darker zinc-300 color? Or maybe add zinc-250 and shift everything down
-- Tooltip with image and domain name (or site name if it exists) like Discord
 - References behavior more like TOC
 - Include references on TOC?
-- Heading links
-- Series buttons at bottom
+- Series buttons (and other metadata) at bottom
 - Organize Tailwind mess using components and stuff
     - Reduce repeated sets of classes
 - Weird glitch where there's too much padding below references until reflow
-- Fix repetitive tooltip.html
 - Disable SVG animation and similar for prefers-reduced-motion
 - Minify CSS/JS, Tailwind classes and reformat HTML
 - Bundle JS or combine into modules instead of having a bunch of separate scripts
