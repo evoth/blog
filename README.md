@@ -51,6 +51,10 @@ A very empty version of the site and structure.
         - Should link to articles which contain them
     - Projects
         - Should link to relevant articles and have galleries, github link, etc.
+        - GitHub link
+        - Technologies/languages
+        - Timeline
+        - Links
     - Series and tags are pretty straightforward
     - Posts page should link/preview series, tags, concepts?, projects?
     - All should be paginated if necessary
@@ -61,4 +65,8 @@ A very empty version of the site and structure.
 - Repeated code between references and tooltip-- create partial for metadata generation
 - Reevaluate list vs single partial organization (esp. containers)
 - Fix spacing at top of post (has to do with TOC?)
+- **Pagination**
+- Figure out modular/DRY way to do the different taxonomy/section templates
+    - Right now there's a LOT of duplicated templates because I just wanted to lay the groundwork
+- Think about front matter for taxonomy/section pages, standard way to include markdown in hero, etc.
 - Add content

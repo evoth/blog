@@ -12,7 +12,9 @@
         {{ with .Params.summary }}
             {{ . }}
         {{ else }}
-            {{ delimit (split .Summary " " | first 12) " " }} ...
+            {{ with .Summary }}
+                {{ delimit (split . " " | first 12) " " }} ...
+            {{ end }}
         {{ end }}
     </p>
 </a>

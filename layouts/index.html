@@ -36,7 +36,7 @@
 
 {{ define "partials/index/lists.html" }}
     <div class="flex flex-col gap-6 md:gap-12">
-        {{ partial "pages/list/card-list.html" "projects" }}
-        {{ partial "pages/list/card-list.html" "posts" }}
+        {{ partial "pages/list/card-list.html" (site.GetPage "section" "projects") }}
+        {{ partial "pages/list/card-list.html"  (site.GetPage "section" "posts") }}
     </div>
 {{ end }}

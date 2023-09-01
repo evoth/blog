@@ -1,7 +1,27 @@
 {{ define "main" }}
-        <ul class="list-disc list-inside">
-            {{ range .Pages }}
-            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-            {{ end }}
-        </ul>
+    <div class="bg-zinc-200 dark:bg-zinc-800">
+        <div class="max-w-screen-xl mx-auto">
+            {{ partial "posts/hero.html" . | partial "pages/container.html" }}
+        </div>
+    </div>
+    <div class="max-w-screen-xl mx-auto">
+        {{ partial "posts/lists.html" . | partial "pages/container.html" }}
+    </div>
+{{ end }}
+
+{{ define "partials/posts/hero.html" }}
+    <div>
+        <h1 class="mb-2 text-2xl md:text-4xl">{{ .Title }}</h1>
+        {{ with .Params.summary }}
+            <p class="mb-2 md:mb-4 text-lg md:text-2xl">{{ . }}</h2>
+        {{ end }}
+    </div>
+{{ end }}
+
+{{ define "partials/posts/lists.html" }}
+    <div class="flex flex-col gap-6 md:gap-12">
+        {{ partial "pages/list/card-list.html"  (site.GetPage "section" "posts") }}
+        {{ partial "pages/list/card-list.html"  (site.GetPage "section" "series") }}
+        {{ partial "pages/list/card-list.html"  (site.GetPage "section" "tags") }}
+    </div>
 {{ end }}
