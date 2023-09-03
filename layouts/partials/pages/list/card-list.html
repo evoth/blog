@@ -1,18 +1,35 @@
-{{ with . }}
-    <div>
-        <a href="{{ .RelPermalink }}" class="text-inherit">
-            <h2 class="mb-5 md:mb-6">{{ .Title }}</h2>
-        </a>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {{ $pages := first 6 .Data.Pages }}
-            {{ range $pages }}
-                {{ .Render "card" }}
-            {{ end }}
-            {{ if len $pages | gt 6 | and .Params.comingSoon }}
-                <div class="bg-zinc-200 dark:bg-zinc-800 p-3 rounded-xl flex flex-col justify-center">
-                    <p class="md:text-lg text-center"><strong>{{ i18n "comingSoon" }}</strong></p>
-                </div>
-            {{ end }}
-        </div>
+{{ $page := index . 0 }}
+{{ $count := (index . 1).count | default 6 }}
+{{ $title := (index . 1).title | default $page.Title }}
+{{ with (index $page.Ancestors 0).Params.childrenListTitle }}
+    {{ if findRE `%s` . }}
+        {{ $title = printf . $page.Title }}
+    {{ else }}
+        {{ $title = . }}
+    {{ end }}
+{{ end }}
+{{ with $page }}
+<div class="not-tooltip-container">
+    {{ $pages := first $count .Data.Pages }}
+    {{ $titleContent := partial "pages/list/card-list/title-link.html" (slice .RelPermalink $title) }}
+    <div class="not-tooltip-container flex flex-wrap gap-4 mb-5 md:mb-6">
+        {{ partial "tooltips/tooltip.html" (dict "content" $titleContent "page" .) }}
+        {{ if len $pages | gt $count | and .Params.comingSoon }}
+            <div class="bg-zinc-200 dark:bg-zinc-800 px-2 rounded-md flex flex-col justify-center">
+                <p class="md:text-lg text-center"><strong>{{ i18n "comingSoon" }}</strong></p>
+            </div>
+        {{ end }}
     </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+        {{ range $pages }}
+            {{ .Render "card" }}
+        {{ end }}
+    </div>
+</div>
+{{ end }}
+
+{{ define "partials/pages/list/card-list/title-link.html" }}
+    <a href="{{ index . 0 }}" class="text-inherit">
+        <h2 class="text-xl md:text-3xl">{{ index . 1 }}</h2>
+    </a>
 {{ end }}

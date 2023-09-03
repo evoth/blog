@@ -7,7 +7,7 @@
         </div>
     {{ end }}
     <div class="max-w-screen-xl mx-auto">
-        {{ partial "index/lists.html" . | partial "pages/container.html" }}
+        {{ partial "pages/list/card-lists.html" . | partial "pages/container.html" }}
     </div>
 {{ end }}
 
@@ -31,12 +31,5 @@
                 <img src="{{ .RelPermalink }}" alt="{{ .Params.alt }}" class="rounded-xl object-cover min-h-full">
             </div>
         {{ end }}
-    </div>
-{{ end }}
-
-{{ define "partials/index/lists.html" }}
-    <div class="flex flex-col gap-6 md:gap-12">
-        {{ partial "pages/list/card-list.html" (site.GetPage "section" "projects") }}
-        {{ partial "pages/list/card-list.html"  (site.GetPage "section" "posts") }}
     </div>
 {{ end }}

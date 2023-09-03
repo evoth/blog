@@ -18,6 +18,8 @@ A sparse foundation.
 - Sufficient button titles (TOC and others)
 - Concept framing
 - Footer
+    - Info about me? (see https://spf13.com/)
+    - Recent stuff? (see https://atega-hugo.netlify.app/)
 - Get local copy of Google fonts?
 - **COMMENT AND ORGANIZE**
     - Especially partials
@@ -30,6 +32,7 @@ A sparse foundation.
     - Test with accessibility tools
     - Use visibility instead of display where appropriate to match visuals with accessibility tree
     - Good tooltips and labels, button/link titles, etc.
+    - Image alt text (figure out how to do it for divs with background-image and svg, or how to replace with img)
     - Research other stuff
 - Semantic HTML
     - Correct use of tags and attributes and structure
@@ -62,6 +65,10 @@ A sparse foundation.
     - Posts page should link/preview series, tags, concepts?, projects?
     - All should be paginated if necessary
     - Placeholders if not much content
+    - Better navigation
+        - Back to previous page
+            - E.g., link back to all tags on tag term page
+        - Breadcrumb?
 - Just use parentheses plus dot (). instead of index if it makes it easier to read
 - Add keywords to front matter just 'cause
 - Add svg icon names to front matter for placeholder generation
@@ -69,7 +76,10 @@ A sparse foundation.
 - Reevaluate list vs single partial organization (esp. containers)
 - Fix spacing at top of post (has to do with TOC?)
 - **Pagination**
-- Figure out modular/DRY way to do the different taxonomy/section templates
-    - Right now there's a LOT of duplicated templates because I just wanted to lay the groundwork
 - Think about front matter for taxonomy/section pages, standard way to include markdown in hero, etc.
+- Check for mismatched opening/closing tags
+- Make stuff more colorful, visually appealing
+- RSS n such
+- View all buttons for card lists?
+- When scraping link metadata, get more data if needed (image/alt text)
 - Add content

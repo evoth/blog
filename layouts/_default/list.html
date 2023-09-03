@@ -1,0 +1,19 @@
+{{ define "main" }}
+    <div class="bg-zinc-200 dark:bg-zinc-800">
+        <div class="max-w-screen-xl mx-auto">
+            {{ partial "posts/hero.html" . | partial "pages/container.html" }}
+        </div>
+    </div>
+    <div class="max-w-screen-xl mx-auto">
+        {{ partial "pages/list/card-lists.html" . | partial "pages/container.html" }}
+    </div>
+{{ end }}
+
+{{ define "partials/posts/hero.html" }}
+    <div>
+        <h1 class="mb-2 text-2xl md:text-4xl">{{ .Title }}</h1>
+        {{ with .Params.summary }}
+            <p class="mb-2 md:mb-4 text-lg md:text-2xl">{{ . }}</p>
+        {{ end }}
+    </div>
+{{ end }}
