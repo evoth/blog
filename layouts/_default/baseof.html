@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.LanguageCode | default site.Language.Lang  }}" class="hidden overflow-x-hidden">
+<html lang="{{ site.LanguageCode | default site.Language.Lang  }}" class="hidden overflow-x-hidden h-full">
   <head>
     <meta charset="utf-8">
     <title>{{ site.Params.Title }} | {{ .Title }}</title>
@@ -25,9 +25,10 @@
     <link rel="stylesheet" href="/css/main.css">
   </head>
 
-  <body class="relative overflow-x-clip">
+  <body class="relative overflow-x-clip overflow-y-clip flex flex-col min-h-full">
     {{ partial "pages/navbar.html" . }}
     {{ block "main" . }}
     {{ end }}
+    {{ partial "pages/footer.html" . }}
   </body>
 </html>

@@ -45,3 +45,6 @@ comingSoon:
 
 viewAll:
   other: View all
+
+copyright:
+  other: "{{ .year }} © {{ .name }}"

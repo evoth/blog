@@ -17,7 +17,7 @@ A sparse foundation.
         - Smaller text sizes below medium breakpoint
 - Sufficient button titles (TOC and others)
 - Concept framing
-- Footer
+- (Better) Footer
     - Info about me? (see https://spf13.com/)
     - Recent stuff? (see https://atega-hugo.netlify.app/)
 - Get local copy of Google fonts?
@@ -48,6 +48,7 @@ A sparse foundation.
 - Organize Tailwind mess using components and stuff
     - Reduce repeated sets of classes
 - Weird glitch where there's too much padding below references until reflow
+    - Caused by tooltips overflowing (I think I fixed this when working on footer but check to make sure)
 - Disable SVG animation and similar for prefers-reduced-motion
 - Minify CSS/JS, Tailwind classes and reformat HTML
 - Bundle JS or combine into modules instead of having a bunch of separate scripts
@@ -69,6 +70,7 @@ A sparse foundation.
         - Back to previous page
             - E.g., link back to all tags on tag term page
         - Breadcrumb?
+    - POSTS SHOULD HAVE RELATED POSTS, POSTS IN SAME SERIES (or just arrows), etc.
 - Just use parentheses plus dot (). instead of index if it makes it easier to read
 - Add keywords to front matter just 'cause
 - Add svg icon names to front matter for placeholder generation
@@ -83,3 +85,6 @@ A sparse foundation.
 - View all buttons for card lists?
 - When scraping link metadata, get more data if needed (image/alt text)
 - Add content
+- Deploy (GitHub pages?)
+- Google Search Console?
+- SEO, metadata, etc. as mentioned above

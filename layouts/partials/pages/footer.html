@@ -1,0 +1,10 @@
+<div class="flex-1"></div>
+<div class="flex justify-center bg-zinc-200 dark:bg-zinc-800 p-6">
+    {{ $items := i18n "copyright" (dict "name" site.Params.Title "year" now.Year) | slice }}
+    {{ range site.Menus.footer }}
+        {{ $items = $items | append (partial "tooltips/tooltip-link.html" (dict "Destination" .URL "Text" .Name)) }}
+    {{ end }}
+    <span>
+        {{ delimit $items " / " }}
+    </span>
+</div>

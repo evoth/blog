@@ -1,7 +1,7 @@
 {{ define "main" }}
     <div class="bg-zinc-200 dark:bg-zinc-800">
         <div class="max-w-screen-xl mx-auto">
-            {{ partial "posts/hero.html" . | partial "pages/container.html" }}
+            {{ partial "list/hero.html" . | partial "pages/container.html" }}
         </div>
     </div>
     <div class="max-w-screen-xl mx-auto">
@@ -9,7 +9,7 @@
     </div>
 {{ end }}
 
-{{ define "partials/posts/hero.html" }}
+{{ define "partials/list/hero.html" }}
     <div>
         <h1 class="mb-2 text-2xl md:text-4xl">{{ .Title }}</h1>
         {{ with .Params.summary }}
