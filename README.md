@@ -84,6 +84,12 @@ A sparse foundation.
 - RSS n such
 - View all buttons for card lists?
 - When scraping link metadata, get more data if needed (image/alt text)
+- Bug when no single card in card list is the max width, meaning the list is smaller than the max and gets centered
+- Add more metadata to card?
+    - Date
+    - Taxonomy terms
+- Adding a term to a page in card lists section doesn't give the right title
+- Card list heading tooltips are bugged if mouse only barely hovers over top or bottom
 - Add content
 - Deploy (GitHub pages?)
 - Google Search Console?
