@@ -21,6 +21,7 @@ A sparse foundation.
     - Info about me? (see https://spf13.com/)
     - Recent stuff? (see https://atega-hugo.netlify.app/)
 - Get local copy of Google fonts?
+    - This only seemed like a problem when testing w/o cache-- in prod they'll just be loaded once then cached in browser
 - **COMMENT AND ORGANIZE**
     - Especially partials
         - Explain input/output
@@ -33,6 +34,8 @@ A sparse foundation.
     - Use visibility instead of display where appropriate to match visuals with accessibility tree
     - Good tooltips and labels, button/link titles, etc.
     - Image alt text (figure out how to do it for divs with background-image and svg, or how to replace with img)
+    - Contrast
+    - Intuitive navigation/layout
     - Research other stuff
 - Semantic HTML
     - Correct use of tags and attributes and structure
@@ -47,6 +50,7 @@ A sparse foundation.
 - Series buttons (and other metadata) at bottom
 - Organize Tailwind mess using components and stuff
     - Reduce repeated sets of classes
+    - MAKE CLASSES (USING APPLY) FOR COMMON COMBINATIONS LIKE "zinc-200 dark:zinc-800"
 - Weird glitch where there's too much padding below references until reflow
     - Caused by tooltips overflowing (I think I fixed this when working on footer but check to make sure)
 - Disable SVG animation and similar for prefers-reduced-motion

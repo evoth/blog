@@ -1,11 +1,11 @@
 {{ define "main" }}
     <div class="bg-zinc-200 dark:bg-zinc-800">
-        <div class="max-w-screen-xl mx-auto">
-            {{ partial "list/hero.html" . | partial "pages/container.html" }}
+        <div class="container-xl">
+            {{ partial "list/hero.html" . }}
         </div>
     </div>
-    <div class="max-w-screen-xl mx-auto">
-        {{ partial "pages/list/card-lists.html" . | partial "pages/container.html" }}
+    <div class="container-xl">
+        {{ partial "pages/list/card-lists.html" . }}
     </div>
 {{ end }}
 

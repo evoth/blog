@@ -1,13 +1,13 @@
 {{ define "main" }}
     {{ with site.GetPage "/home_resources" }}
         <div class="bg-zinc-200 dark:bg-zinc-800">
-            <div class="max-w-screen-xl mx-auto">
-                {{ partial "index/hero.html" . | partial "pages/container.html" }}
+            <div class="container-xl">
+                {{ partial "index/hero.html" . }}
             </div>
         </div>
     {{ end }}
-    <div class="max-w-screen-xl mx-auto">
-        {{ partial "pages/list/card-lists.html" . | partial "pages/container.html" }}
+    <div class="container-xl">
+        {{ partial "pages/list/card-lists.html" . }}
     </div>
 {{ end }}
 

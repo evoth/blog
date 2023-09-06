@@ -5,12 +5,12 @@
     <div class="bg-zinc-200 dark:bg-zinc-800">
         {{ $hero := .Resources.GetMatch "hero" }}
         {{ if $hero }}
-            <div class="max-w-screen-xl mx-auto">
-                {{ partial "pages/single/hero.html" . | partial "pages/container.html" }}
+            <div class="container-xl">
+                {{ partial "pages/single/hero.html" . }}
             </div>
         {{ else }}
-        <div class="max-w-screen-lg mx-auto 3xl:px-12">
-            {{ partial "pages/single/hero.html" . | partial "pages/container.html" }}
+        <div class="container-lg">
+            {{ partial "pages/single/hero.html" . }}
         </div>
         {{ end }}
     </div>

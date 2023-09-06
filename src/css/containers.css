@@ -1,0 +1,20 @@
+@layer utilities {
+  .p-container {
+    @apply p-4 sm:p-8 md:p-12 lg:p-16;
+  }
+  .px-container {
+    @apply px-4 sm:px-8 md:px-12 lg:px-16;
+  }
+  .pb-container {
+    @apply pb-4 sm:pb-8 md:pb-12 lg:pb-16;
+  }
+}
+
+@layer components {
+  .container-lg {
+    @apply p-container mx-auto max-w-screen-lg;
+  }
+  .container-xl {
+    @apply p-container mx-auto max-w-screen-xl;
+  }
+}
