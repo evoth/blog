@@ -15,6 +15,9 @@
         {{ end }}
     </div>
     {{ partial "posts/single.html" . | partial "pages/single/post-container.html" }}
+    <div class="max-w-screen-xl mx-auto px-container pb-container">
+        {{ partial "pages/list/card-lists.html" (dict "Title" (i18n "relatedPosts") "Pages" (.Site.RegularPages.Related .)) }}
+    </div>
 {{ end }}
 
 {{ define "partials/posts/single.html" }}

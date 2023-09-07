@@ -42,6 +42,21 @@ taxonomies:
   project: projects
   series: series
   concept: concepts
+related:
+  includeNewer: true
+  toLower: true
+  threshold: 0
+  indices:
+    - name: projects
+      weight: 100
+    - name: series
+      weight: 75
+    - name: tags
+      weight: 50
+    - name: concepts
+      weight: 50
+    - name: date
+      weight: 10
 enableGitInfo: true
 markup:
   highlight:

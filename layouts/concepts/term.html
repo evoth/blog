@@ -9,12 +9,15 @@
                 {{ partial "pages/single/hero.html" . }}
             </div>
         {{ else }}
-        <div class="container-lg">
-            {{ partial "pages/single/hero.html" . }}
-        </div>
+            <div class="container-lg">
+                {{ partial "pages/single/hero.html" . }}
+            </div>
         {{ end }}
     </div>
     {{ partial "concepts/single.html" . | partial "pages/single/post-container.html" }}
+    <div class="max-w-screen-xl mx-auto px-container pb-container">
+        {{ partial "pages/list/card-lists.html" . }}
+    </div>
 {{ end }}
 
 {{ define "partials/concepts/single.html" }}

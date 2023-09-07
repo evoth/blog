@@ -48,3 +48,6 @@ viewAll:
 
 copyright:
   other: "{{ .year }} © {{ .name }}"
+
+relatedPosts:
+  other: Related Posts

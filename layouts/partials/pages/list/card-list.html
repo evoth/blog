@@ -10,10 +10,14 @@
 {{ end }}
 {{ with $page }}
 <div class="not-tooltip-container">
-    {{ $pages := first $count .Data.Pages }}
-    {{ $titleContent := partial "pages/list/card-list/title-link.html" (slice .RelPermalink $title) }}
+    {{ $pages := first $count .Pages }}
+    {{ $titleContent := partial "pages/list/card-list/title-link.html" (slice $title .RelPermalink) }}
     <div class="not-tooltip-container flex flex-wrap gap-4 mb-5 md:mb-6">
-        {{ partial "tooltips/tooltip.html" (dict "content" $titleContent "page" .) }}
+        {{ if .RelPermalink }}
+            {{ partial "tooltips/tooltip.html" (dict "content" $titleContent "page" .) }}
+        {{ else }}
+            {{ $titleContent }}
+        {{ end }}
         {{ if len $pages | gt $count | and .Params.comingSoon }}
             <div class="bg-zinc-200 dark:bg-zinc-800 px-2 rounded-md flex flex-col justify-center">
                 <p class="md:text-lg text-center"><strong>{{ i18n "comingSoon" }}</strong></p>
@@ -29,7 +33,11 @@
 {{ end }}
 
 {{ define "partials/pages/list/card-list/title-link.html" }}
-    <a href="{{ index . 0 }}" class="text-inherit dark:text-inherit">
-        <h2 class="text-xl md:text-3xl">{{ index . 1 }}</h2>
-    </a>
+    {{ if index . 1 }}
+        <a href="{{ index . 1 }}" class="text-inherit dark:text-inherit">
+            <h2 class="text-xl md:text-3xl">{{ index . 0 }}</h2>
+        </a>
+    {{ else }}
+        <h2 class="text-xl md:text-3xl">{{ index . 0 }}</h2>
+    {{ end }}
 {{ end }}
