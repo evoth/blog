@@ -20,7 +20,7 @@
         {{ with .Params.summary }}
             <p class="mb-2 md:mb-4 text-lg md:text-2xl">{{ . }}</p>
         {{ end }}
-        <div class="not-tooltip-container mb-2 md:mb-4">
+        <div class="not-tooltip-container">
             {{ range (slice "projects" "concepts" "tags") }}
                 {{ $taxonomy := . }}
                 {{ with $page.GetTerms . }}
@@ -30,7 +30,11 @@
                 {{ end }}
             {{ end }}
         </div>
-        <p><i>{{ i18n "postDates" (dict "Published" (.PublishDate | time.Format ":date_long") "Updated" (.Lastmod | time.Format ":date_long")) }}</i></p>
+        {{ if eq .Kind "page" }}
+            <div class="mt-2 md:mt-4">
+                <p><i>{{ i18n "postDates" (dict "Published" (.PublishDate | time.Format ":date_long") "Updated" (.Lastmod | time.Format ":date_long")) }}</i></p>
+            </div>
+        {{ end }}
     </div>
     {{ with $hero }}
         <div class="flex-1 bg-[url('{{ .RelPermalink }}')] bg-cover bg-center rounded-xl aspect-video md:aspect-auto min-h-[16rem]">

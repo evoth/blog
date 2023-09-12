@@ -1,19 +1,3 @@
 {{ define "main" }}
-    <div class="bg-zinc-200 dark:bg-zinc-800">
-        <div class="container-xl">
-            {{ partial "list/hero.html" . }}
-        </div>
-    </div>
-    <div class="container-xl">
-        {{ partial "pages/list/card-lists.html" . }}
-    </div>
-{{ end }}
-
-{{ define "partials/list/hero.html" }}
-    <div>
-        <h1 class="mb-2 text-2xl md:text-4xl">{{ .Title }}</h1>
-        {{ with .Params.summary }}
-            <p class="mb-2 md:mb-4 text-lg md:text-2xl">{{ . }}</p>
-        {{ end }}
-    </div>
+    {{ partial "pages/page.html" (dict "Page" .) }}
 {{ end }}

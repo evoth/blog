@@ -107,6 +107,8 @@ A sparse foundation.
     - Other stuff
 - Delay before animation activation?
 - Hero images for list pages?
+- Make ad-hoc heros paused until suitable version can be created
+- Change ptl-adb-ffmpeg bg to purple?
 - Add content
 - Deploy (GitHub pages?)
 - Google Search Console?
