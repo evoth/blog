@@ -54,6 +54,8 @@ A sparse foundation.
 - Weird glitch where there's too much padding below references until reflow
     - Caused by tooltips overflowing (I think I fixed this when working on footer but check to make sure)
 - Disable SVG animation and similar for prefers-reduced-motion
+    - Disable svg-freeze elements as well (maybe just modify classes to be disabled for prm)
+    - Ability to manually pause animations as well
 - Minify CSS/JS, Tailwind classes and reformat HTML
 - Bundle JS or combine into modules instead of having a bunch of separate scripts
 - HTML comments (there are some on a branch but they're woefully outdated)
@@ -94,6 +96,17 @@ A sparse foundation.
     - Taxonomy terms
 - Adding a term to a page in card lists section doesn't give the right title
 - Card list heading tooltips are bugged if mouse only barely hovers over top or bottom
+- Code block themes
+    - Have the included ones, but also custom light/dark ones to match website themes
+    - Ability to select themes
+- TOC can overlap related pages (because of h-0)
+- SVG "watermarks"
+- For svg thumbs, simply round off time instead of setting to 0
+- Fill in front matter
+    - Thumb/hero alt
+    - Other stuff
+- Delay before animation activation?
+- Hero images for list pages?
 - Add content
 - Deploy (GitHub pages?)
 - Google Search Console?

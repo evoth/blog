@@ -19,20 +19,30 @@ function cardLeave(svg) {
     }
     // If loopSeconds is specified, wait until multiple of loopSeconds to pause.
     const loopSeconds = Number(svg.dataset.loopSeconds);
-    const delay = loopSeconds - (svg.getCurrentTime() % loopSeconds);
+    const loopOffset = Number(svg.dataset.loopOffset ?? 0);
+    const pauseTime = loopSeconds * Math.ceil(svg.getCurrentTime() / loopSeconds) + loopOffset;
+    const delay = pauseTime - svg.getCurrentTime();
     // Pauses after delay, unless counter has changed (another mouseenter event)
     setTimeout(function () {
         if (svg.dataset.counter != counter)
             return;
         svg.pauseAnimations();
-        svg.setCurrentTime(0);
+        svg.setCurrentTime(pauseTime);
     }, delay * 1000);
 }
 // Adds event listeners to cards that have svg thumbnails
 const svgs = document.getElementsByClassName("card-svg-thumb");
 for (const svg of svgs) {
     svg.pauseAnimations();
-    svg.setCurrentTime(0);
+    let startTime = Number(svg.dataset.loopOffset ?? 0);
+    if (startTime < 0) {
+        startTime += Number(svg.dataset.loopSeconds);
+    }
+    svg.setCurrentTime(startTime);
+    const freezeElements = svg.getElementsByClassName("svg-freeze");
+    for (const freeze of freezeElements) {
+        freeze.style.display = "inline";
+    }
     const card = svg.closest(".card");
     card.addEventListener("mouseenter", () => cardEnter(svg));
     card.addEventListener("mouseleave", () => cardLeave(svg));
