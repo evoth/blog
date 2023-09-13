@@ -109,6 +109,7 @@ A sparse foundation.
 - Hero images for list pages?
 - Make ad-hoc heros paused until suitable version can be created
 - Change ptl-adb-ffmpeg bg to purple?
+- Behavior/placeholder for absent pages
 - Add content
 - Deploy (GitHub pages?)
 - Google Search Console?
