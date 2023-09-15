@@ -27,6 +27,6 @@
     {{- "" -}}
 </span>
 
-{{ define "partials/sidenote/trim.html" }}
-    {{ trim . " \n" | strings.TrimPrefix "<p>" | strings.TrimSuffix "</p>" | safeHTML }}
-{{ end }}
+{{- define "partials/sidenote/trim.html" -}}
+    {{- trim . " \n" | strings.TrimPrefix "<p>" | strings.TrimSuffix "</p>" | safeHTML -}}
+{{- end }}

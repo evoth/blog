@@ -15,10 +15,16 @@
             </div>
         {{ end }}
     </div>
-    {{ partial "pages/page/content.html" . | partial "pages/content/post-container.html" }}
-    <div class="max-w-screen-xl mx-auto px-container pb-container">
-        {{ partial "pages/list/card-lists.html" $lists }}
-    </div>
+    {{ if .Content }}
+        {{ partial "pages/page/content.html" . | partial "pages/content/post-container.html" }}
+        <div class="max-w-screen-xl mx-auto px-container pb-container">
+            {{ partial "pages/list/card-lists.html" $lists }}
+        </div>
+    {{ else }}
+        <div class="container-xl">
+            {{ partial "pages/list/card-lists.html" $lists }}
+        </div>
+    {{ end }}
 {{ end }}
 
 {{ define "partials/pages/page/content.html" }}

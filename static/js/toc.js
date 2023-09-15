@@ -97,6 +97,10 @@ function updateActiveLinks() {
             newActiveAnchors.add(anchor);
         }
     }
+    // If all are active, don't style any (because it looks sorta strange)
+    if (newActiveAnchors.size == headings.length) {
+        newActiveAnchors = new Set();
+    }
     // For each newly active link, check if it's already active. If not, add
     // classes. Otherwise, do nothing.
     for (const newAnchor of newActiveAnchors) {
