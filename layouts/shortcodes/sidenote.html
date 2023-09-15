@@ -17,12 +17,16 @@
         <button title="{{ i18n "toggleSidenote" (dict "SidenoteNum" $number ) }}" class="sidenote-button-2"><sup class="bg-zinc-300 dark:bg-zinc-700 [transition:background-color_0.2s] group-hover:bg-zinc-350 group-hover:dark:bg-zinc-600 hover:group-hover:bg-zinc-400 hover:group-hover:dark:bg-zinc-500 px-1 mx-0.5 rounded-sm">{{ $number }}</sup></button>
         <span class="sidenote-prefix" data-prefix-inline="{{ .Get 0 }}" data-prefix-block="{{ .Get 2 }}"></span>
         {{- "" -}}
-        <span class="sidenote-text-inline hidden">{{- .Inner | .Page.RenderString -}}</span>
+        <span class="sidenote-text-inline hidden">{{- .Inner | .Page.RenderString | partial "sidenote/trim.html" -}}</span>
         {{- "" -}}
-        <span class="sidenote-text-block">{{- strings.FirstUpper .Inner | .Page.RenderString -}}</span>
+        <span class="sidenote-text-block">{{- strings.FirstUpper .Inner | .Page.RenderString | partial "sidenote/trim.html" -}}</span>
         {{- "" -}}
         <span class="sidenote-suffix" data-suffix-inline="{{ .Get 1 }}" data-suffix-block="{{ .Get 3 }}"></span>
         {{- "" -}}
     </span>
     {{- "" -}}
 </span>
+
+{{ define "partials/sidenote/trim.html" }}
+    {{ trim . " \n" | strings.TrimPrefix "<p>" | strings.TrimSuffix "</p>" | safeHTML }}
+{{ end }}

@@ -19,7 +19,7 @@
             {{ . }}
         {{ else }}
             {{ with .Summary }}
-                {{ delimit (split . " " | first 12) " " }} ...
+                {{ dict "text" . "limit" 12 | partial "utilities/short.html" }}
             {{ end }}
         {{ end }}
     </p>

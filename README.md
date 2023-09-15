@@ -110,7 +110,11 @@ A sparse foundation.
 - Make ad-hoc heros paused until suitable version can be created
 - Change ptl-adb-ffmpeg bg to purple?
 - Behavior/placeholder for absent pages
+- Sidenote bug (there are others) where the outline doesn't work if two lines just barely overlap
+- More robust handling of markdown (paragraphs) in sidenotes
+- That weird bug when a tooltip is closing but your mouse moves to the level of another fragment of the same link and the tooltip updates but not in the right way
 - Add content
+    - Don't forget links and references
 - Deploy (GitHub pages?)
 - Google Search Console?
 - SEO, metadata, etc. as mentioned above
