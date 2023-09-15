@@ -1,6 +1,6 @@
 <span class="tooltip-anchor relative">
     {{- "" -}}
-    <span class="tooltip-base absolute -translate-x-1/2 w-max max-w-xs pointer-events-none z-10">
+    <span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs pointer-events-none z-10">
         {{- "" -}}
         <a href="{{ .url }}" {{ partial "utilities/link-attr.html" .url | safeHTMLAttr }} class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">
             {{ $isExternal := partial "utilities/link-is-external.html" .url }}
@@ -12,7 +12,7 @@
                     {{- end -}}
                 </span>
             {{- end -}}
-            <span class="text-blue-500 dark:text-blue-400">
+            <span class="block text-blue-500 dark:text-blue-400 text-sm 3xl:text-base leading-snug">
                 {{- if .title -}}
                     <strong>{{ .title }}</strong>
                 {{- else -}}
@@ -20,7 +20,7 @@
                 {{- end -}}
             </span>
             {{- with .description -}}
-                <span class="block mt-1">{{ . }}</span>
+                <span class="block mt-1 text-sm 3xl:text-base">{{ . }}</span>
             {{- end -}}
             {{- with .image -}}
                 <img src="{{ .RelPermalink }}" class="aspect-og object-cover mt-3 rounded-lg">

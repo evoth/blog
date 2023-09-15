@@ -1,6 +1,6 @@
 {{- $words := split .text " " -}}
 {{- if lt .limit (len $words) -}}
-    {{ delimit (first .limit $words) " " }} ...
+    {{ delimit (first .limit $words) " " }}...
 {{- else -}}
     {{ .text }}
 {{- end -}}

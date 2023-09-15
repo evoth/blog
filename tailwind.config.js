@@ -14,6 +14,9 @@ module.exports = {
       fontFamily: {
         rubik: ['"Rubik"', ...defaultTheme.fontFamily.sans],
       },
+      maxWidth: {
+        "2xs": "16rem",
+      },
       screens: {
         "3xl": "1792px",
         "4xl": "2048px",

@@ -113,6 +113,11 @@ A sparse foundation.
 - Sidenote bug (there are others) where the outline doesn't work if two lines just barely overlap
 - More robust handling of markdown (paragraphs) in sidenotes
 - That weird bug when a tooltip is closing but your mouse moves to the level of another fragment of the same link and the tooltip updates but not in the right way
+- Somehow segment link preview data/thumbs from main repo
+- Populate missing front matter dates with date of first commit
+- Use Tailwind line-clamp instead of limiting number of words?
+- Weird flickering with tooltip next to period in sidenote when resizing
+- Tooltip arrow line thing
 - Add content
     - Don't forget links and references
 - Deploy (GitHub pages?)
