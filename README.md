@@ -116,8 +116,10 @@ A sparse foundation.
 - Somehow segment link preview data/thumbs from main repo
 - Populate missing front matter dates with date of first commit
 - Use Tailwind line-clamp instead of limiting number of words?
+    - Or at least shorten by character count instead of word count
 - Weird flickering with tooltip next to period in sidenote when resizing
 - Tooltip arrow line thing
+- Fix hero image aspect ratio below medium breakpoint (and padding)
 - Add content
     - Don't forget links and references
 - Deploy (GitHub pages?)

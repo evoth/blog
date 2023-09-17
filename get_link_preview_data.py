@@ -16,6 +16,10 @@ from dataclasses_json import dataclass_json
 # Domain: ^(?:https?:\/\/)?(?:www\.)?([^:\/?]+)
 # Slug: ^(?:https?:\/\/)?(?:www\.)?([^:?]+)
 
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"
+}
+
 
 @dataclass_json
 @dataclass
@@ -37,10 +41,10 @@ def process_existing(link_data: Dict[str, LinkPreview], url: str):
 def process_new(link_data: Dict[str, LinkPreview], url: str):
     print(f'- New url "{url}"')
     # Get meta tags with the property attribute
-    r = requests.get(url)
+    r = requests.get(url, headers=HEADERS)
     soup = BeautifulSoup(r.text, "html.parser")
     metas = soup.select("meta[property]")
-    meta = {v["property"]: v["content"] for v in metas}
+    meta = {v["property"]: v["content"] for v in metas if v.has_attr("content")}
 
     print(meta)
     # Extract metadata
@@ -58,7 +62,7 @@ def process_new(link_data: Dict[str, LinkPreview], url: str):
         image_url_path = "".join(urlparse(thumbnail_url)[1:3])
         image_name, _ = splitext(image_url_path)
 
-        response = requests.get(thumbnail_url)
+        response = requests.get(thumbnail_url, headers=HEADERS)
         image_data = response.content
         content_type = response.headers["content-type"]
         image_ext = mimetypes.guess_extension(content_type, strict=False) or ""
