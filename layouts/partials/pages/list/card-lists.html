@@ -1,12 +1,19 @@
 <div class="flex flex-col gap-6 md:gap-12">
     {{ $sourcePage := . }}
     {{ with .Params.lists }}
-        {{ range . }}
-            {{ range $path, $meta := . }}
-                {{ partial "pages/list/card-list.html" (slice (site.GetPage $path) $meta) }}
-            {{ end }}
-        {{ end }}
+        {{ partial "pages/list/lists" . }}
     {{ else }}
         {{ partial "pages/list/card-list.html" (slice .) }}
+        {{ with (index $sourcePage.Ancestors 0).Params.childrenLists }}
+            {{ partial "pages/list/lists" . }}
+        {{ end }}
     {{ end }}
 </div>
+
+{{ define "partials/pages/list/lists" }}
+    {{ range . }}
+        {{ range $path, $meta := . }}
+            {{ partial "pages/list/card-list.html" (slice (site.GetPage $path) $meta) }}
+        {{ end }}
+    {{ end }}
+{{ end }}

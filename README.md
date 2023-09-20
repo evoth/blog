@@ -120,6 +120,7 @@ A sparse foundation.
 - Weird flickering with tooltip next to period in sidenote when resizing
 - Tooltip arrow line thing
 - Fix hero image aspect ratio below medium breakpoint (and padding)
+- Access plot json as resource in plotly shortcode?
 - Add content
     - Don't forget links and references
 - Deploy (GitHub pages?)
