@@ -6,7 +6,7 @@ A content-rich personal website featuring project posts and descriptions that co
 
 ## Current State
 
-A sparse foundation.
+A visually appealing way to display my personal projects. I've laid the foundations for the vision above, but I just have to start writing the content!
 
 ## Todo
 

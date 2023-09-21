@@ -1,2 +1,2 @@
 {{ $isExternal := partial "utilities/link-is-external.html" .Destination -}}
-<a href="{{ if $isExternal }}{{ .Destination | safeURL }}{{ else }}{{ with site.GetPage .Destination }}{{ .RelPermalink | safeURL }}{{ end }}{{ end }}"{{ with .Title }} title="{{ . }}"{{ end }} {{ partial "utilities/link-attr.html" .Destination | safeHTMLAttr }}>{{ .Text | safeHTML }}</a>
+<a href="{{ if $isExternal }}{{ .Destination | safeURL }}{{ else }}{{ with site.GetPage .Destination }}{{ .RelPermalink | safeURL }}{{ else }}{{ .Destination | safeURL }}{{ end }}{{ end }}"{{ with .Title }} title="{{ . }}"{{ end }} {{ partial "utilities/link-attr.html" .Destination | safeHTMLAttr }}>{{ .Text | safeHTML }}</a>
