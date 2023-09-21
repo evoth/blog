@@ -122,6 +122,7 @@ A visually appealing way to display my personal projects. I've laid the foundati
 - Access plot json as resource in plotly shortcode?
 - Subtitle for card list
 - Prevent page from appearing in card list on same page
+- Add favicon
 - Add content
     - Don't forget links and references
 - Deploy (GitHub pages?)
