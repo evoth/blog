@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-US" class="overflow-x-hidden">
+  <head>
+    <meta charset="utf-8">
+    <title>Ethan Voth | Android Debug Bridge (ADB)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+    <script src="https://kit.fontawesome.com/a00713ef8f.js" crossorigin="anonymous"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/tooltips.js" defer></script>
+    <script src="/js/side-content.js" defer></script>
+    <script src="/js/sidenotes.js" defer></script>
+    <script src="/js/navbar.js" defer></script>
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+
+  <body class="relative overflow-x-clip">
+    <div id="navbar" class="bg-zinc-50 dark:bg-zinc-900 top-0 relative z-10">
+      <div id="navbar-shadow" class="absolute left-0 right-0 top-0 bottom-0 shadow-lg shadow-black/20 dark:shadow-black/50 -z-10 opacity-0"></div>
+      <nav class="flex flex-wrap items-center justify-between py-4 sm:py-5 px-4 sm:px-8 md:px-12 lg:px-8 z-10">
+          <ul class="font-rubik flex flex-row gap-x-8">
+              <li>
+                  <a href="http://evoth.dev/" class="text-inherit">
+                      <span class="font-semibold">Ethan Voth</span>
+                  </a>
+              </li>
+              <li class="hidden md:block">
+                  <div class="h-full flex justify-center">
+                    <button class="button theme-toggle">
+                        <svg class="hidden dark:block h-4" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path class="fill-zinc-500" d="m264 480a232 232 0 0 1 -232-232c0-94 54-178.28 137.61-214.67a16 16 0 0 1 21.06 21.06c-9.6 22.04-14.67 50.27-14.67 81.61 0 110.28 89.72 200 200 200 31.34 0 59.57-5.07 81.61-14.67a16 16 0 0 1 21.06 21.06c-36.39 83.61-120.67 137.61-214.67 137.61z"/></svg>
+                        <svg class="dark:hidden h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m0 0h24v24h-24z" class="fill-zinc-400" opacity="0" transform="matrix(-1 0 0 -1 24 24)"/><g class="fill-zinc-400"><path d="m12 6a1 1 0 0 0 1-1v-2a1 1 0 0 0 -2 0v2a1 1 0 0 0 1 1z"/><path d="m21 11h-2a1 1 0 0 0 0 2h2a1 1 0 0 0 0-2z"/><path d="m6 12a1 1 0 0 0 -1-1h-2a1 1 0 0 0 0 2h2a1 1 0 0 0 1-1z"/><path d="m6.22 5a1 1 0 0 0 -1.39 1.47l1.44 1.39a1 1 0 0 0 .73.28 1 1 0 0 0 .72-.31 1 1 0 0 0 0-1.41z"/><path d="m17 8.14a1 1 0 0 0 .69-.28l1.44-1.39a1 1 0 0 0 -1.35-1.47l-1.44 1.42a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.31z"/><path d="m12 18a1 1 0 0 0 -1 1v2a1 1 0 0 0 2 0v-2a1 1 0 0 0 -1-1z"/><path d="m17.73 16.14a1 1 0 0 0 -1.39 1.44l1.44 1.42a1 1 0 0 0 .69.28 1 1 0 0 0 .72-.3 1 1 0 0 0 0-1.42z"/><path d="m6.27 16.14-1.44 1.39a1 1 0 0 0 0 1.42 1 1 0 0 0 .72.3 1 1 0 0 0 .67-.25l1.44-1.39a1 1 0 0 0 -1.39-1.44z"/><path d="m12 8a4 4 0 1 0 4 4 4 4 0 0 0 -4-4z"/></g></svg>
+                    </button>
+                </div>
+              </li>
+          </ul>
+          <button type="button" class="md:hidden">
+              <span class="sr-only">Open main menu</span>
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+          </button>
+          <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+              <ul class="font-rubik flex flex-col md:flex-row gap-x-4 xl:gap-x-8">
+                  
+                  <li>
+                      <a href="/">Home</a>
+                  </li>
+                  
+                  <li>
+                      <a href="/about/">About</a>
+                  </li>
+                  
+                  <li>
+                      <a href="/projects/">Projects</a>
+                  </li>
+                  
+                  <li>
+                      <a href="/posts/">Posts</a>
+                  </li>
+                  
+                  <li>
+                      <a href="/contact/">Contact</a>
+                  </li>
+                  
+              </ul>
+          </div>
+      </nav>
+    </div>
+    
+    
+    <div class="max-w-screen-4xl mx-auto 3xl:px-12">
+        <div id="side-content-border">
+            <div class="max-w-screen-lg mx-auto px-4 pb-4 sm:px-8 sm:pb-8 md:px-12 md:pb-12 lg:px-16 lg:pb-16 3xl:px-4">
+                <div id="article" class="3xl:px-12" style="--side-content-offset-left: 0px; --side-content-offset-right: 0px; --side-content-max-width: 0px;">
+                    
+    <ul class="list-disc list-inside">
+        
+            <li><a href="/posts/ptl-adb-ffmpeg/">Automatic Time-Lapses with ADB and FFmpeg</a></li>
+        
+    </ul>
+    
+    <p>Android Debug Bridge (abbreviated as &ldquo;ADB&rdquo; or &ldquo;adb&rdquo;) is a debugging tool that enables communication between Android devices and development machines, either over USB or wirelessly. An ADB client on the development machine connects to a daemon running on the Android device, which exposes a Unix shell and the ability to execute commands on the device. These connections are managed by an ADB server, which also runs on the development machine. To use ADB with a device, the user must allow USB debugging in the developer options.<span class="sidenote relative group"><span class="sidenote-background hidden absolute -z-10"><span class="absolute left-0 top-0 bg-zinc-200 dark:bg-zinc-800 [transition:background-color_0.2s,border-color_0.2s] group-hover:bg-zinc-300 group-hover:dark:bg-zinc-700 border border-zinc-50 dark:border-zinc-900 group-hover:border-zinc-500 group-hover:dark:border-zinc-500 rounded-md"></span><span class="absolute left-0 top-0 bg-zinc-200 dark:bg-zinc-800 [transition:background-color_0.2s,border-color_0.2s] group-hover:bg-zinc-300 group-hover:dark:bg-zinc-700 border border-zinc-50 dark:border-zinc-900 group-hover:border-zinc-500 group-hover:dark:border-zinc-500 rounded-md"></span><span class="absolute left-0 top-0 bg-zinc-200 dark:bg-zinc-800 [transition:background-color_0.2s,border-color_0.2s] group-hover:bg-zinc-300 group-hover:dark:bg-zinc-700 border border-zinc-50 dark:border-zinc-900 group-hover:border-zinc-500 group-hover:dark:border-zinc-500 rounded-md"></span><span class="absolute left-0 top-0 bg-zinc-200 dark:bg-zinc-800 [transition:background-color_0.2s,border-color_0.2s] group-hover:bg-zinc-300 group-hover:dark:bg-zinc-700  rounded-md"></span></span><span class="sidenote-space hidden"> </span><button class="sidenote-button"><sup class="sidenote-sup bg-zinc-300 dark:bg-zinc-700 [transition:background-color_0.2s,border_0.2s] group-hover:bg-zinc-400 group-hover:dark:bg-zinc-600 border-zinc-50 dark:border-zinc-900 group-hover:border-zinc-500 group-hover:dark:border-zinc-500 text-zinc-800 dark:text-zinc-200 px-1 mx-0.5 rounded-sm">1</sup></button><span class="sidenote-content hidden bg-zinc-200 dark:bg-zinc-800 [transition:background-color_0.2s,border-color_0.2s] group-hover:bg-zinc-300 group-hover:dark:bg-zinc-700 border-zinc-50 dark:border-zinc-900 group-hover:border-zinc-500 group-hover:dark:border-zinc-500 text-zinc-800 dark:text-zinc-200 translate-x-[--side-content-offset-right] max-w-[--side-content-max-width] w-max"><button class="sidenote-button-2"><sup class="bg-zinc-300 dark:bg-zinc-700 [transition:background-color_0.2s] group-hover:bg-zinc-400 group-hover:dark:bg-zinc-600 hover:group-hover:bg-zinc-500 hover:group-hover:dark:bg-zinc-500 px-1 mx-0.5 rounded-sm">1</sup></button>
+        <span class="sidenote-prefix" data-prefix-inline="" data-prefix-block=""></span><span class="sidenote-text-inline hidden">When learning something like this, the trade off is that I inevitably pick up some bad practices or do things in a suboptimal way. Personally, though, I find it easier to motivate myself by working hands-on rather than learning all of the theory beforehand. In recent years, I&rsquo;ve gotten better at seeking out the &ldquo;correct&rdquo; way of accomplishing something before adopting it as a habit, but I&rsquo;ve also started to enjoy reading up about a prospective tool before I dive into the deep end.</span><span class="sidenote-text-block">When learning something like this, the trade off is that I inevitably pick up some bad practices or do things in a suboptimal way. Personally, though, I find it easier to motivate myself by working hands-on rather than learning all of the theory beforehand. In recent years, I&rsquo;ve gotten better at seeking out the &ldquo;correct&rdquo; way of accomplishing something before adopting it as a habit, but I&rsquo;ve also started to enjoy reading up about a prospective tool before I dive into the deep end.</span><span class="sidenote-suffix" data-suffix-inline="" data-suffix-block=""></span></span></span></p>
+
+
+
+
+<h2 id="recording-time-lapse-frames">Recording Time-Lapse Frames</h2>
+<p>oops</p>
+<p>The <code>adb</code> command-line tool invokes the ADB client (starting a server/daemon as needed), supporting common operations such as installing/uninstalling apps, copying files to and from the device, and running shell commands.</p>
+
+
+
+
+
+<span class="tooltip not-prose group relative" data-counter="0" data-status="closed" data-hover="0"><a href="https://scratch.mit.edu" data-page="/concepts/adb-2/" data-number="0">BBBBBBB</a><span class="tooltip-anchor relative">.<span class="tooltip-base absolute -translate-x-1/2 w-max max-w-sm pointer-events-none z-10">.<a href="https://scratch.mit.edu" class="tooltip-body text-inherit bg-zinc-50 dark:bg-zinc-800 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">.<span class="text-blue-500">..<strong>Scratch - Imagine, Program, Share</strong>..</span>..<br>.<span>Scratch is a free programming language and online community where you can create your own interactive stories, games, and animations.</span>..<i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i>.</a>.</span>.</span></span>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
