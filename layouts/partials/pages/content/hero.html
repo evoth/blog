@@ -1,5 +1,5 @@
 {{ $hero := .Resources.GetMatch "hero" }}
-<div class="flex md:flex-row flex-col gap-8 md:gap-12 items-stretch">
+<div class="flex md:flex-row flex-col gap-2 sm:gap-6 md:gap-12 items-stretch">
     <div class="not-tooltip-container flex-1 flex flex-col justify-center">
         {{ $page := . }}
         <div class="not-tooltip-container flex flex-wrap justify-between gap-x-4">
@@ -37,7 +37,7 @@
         {{ end }}
     </div>
     {{ with $hero }}
-        <div class="flex-1 bg-[url('{{ .RelPermalink }}')] bg-cover bg-center rounded-xl aspect-video md:aspect-auto min-h-[16rem]">
+        <div class="flex-1 bg-[url('{{ .RelPermalink }}')] bg-cover bg-center rounded-xl aspect-video md:aspect-auto md:min-h-[16rem]">
         </div>
     {{ end }}
 </div>
