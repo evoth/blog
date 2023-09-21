@@ -98,7 +98,7 @@ if __name__ == "__main__":
     content_dir = "content"
     link_data_dir = join("data", "links")
     link_data_file = join(link_data_dir, "linkData.json")
-    link_thumb_dir = join("assets", "linkThumbnails")
+    link_thumb_dir = join("assets", "og")
 
     filetypes = ("md",)
 

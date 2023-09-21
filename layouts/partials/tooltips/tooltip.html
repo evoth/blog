@@ -5,7 +5,7 @@
             {{- $data := . -}}
             {{- $data = dict "title" (dict "text" $data.title "limit" 12 | partial "utilities/short.html") | merge $data -}}
             {{- $data = dict "description" (dict "text" $data.description "limit" 20 | partial "utilities/short.html") | merge $data -}}
-            {{- $data = dict "image" (resources.GetMatch (printf `linkThumbnails/%s` .thumbnailFile)) | merge $data -}}
+            {{- $data = dict "image" (resources.GetMatch (printf `og/%s` .thumbnailFile)) | merge $data -}}
             {{- $data | partial "tooltips/tooltip-helper.html" -}}
         {{- end -}}
     {{- else -}}
