@@ -9,7 +9,7 @@
     {{ end }}
 {{ end }}
 {{ with $page }}
-    {{ $pages := first $count .Pages }}
+    {{ $pages := first $count .Pages.ByWeight }}
     {{ if ne (len $pages) 0 }}
         <div class="not-tooltip-container">
                 {{ $titleContent := partial "pages/list/card-list/title-link.html" (slice $title .RelPermalink) }}

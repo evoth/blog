@@ -44,7 +44,8 @@ for (const svg of svgs) {
         freeze.style.display = "inline";
     }
     const card = svg.closest(".card");
-    card.addEventListener("mouseenter", () => cardEnter(svg));
-    card.addEventListener("mouseleave", () => cardLeave(svg));
+    // *****SVG ANIMATION DISABLED IN CARDS FOR THE TIME BEING*****
+    // card.addEventListener("mouseenter", () => cardEnter(svg));
+    // card.addEventListener("mouseleave", () => cardLeave(svg));
 }
 export {};
