@@ -40,8 +40,17 @@ def process_existing(link_data: Dict[str, LinkPreview], url: str):
 
 def process_new(link_data: Dict[str, LinkPreview], url: str):
     print(f'- New url "{url}"')
+    domain = urlparse(url).hostname.removeprefix("www.")
     # Get meta tags with the property attribute
-    r = requests.get(url, headers=HEADERS)
+    try:
+        r = requests.get(url, headers=HEADERS)
+    except:
+        link_data[url] = LinkPreview(
+            datetime.now(),
+            url,
+            domain=domain,
+        )
+        return
     soup = BeautifulSoup(r.text, "html.parser")
     metas = soup.select("meta[property]")
     meta = {v["property"]: v["content"] for v in metas if v.has_attr("content")}
@@ -52,7 +61,6 @@ def process_new(link_data: Dict[str, LinkPreview], url: str):
     title = meta["og:title"] if "og:title" in meta else soup.title.text
     description = meta["og:description"] if "og:description" in meta else None
     site_name = meta["og:site_name"] if "og:site_name" in meta else None
-    domain = urlparse(url).hostname.removeprefix("www.")
 
     # Download image
     thumbnail_file = None

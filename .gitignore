@@ -1,7 +1,7 @@
 /.vscode
 /node_modules
 # Published content
-/public/*
+/public
 # Link preview data
 /assets/linkThumbnails
 /data/links

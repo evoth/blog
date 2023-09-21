@@ -25,9 +25,19 @@
                 {{ $taxonomy := . }}
                 {{ with $page.GetTerms . }}
                     <p class="mr-6 text-sm md:text-base leading-[2.1]"><strong>{{ i18n (strings.FirstUpper $taxonomy | printf `post%s`) (dict "Count" (len .)) }}:</strong>
-                        {{ partial "metadata/chip-list.html" . }}
+                        {{ range . }}
+                            {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/chip" .) "page" .) }}
+                        {{ end }}
                     </p>
                 {{ end }}
+            {{ end }}
+            {{ with $page.Params.links }}
+                <p class="mr-6 text-sm md:text-base leading-[2.1]"><strong>{{ i18n "metaLinks" (dict "Count" (len .)) }}:</strong>
+                    {{ range . }}
+                        {{ $linkData := dict "Title" .title "RelPermalink" .url }}
+                        {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/chip" $linkData) "url" .url) }}
+                    {{ end }}
+                </p>
             {{ end }}
         </div>
         {{ if eq .Kind "page" }}
