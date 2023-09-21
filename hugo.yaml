@@ -25,11 +25,8 @@ languages:
         - name: GitHub
           url: "https://github.com/evoth"
           weight: 1
-        - name: About
-          url: /about
-          weight: 2
-        - name: Contact
-          url: /contact
+        - name: Resume
+          url: "https://ethanvoth.com/Ethan%20Voth%20Resume%20Fall%202023.pdf"
           weight: 3
 disableKinds:
   - sitemap
