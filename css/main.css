@@ -1975,10 +1975,6 @@ a:hover{
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.grid-cols-3{
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
 .flex-row{
   flex-direction: row;
 }
@@ -2175,6 +2171,42 @@ a:hover{
 
 .bg-\[url\(\'\/projects\/webbster\/webbster-hero\.svg\'\)\]{
   background-image: url('/projects/webbster/webbster-hero.svg');
+}
+
+.bg-\[url\(\'\/projects\/feedback-palette\/feedback-palette-thumb\.svg\'\)\]{
+  background-image: url('/projects/feedback-palette/feedback-palette-thumb.svg');
+}
+
+.bg-\[url\(\'\/projects\/gopro-video-sync\/gopro-video-sync-thumb\.svg\'\)\]{
+  background-image: url('/projects/gopro-video-sync/gopro-video-sync-thumb.svg');
+}
+
+.bg-\[url\(\'\/projects\/midi-vision\/midi-vision-thumb\.svg\'\)\]{
+  background-image: url('/projects/midi-vision/midi-vision-thumb.svg');
+}
+
+.bg-\[url\(\'\/projects\/portfolio-v1\/portfolio-v1-thumb\.svg\'\)\]{
+  background-image: url('/projects/portfolio-v1/portfolio-v1-thumb.svg');
+}
+
+.bg-\[url\(\'\/projects\/portfolio-v2\/portfolio-v2-thumb\.svg\'\)\]{
+  background-image: url('/projects/portfolio-v2/portfolio-v2-thumb.svg');
+}
+
+.bg-\[url\(\'\/projects\/pseudosun\/pseudosun-thumb\.svg\'\)\]{
+  background-image: url('/projects/pseudosun/pseudosun-thumb.svg');
+}
+
+.bg-\[url\(\'\/projects\/ptl\/ptl-thumb\.svg\'\)\]{
+  background-image: url('/projects/ptl/ptl-thumb.svg');
+}
+
+.bg-\[url\(\'\/projects\/schema\/schema-thumb\.svg\'\)\]{
+  background-image: url('/projects/schema/schema-thumb.svg');
+}
+
+.bg-\[url\(\'\/projects\/webbster\/webbster-thumb\.svg\'\)\]{
+  background-image: url('/projects/webbster/webbster-thumb.svg');
 }
 
 .box-decoration-clone{
