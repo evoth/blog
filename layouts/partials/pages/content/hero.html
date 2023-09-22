@@ -1,53 +1,58 @@
 {{ $hero := .Resources.GetMatch "hero" }}
-<div class="flex md:flex-row flex-col gap-2 sm:gap-6 md:gap-12 items-stretch">
-    <div class="not-tooltip-container flex-1 flex flex-col justify-center">
-        {{ $page := . }}
-        <div class="not-tooltip-container flex flex-wrap justify-between gap-x-4">
-            {{ range .GetTerms "series" }}
-                <div class="not-tooltip-container flex mb-2 md:mb-4">
-                    {{ $seriesPages := index site.Taxonomies.series .Data.Term }}
-                    {{ with $seriesPages.Prev $page }}
-                        {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/series-button.html" (dict "Page" . "ButtonIndex" -1)) "page" .) }}
-                    {{ end }}
-                    {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/series-button.html" (dict "Page" . "ButtonIndex" 0)) "page" .) }}
-                    {{ with $seriesPages.Next $page }}
-                        {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/series-button.html" (dict "Page" . "ButtonIndex" 1)) "page" .) }}
-                    {{ end }}
-                </div>
+{{ if .Params.thumbAsHero }}
+    {{ $hero = .Resources.GetMatch "thumb" }}
+{{ end }}
+<div class="{{ if $hero }}container-xl{{ else }}container-lg{{ end }}">
+    <div class="flex md:flex-row flex-col gap-2 sm:gap-6 md:gap-12 items-stretch">
+        <div class="not-tooltip-container flex-1 flex flex-col justify-center">
+            {{ $page := . }}
+            <div class="not-tooltip-container flex flex-wrap justify-between gap-x-4">
+                {{ range .GetTerms "series" }}
+                    <div class="not-tooltip-container flex mb-2 md:mb-4">
+                        {{ $seriesPages := index site.Taxonomies.series .Data.Term }}
+                        {{ with $seriesPages.Prev $page }}
+                            {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/series-button.html" (dict "Page" . "ButtonIndex" -1)) "page" .) }}
+                        {{ end }}
+                        {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/series-button.html" (dict "Page" . "ButtonIndex" 0)) "page" .) }}
+                        {{ with $seriesPages.Next $page }}
+                            {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/series-button.html" (dict "Page" . "ButtonIndex" 1)) "page" .) }}
+                        {{ end }}
+                    </div>
+                {{ end }}
+            </div>
+            <h1 class="mb-2 text-2xl md:text-4xl">{{ .Title }}</h1>
+            {{ with .Params.summary }}
+                <p class="mb-2 md:mb-4 text-lg md:text-2xl">{{ . }}</p>
             {{ end }}
-        </div>
-        <h1 class="mb-2 text-2xl md:text-4xl">{{ .Title }}</h1>
-        {{ with .Params.summary }}
-            <p class="mb-2 md:mb-4 text-lg md:text-2xl">{{ . }}</p>
-        {{ end }}
-        <div class="not-tooltip-container">
-            {{ range (slice "projects" "concepts" "tags") }}
-                {{ $taxonomy := . }}
-                {{ with $page.GetTerms . }}
-                    <p class="mr-6 text-sm md:text-base leading-[2.1]"><strong>{{ i18n (strings.FirstUpper $taxonomy | printf `post%s`) (dict "Count" (len .)) }}:</strong>
+            <div class="not-tooltip-container">
+                {{ range (slice "projects" "concepts" "tags") }}
+                    {{ $taxonomy := . }}
+                    {{ with $page.GetTerms . }}
+                        <p class="mr-6 text-sm md:text-base leading-[2.1]"><strong>{{ i18n (strings.FirstUpper $taxonomy | printf `post%s`) (dict "Count" (len .)) }}:</strong>
+                            {{ range . }}
+                                {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/chip" .) "page" .) }}
+                            {{ end }}
+                        </p>
+                    {{ end }}
+                {{ end }}
+                {{ with $page.Params.links }}
+                    <p class="mr-6 text-sm md:text-base leading-[2.1]"><strong>{{ i18n "metaLinks" (dict "Count" (len .)) }}:</strong>
                         {{ range . }}
-                            {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/chip" .) "page" .) }}
+                            {{ $linkData := dict "Title" .title "RelPermalink" .url }}
+                            {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/chip" $linkData) "url" .url) }}
                         {{ end }}
                     </p>
                 {{ end }}
-            {{ end }}
-            {{ with $page.Params.links }}
-                <p class="mr-6 text-sm md:text-base leading-[2.1]"><strong>{{ i18n "metaLinks" (dict "Count" (len .)) }}:</strong>
-                    {{ range . }}
-                        {{ $linkData := dict "Title" .title "RelPermalink" .url }}
-                        {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/chip" $linkData) "url" .url) }}
-                    {{ end }}
-                </p>
+            </div>
+            {{ if eq .Kind "page" }}
+                <div class="mt-2 md:mt-4">
+                    <p><i>{{ i18n "postDates" (dict "Published" (.PublishDate | time.Format ":date_long") "Updated" (.Lastmod | time.Format ":date_long")) }}</i></p>
+                </div>
             {{ end }}
         </div>
-        {{ if eq .Kind "page" }}
-            <div class="mt-2 md:mt-4">
-                <p><i>{{ i18n "postDates" (dict "Published" (.PublishDate | time.Format ":date_long") "Updated" (.Lastmod | time.Format ":date_long")) }}</i></p>
+        {{ with $hero }}
+            <div class="flex-1 bg-[url('{{ .RelPermalink }}')] bg-cover bg-center rounded-xl aspect-video md:aspect-auto md:min-h-[16rem]">
             </div>
         {{ end }}
     </div>
-    {{ with $hero }}
-        <div class="flex-1 bg-[url('{{ .RelPermalink }}')] bg-cover bg-center rounded-xl aspect-video md:aspect-auto md:min-h-[16rem]">
-        </div>
-    {{ end }}
 </div>

@@ -123,6 +123,7 @@ A visually appealing way to display my personal projects. I've laid the foundati
 - Subtitle for card list
 - Prevent page from appearing in card list on same page
 - Add favicon
+- Tooltip image scale on hover (like card)
 - Add content
     - Don't forget links and references
 - Deploy (GitHub pages?)
