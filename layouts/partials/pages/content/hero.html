@@ -51,7 +51,8 @@
             {{ end }}
         </div>
         {{ with $hero }}
-            <div class="flex-1 bg-[url('{{ .RelPermalink }}')] bg-cover bg-center rounded-xl aspect-video md:aspect-auto md:min-h-[16rem]">
+            <div class="flex-1 aspect-video md:aspect-auto md:min-h-[16rem]">
+                <img src="{{ .RelPermalink }}" alt="{{ .Params.alt }}" class="object-cover rounded-xl aspect-video md:aspect-auto min-h-full">
             </div>
         {{ end }}
     </div>
