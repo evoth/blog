@@ -28,9 +28,6 @@ languages:
         - name: Resume
           url: "https://ethanvoth.com/Ethan%20Voth%20Resume%20Fall%202023.pdf"
           weight: 3
-disableKinds:
-  - sitemap
-  - RSS
 taxonomies:
   tag: tags
   project: projects

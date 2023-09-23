@@ -23,7 +23,9 @@
                 <span class="block mt-1 text-sm 3xl:text-base">{{ . }}</span>
             {{- end -}}
             {{- with .image -}}
-                <img src="{{ .RelPermalink }}" class="aspect-og object-cover mt-3 rounded-lg w-full">
+                <span class="block rounded-lg aspect-og mt-3 overflow-hidden">
+                    <img src="{{ .RelPermalink }}" class="aspect-og object-cover w-full group-hover/body:scale-110 [transition:transform_0.2s]">
+                </span>
             {{- end -}}
             <i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i>
             {{- "" -}}
