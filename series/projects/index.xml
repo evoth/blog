@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects and Problem Solving Series on </title>
+    <link>https://ethanvoth.com/series/projects/</link>
+    <description>Recent content in Projects and Problem Solving Series on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language><atom:link href="https://ethanvoth.com/series/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Projects Series Intro</title>
+      <link>https://ethanvoth.com/posts/projects-intro/</link>
+      <pubDate>Tue, 27 Jun 2023 09:04:53 -0600</pubDate>
+      
+      <guid>https://ethanvoth.com/posts/projects-intro/</guid>
+      <description>Throughout the last decade, I&amp;rsquo;ve worked on a myriad of programming endeavors, whether it be Scratch projects, calculator games, or other &amp;ldquo;real&amp;rdquo; programming pursuits. In each instance, I&amp;rsquo;m motivated not just by the prospect of creating something cool or useful, but by the endless cycle of learning and problem solving which is at the heart of programming (or any problem solving process):
+Encounter a problem which is impossible with your current knowledge or tools.</description>
+    </item>
+    
+  </channel>
+</rss>

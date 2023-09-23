@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Series on </title>
+    <link>https://ethanvoth.com/series/</link>
+    <description>Recent content in Series on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Tue, 27 Jun 2023 09:04:53 -0600</lastBuildDate><atom:link href="https://ethanvoth.com/series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Projects and Problem Solving Series</title>
+      <link>https://ethanvoth.com/series/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/series/projects/</guid>
+      <description>Follow me as I explain the thought processes behind my projects and the skills I learned along the way!</description>
+    </item>
+    
+  </channel>
+</rss>

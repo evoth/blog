@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Concepts on </title>
+    <link>https://ethanvoth.com/concepts/</link>
+    <description>Recent content in Concepts on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 27 Jul 2023 11:26:21 -0600</lastBuildDate><atom:link href="https://ethanvoth.com/concepts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Android Debug Bridge (ADB)</title>
+      <link>https://ethanvoth.com/concepts/adb/</link>
+      <pubDate>Thu, 27 Jul 2023 11:26:21 -0600</pubDate>
+      
+      <guid>https://ethanvoth.com/concepts/adb/</guid>
+      <description>Android Debug Bridge (abbreviated as &amp;ldquo;ADB&amp;rdquo; or &amp;ldquo;adb&amp;rdquo;) is a debugging tool that enables communication between Android devices and development machines, either over USB or wirelessly. An ADB client on the development machine connects to a daemon running on the Android device, which exposes a Unix shell and the ability to execute commands on the device. These connections are managed by an ADB server, which also runs on the development machine.</description>
+    </item>
+    
+  </channel>
+</rss>
