@@ -36,6 +36,6 @@
     @apply font-rubik font-semibold;
   }
   a {
-    @apply text-blue-500 underline decoration-transparent [transition:text-decoration-color_0.2s] hover:decoration-current group-hover/tooltip:decoration-current dark:text-blue-400;
+    @apply text-blue-600 underline decoration-transparent [transition:text-decoration-color_0.2s] hover:decoration-current group-hover/tooltip:decoration-current dark:text-blue-400;
   }
 }

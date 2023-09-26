@@ -31,8 +31,13 @@ A visually appealing way to display my personal projects. I've laid the foundati
     - Intuitive navigation/layout
     - Research other stuff
     - prefers-reduced-motion
-- Semantic HTML
-    - Correct use of tags and attributes and structure
+    - Semantic HTML
+        - Correct use of tags and attributes and structure
+            - using <section> in post markdown somehow instead of just headings
+            - eliminate/convert unneeded <p> elements
+            - post headings shouldn't be links?
+            - tooltips (role="tooltip")
+            - table of contents
 - Metadata (and SEO by extension)
     - Schema
     - OpenGraph

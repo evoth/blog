@@ -30,8 +30,10 @@
 
   <body class="relative overflow-x-clip overflow-y-clip flex flex-col min-h-full">
     {{ partial "pages/navbar.html" . }}
-    {{ block "main" . }}
-    {{ end }}
+    <main>
+        {{ block "main" . }}
+        {{ end }}
+    </main>
     {{ partial "pages/footer.html" . }}
   </body>
 </html>
