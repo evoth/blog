@@ -1,4 +1,6 @@
 baseURL: https://ethanvoth.com/
+params:
+  env: production
 defaultContentLanguage: en
 languages:
   en:

@@ -26,7 +26,6 @@ A visually appealing way to display my personal projects. I've laid the foundati
 - Accessibility
     - ARIA
     - Test with accessibility tools
-    - Use visibility instead of display where appropriate to match visuals with accessibility tree
     - Good tooltips and labels, button/link titles, etc.
     - Contrast
     - Intuitive navigation/layout
@@ -84,7 +83,6 @@ A visually appealing way to display my personal projects. I've laid the foundati
     - Date
     - Taxonomy terms
 - Adding a term to a page in card lists section doesn't give the right title
-- Card list heading tooltips are bugged if mouse only barely hovers over top or bottom
 - Code block themes
     - Have the included ones, but also custom light/dark ones to match website themes
     - Ability to select themes
@@ -94,7 +92,6 @@ A visually appealing way to display my personal projects. I've laid the foundati
 - Sidenote bug (there are others) where the outline doesn't work if two lines just barely overlap
     - or if the first line's x coordinates lie entirely outside the x coordinates of subsequent lines
 - More robust handling of markdown (paragraphs) in sidenotes
-- That weird bug when a tooltip is closing but your mouse moves to the level of another fragment of the same link and the tooltip updates but not in the right way
 - Populate missing front matter dates with date of first commit
 - Use Tailwind line-clamp instead of limiting number of words?
     - Or at least shorten by character count instead of word count

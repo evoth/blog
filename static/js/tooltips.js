@@ -7,13 +7,7 @@ const baseClasses = {
     top: [],
     bottom: ["-translate-y-full"],
     open: { all: [], left: [], right: [], top: [], bottom: [] },
-    closed: {
-        all: ["pointer-events-none"],
-        left: [],
-        right: [],
-        top: [],
-        bottom: [],
-    },
+    closed: { all: [], left: [], right: [], top: [], bottom: [] },
 };
 const bodyClasses = {
     left: ["left-1/2"],
@@ -99,7 +93,10 @@ function tooltipEnter(event) {
     // Tooltip label text (inline)
     const text = tooltip.children[0];
     // Gets individual bounding boxes for the tooltip label text
-    const rects = text.getClientRects();
+    const rects = [...text.getClientRects()].filter((rect) => rect.height * rect.width != 0);
+    // Bail if for some reason there are no boxes with width/height != 0
+    if (rects.length == 0)
+        return;
     // Find box with y-coordinate closest to that of the mouse
     let lineRect = rects[0], minDeltaY = Infinity;
     for (const rect of rects) {
@@ -167,6 +164,7 @@ function tooltipEnter(event) {
                 Number(tooltip.dataset.hover) == 0)
                 return;
             tooltip.dataset.status = OPEN;
+            base.classList.remove("invisible");
             editClasses(isLeft, isTop, [base, baseClasses.open, baseClasses.closed], [body, bodyClasses.open, bodyClasses.closed], [arrow, arrowClasses.open, arrowClasses.closed]);
         }, OPEN_DELAY);
     }
@@ -190,12 +188,21 @@ function tooltipLeave(event) {
     // Incremented on enter and leave events; used to check if we can close
     const counter = String(Number(tooltip.dataset.counter) + 1);
     tooltip.dataset.counter = counter;
+    // If tooltip isn't open yet, no need to change classes
+    if (tooltip.dataset.status == OPENING) {
+        tooltip.dataset.status = CLOSED;
+        return;
+    }
     // Waits for `CLOSE_DELAY` milliseconds, only closing if counter hasn't changed
     setTimeout(function () {
         if (tooltip.dataset.counter != counter)
             return;
         tooltip.dataset.status = CLOSED;
         editClasses(tooltip.dataset.isLeft == "true", tooltip.dataset.isTop == "true", [base, baseClasses.closed, baseClasses.open], [body, bodyClasses.closed, bodyClasses.open], [arrow, arrowClasses.closed, arrowClasses.open]);
+        // Hide after animation is complete
+        base.addEventListener("transitionend", () => base.classList.add("invisible"), {
+            once: true,
+        });
     }, CLOSE_DELAY);
 }
 // Adds event listeners to tooltip link and tooltip itself
