@@ -58,7 +58,10 @@ def process_new(link_data: Dict[str, LinkPreview], url: str):
     print(meta)
     # Extract metadata
     # TODO: Add twitter fallbacks? May not be necessary
-    title = meta["og:title"] if "og:title" in meta else soup.title.text
+    if "og:title" in meta:
+        title = meta["og:title"]
+    else:
+        title = soup.title.text if soup.title is not None else None
     description = meta["og:description"] if "og:description" in meta else None
     site_name = meta["og:site_name"] if "og:site_name" in meta else None
 
@@ -76,7 +79,7 @@ def process_new(link_data: Dict[str, LinkPreview], url: str):
         image_ext = mimetypes.guess_extension(content_type, strict=False) or ""
 
         thumbnail_file = (
-            re.sub(r'[<>:"/\\|?*]', " ", image_name).strip(". ") + image_ext
+            re.sub(r'[<>:"/\\|?*]', "_", image_name).strip(". ") + image_ext
         )
 
         with open(join(link_thumb_dir, thumbnail_file), "wb") as f:
@@ -95,10 +98,10 @@ def process_new(link_data: Dict[str, LinkPreview], url: str):
 
 
 if __name__ == "__main__":
-    content_dir = "content"
+    content_dir = join("content")
     link_data_dir = join("data", "links")
     link_data_file = join(link_data_dir, "linkData.json")
-    link_thumb_dir = join("assets", "og")
+    link_thumb_dir = join("assets", "images", "links")
 
     filetypes = ("md",)
 

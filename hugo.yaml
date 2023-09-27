@@ -9,6 +9,7 @@ languages:
     weight: 1
     params:
       title: Ethan Voth
+      stylizedURL: EthanVoth.com
     menu:
       main:
         - name: Home
@@ -58,3 +59,34 @@ markup:
     style: github-dark
     tabWidth: 4
 refLinksErrorLevel: WARNING
+mediaTypes:
+  text/og+html:
+    suffixes:
+      - og.html
+    isPlainText: false
+    isHTML: true
+outputFormats:
+  og:
+    mediaType: text/og+html
+outputs:
+  home:
+    - html
+    - rss
+    - og
+  page:
+    - html
+    - og
+  rss:
+    - rss
+  section:
+    - html
+    - rss
+    - og
+  taxonomy:
+    - html
+    - rss
+    - og
+  term:
+    - html
+    - rss
+    - og

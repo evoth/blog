@@ -106,6 +106,16 @@ A visually appealing way to display my personal projects. I've laid the foundati
 - Access plot json as resource in plotly shortcode?
 - Prevent page from appearing in card list on same page
 - Tooltip image scale on hover (like card)
+- https://www.himpler.com/
+- Make it so that overflow is handled gracefully in og images
+- Figure out how to consolidate home page front matter (repeated summary)
+    - Meta url broken
+- Make publish script
+    - Get link data
+    - Start local server
+    - Generate OG images
+    - Stop server
+    - `hugo`
 - Add content
     - Don't forget links and references
 - Google Search Console?

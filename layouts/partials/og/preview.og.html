@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ site.LanguageCode | default site.Language.Lang  }}" class="dark dark:bg-black">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ .File.UniqueID }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+
+  <body class="dark:bg-black">
+    <div class="w-[1200px] h-[630px]">
+        <div class="bg-zinc-800 w-full h-full flex flex-col">
+            <div class="grow flex gap-8 p-12">
+                <div class="flex-1 flex flex-col justify-center">
+                    <h1 class="mb-6 text-4xl">{{ .Params.ogTitle | default .Title }}</h1>
+                    {{ with .Params.summary }}
+                        <p class="text-3xl">{{ . }}</p>
+                    {{ end }}
+                </div>
+                {{ with .Resources.GetMatch "thumb" }}
+                    <div class="flex-1">
+                        <img src="{{ .RelPermalink }}" alt="{{ .Params.alt }}" class="object-cover rounded-xl h-full min-w-full">
+                    </div>
+                {{ end }}
+            </div>
+            <div class="grow-0 p-8 bg-zinc-900 flex justify-between">
+                <h2 class="text-3xl">
+                    {{ site.Params.stylizedURL }}
+                </h2>
+                <p class="text-3xl">
+                    {{ .RelPermalink | strings.TrimSuffix "/" }}
+                </p>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>

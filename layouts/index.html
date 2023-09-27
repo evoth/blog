@@ -11,6 +11,12 @@
     </div>
 {{ end }}
 
+{{ define "meta" }}
+    {{ with site.GetPage "/home_resources" }}
+        {{ partial "og/meta.html" . }}
+    {{ end }}
+{{ end }}
+
 {{ define "partials/index/hero.html" }}
     <div class="flex md:flex-row flex-col gap-8 md:gap-12">
         <div class="not-tooltip-container flex place-items-center flex-1">
@@ -26,7 +32,7 @@
                 {{ end }}
             </div>
         </div>
-        {{ with .Resources.GetMatch "ethan.jpg" }}
+        {{ with .Resources.GetMatch "thumb" }}
             <div class="flex-1">
                 <img src="{{ .RelPermalink }}" alt="{{ .Params.alt }}" class="rounded-xl object-cover min-h-full">
             </div>
