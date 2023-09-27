@@ -1,7 +1,5 @@
 // Whether menu is collapsed
 let isCollapsed = true;
-// Animation duration (used to hide element after animation is done)
-const DURATION = 200;
 // Classes added/removed for each state
 const expandedClasses = [
     "-translate-y-0",
@@ -35,9 +33,7 @@ function toggle() {
         // Set button title to value in data-title-expand
         button.title = button.dataset.titleExpand;
         // Make invisible after animation is complete
-        setTimeout(function () {
-            menu.classList.add("invisible");
-        }, DURATION);
+        menu.addEventListener("transitionend", () => menu.classList.add("invisible"), { once: true });
     }
     else {
         // Switch menu classes to expanded
