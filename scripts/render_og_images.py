@@ -9,7 +9,8 @@ from urllib.parse import urlparse
 import requests
 from bs4 import BeautifulSoup
 from dataclasses_json import dataclass_json
-from html2image import Html2Image
+from PIL import Image
+from selenium import webdriver
 
 
 @dataclass_json
@@ -29,7 +30,7 @@ if __name__ == "__main__":
     og_data_file = join("scripts", "ogData.json")
     og_dir = join("assets", "images", "og")
 
-    hti = Html2Image(size=(1200, 630), output_path=og_dir)
+    driver = webdriver.Chrome()
 
     # Restore from existing json
     og_data: Dict[str, OpenGraphImage] = {}
@@ -57,7 +58,10 @@ if __name__ == "__main__":
 
             # Screenshot .og.html page
             image_file = f"{id}.png"
-            hti.screenshot(url=url, save_as=image_file)
+            image_path = join(og_dir, image_file)
+            driver.get(url)
+            driver.save_screenshot(image_path)
+            Image.open(image_path).crop((0, 0, 1200, 630)).save(image_path)
 
             og_data[path] = OpenGraphImage(
                 datetime.now(),
@@ -66,6 +70,8 @@ if __name__ == "__main__":
                 id,
                 image_file,
             )
+
+    driver.quit()
 
     # Save to json
     data = {og.path: json.loads(og.to_json()) for og in og_data.values()}

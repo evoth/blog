@@ -2,11 +2,13 @@
     {{- safeHTML .content -}}
     {{- if partial "utilities/link-is-external.html" .url -}}
         {{- with (index site.Data.links.linkData .url) -}}
-            {{- $data := . -}}
-            {{- $data = dict "title" (dict "text" $data.title "limit" 12 | partial "utilities/short.html") | merge $data -}}
-            {{- $data = dict "description" (dict "text" $data.description "limit" 20 | partial "utilities/short.html") | merge $data -}}
-            {{- $data = dict "image" (resources.GetMatch (printf `images/links/%s` .thumbnailFile)) | merge $data -}}
-            {{- $data | partial "tooltips/tooltip-helper.html" -}}
+            {{- if .title -}}
+                {{- $data := . -}}
+                {{- $data = dict "title" (dict "text" $data.title "limit" 12 | partial "utilities/short.html") | merge $data -}}
+                {{- $data = dict "description" (dict "text" $data.description "limit" 20 | partial "utilities/short.html") | merge $data -}}
+                {{- $data = dict "image" (resources.GetMatch (printf `images/links/%s` .thumbnailFile)) | merge $data -}}
+                {{- $data | partial "tooltips/tooltip-helper.html" -}}
+            {{- end -}}
         {{- end -}}
     {{- else -}}
         {{- $page := .page -}}

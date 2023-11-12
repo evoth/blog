@@ -22,14 +22,14 @@ languages:
           pageRef: /posts
           weight: 4
         - name: Resume
-          url: "https://ethanvoth.com/Ethan%20Voth%20Resume%20Fall%202023.pdf"
+          url: "https://ethanvoth.com/Ethan_Voth_Resume_Fall_2023.pdf"
           weight: 5
       footer:
         - name: GitHub
           url: "https://github.com/evoth"
           weight: 1
         - name: Resume
-          url: "https://ethanvoth.com/Ethan%20Voth%20Resume%20Fall%202023.pdf"
+          url: "https://ethanvoth.com/Ethan_Voth_Resume_Fall_2023.pdf"
           weight: 3
 taxonomies:
   tag: tags

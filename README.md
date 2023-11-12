@@ -116,6 +116,7 @@ A visually appealing way to display my personal projects. I've laid the foundati
     - Generate OG images
     - Stop server
     - `hugo`
+- Consistent flex gap (and other details) between home/page heros
 - Add content
     - Don't forget links and references
 - Google Search Console?
