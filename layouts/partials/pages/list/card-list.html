@@ -1,5 +1,5 @@
 {{ $page := index . 0 }}
-{{ $count := (index . 1).count | default 6 }}
+{{ $count := (index . 1).count }}
 {{ $title := (index . 1).title | default $page.Title }}
 {{ $description := (index . 1).description }}
 {{ with (index $page.Ancestors 0).Params.childrenListTitle }}
@@ -9,8 +9,15 @@
         {{ $title = . }}
     {{ end }}
 {{ end }}
+{{ $excludePage := index . 2 }}
 {{ with $page }}
-    {{ $pages := first $count .Pages.ByWeight }}
+    {{ $pages := .Pages.ByWeight }}
+    {{ with $excludePage }}
+        {{ $pages = where $pages "File.UniqueID" "ne" .File.UniqueID }}
+    {{ end }}
+    {{ if $count }}
+        {{ $pages = first $count $pages }}
+    {{ end }}
     {{ if ne (len $pages) 0 }}
         <div class="not-tooltip-container">
                 {{ $titleContent := partial "pages/list/card-list/title-link.html" (slice $title .RelPermalink) }}
@@ -20,7 +27,7 @@
                     {{ else }}
                         {{ $titleContent }}
                     {{ end }}
-                    {{ if len $pages | gt $count | and .Params.comingSoon }}
+                    {{ if and $count (len $pages | gt $count) | and .Params.comingSoon }}
                         <div class="bg-zinc-200 dark:bg-zinc-800 px-2 rounded-md flex flex-col justify-center">
                             <p class="md:text-lg text-center"><strong>{{ i18n "comingSoon" }}</strong></p>
                         </div>

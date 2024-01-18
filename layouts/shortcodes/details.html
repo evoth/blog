@@ -1,0 +1,4 @@
+<details>
+  <summary>{{ .Get 0 }}</summary>
+  {{ cond (.Get 1 | eq "html") (.Inner | safeHTML) (.Inner | .Page.RenderString) }}
+</details>

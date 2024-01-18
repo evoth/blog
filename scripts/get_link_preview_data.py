@@ -70,6 +70,8 @@ def process_new(link_data: Dict[str, LinkPreview], url: str):
     thumbnail_url = None
     if "og:image" in meta:
         thumbnail_url = meta["og:image"]
+        if thumbnail_url[0] == "/":
+            thumbnail_url = "://".join(urlparse(url)[0:2]) + thumbnail_url
         image_url_path = "".join(urlparse(thumbnail_url)[1:3])
         image_name, _ = splitext(image_url_path)
 

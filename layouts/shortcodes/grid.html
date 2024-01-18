@@ -1,3 +1,3 @@
 <div class="grid grid-cols-{{ .Get 0 }} gap-4 md:gap-6">
-    {{ .Inner | .Page.RenderString }}
+    {{ cond (.Get 1 | eq "html") (.Inner | safeHTML) (.Inner | .Page.RenderString) }}
 </div>

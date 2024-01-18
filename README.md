@@ -110,6 +110,7 @@ A visually appealing way to display my personal projects. I've laid the foundati
 - Make it so that overflow is handled gracefully in og images
 - Figure out how to consolidate home page front matter (repeated summary)
     - Meta url broken
+- Fix tooltip being italicized when coming from italicized link
 - Make publish script
     - Get link data
     - Start local server
