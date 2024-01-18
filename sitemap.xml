@@ -2,6 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ethanvoth.com/projects/esp-intervalometer/</loc>
+  </url><url>
     <loc>https://ethanvoth.com/projects/webbster/</loc>
   </url><url>
     <loc>https://ethanvoth.com/projects/gopro-video-sync/</loc>
