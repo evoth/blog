@@ -55,3 +55,6 @@ relatedPosts:
 metaLinks:
   one: Link
   other: Links
+
+notFound:
+  other: Either this page no longer exists, or it never existed in the first place. Sorry!

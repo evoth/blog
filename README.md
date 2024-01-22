@@ -111,6 +111,7 @@ A visually appealing way to display my personal projects. I've laid the foundati
 - Figure out how to consolidate home page front matter (repeated summary)
     - Meta url broken
 - Fix tooltip being italicized when coming from italicized link
+- Show PNGs instead of SVGs because performance?
 - Make publish script
     - Get link data
     - Start local server
