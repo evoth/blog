@@ -10,7 +10,7 @@
     {{- end -}}
 {{- else -}}
     {{- with site.GetPage $url -}}
-        {{- $metadata = (dict "title" .Title "url" .RelPermalink "description" .Params.summary) -}}
+        {{- $metadata = (dict "title" .Title "url" .RelPermalink "description" (partial "utilities/summary.html" (dict "page" . "limit" 20))) -}}
     {{- end -}}
 {{- end -}}
 {{- .Page.Scratch.Add "references" (slice (dict "url" $url "title" (.Get 1 | default $metadata.title) "description" (.Get 2 | default $metadata.description) "page" .Page.RelPermalink "number" $number)) -}}

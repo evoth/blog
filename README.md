@@ -15,6 +15,7 @@ A visually appealing way to display my personal projects. I've laid the foundati
 - Better responsiveness for mobile
     - Home page
         - Smaller text sizes below medium breakpoint
+- Better responsiveness for mid-sized (laptop) screens
 - Sufficient button titles (TOC and others)
 - Concept framing
 - (Better) Footer

@@ -8,12 +8,6 @@
     {{ end }}
     <p class="md:text-lg mb-2"><strong>{{ .Title }}</strong></p>
     <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
-        {{ with .Params.summary }}
-            {{ . }}
-        {{ else }}
-            {{ with .Summary }}
-                {{ dict "text" . "limit" 12 | partial "utilities/short.html" }}
-            {{ end }}
-        {{ end }}
+        {{ partial "utilities/summary.html" (dict "page" .) }}
     </p>
 </a>

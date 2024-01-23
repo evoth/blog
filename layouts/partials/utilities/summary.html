@@ -1,0 +1,8 @@
+{{ $limit := .limit | default 12 }}
+{{ with .page.Params.summary }}
+    {{ . }}
+{{ else }}
+    {{ with .page.Summary }}
+        {{ dict "text" . "limit" $limit | partial "utilities/short.html" }}
+    {{ end }}
+{{ end }}

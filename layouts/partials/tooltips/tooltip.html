@@ -16,7 +16,7 @@
             {{ $page = site.GetPage .url }}
         {{- end -}}
         {{- with $page -}}
-            {{- partial "tooltips/tooltip-helper.html" (dict "title" .Title "url" .RelPermalink "description" .Params.summary "image" (.Resources.GetMatch "thumb")) -}}
+            {{- partial "tooltips/tooltip-helper.html" (dict "title" .Title "url" .RelPermalink "description" (partial "utilities/summary.html" (dict "page" . "limit" 20)) "image" (.Resources.GetMatch "thumb")) -}}
         {{- end -}}
     {{- end -}}
 </span>
