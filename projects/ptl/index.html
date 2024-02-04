@@ -276,7 +276,7 @@
     <h3 id="initial-version-phone">Initial Version (Phone)</h3>
 </a>
 <p>My first plan involved controlling a phone programmatically to take individual time-lapse frames and transfer them to the computer during daylight hours. Then, they would be combined into the final video and uploaded, ideally during the night.</p>
-<p>So, I started by making a program to repeatedly call <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="/concepts/adb/" >Android Debug Bridge</a><span class="tooltip-anchor relative"><span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs invisible z-10"><a href="/concepts/adb/"  class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">            <span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>Android Debug Bridge (ADB)</strong></span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span> to trigger the shutter on the phone and transfer each frame to the computer. Then, when the day&rsquo;s frames had been captured, <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="https://ffmpeg.org/" target="_blank" rel="noopener">FFmpeg</a><span class="tooltip-anchor relative"><span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs invisible z-10"><a href="https://ffmpeg.org/" target="_blank" rel="noopener" class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">            <span class="flex gap-1 items-center text-xs mb-1">                    ffmpeg.org<svg class="h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g fill="none" fill-rule="evenodd"><path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"/></g></svg></span><span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>FFmpeg</strong></span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span> was used to create a video from the frames, and the video was uploaded with the YouTube API (though I used a script called <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="https://github.com/tokland/youtube-upload" target="_blank" rel="noopener">youtube-upload</a><span class="tooltip-anchor relative"><span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs invisible z-10"><a href="https://github.com/tokland/youtube-upload" target="_blank" rel="noopener" class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">            <span class="flex gap-1 items-center text-xs mb-1">                    GitHub<svg class="h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g fill="none" fill-rule="evenodd"><path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"/></g></svg></span><span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>GitHub - tokland/youtube-upload: Upload videos to Youtube from the command line</strong></span><span class="block mt-1 text-sm 3xl:text-base">Upload videos to Youtube from the command line. Contribute to tokland/youtube-upload development by creating an account on GitHub.</span><span class="block rounded-lg aspect-og mt-3 overflow-hidden">                    <img src="/images/links/opengraph.githubassets.com_cd9a1905fe42ba8023e58945bc522726618d74d431d003a013fb3ca0bb07716d_tokland_youtube-upload.png" alt="" class="aspect-og object-cover w-full group-hover/body:scale-110 [transition:transform_0.2s]">                </span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span> since I had no experience with APIs at the time).</p>
+<p>So, I started by making a program to repeatedly call <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="/concepts/adb/" >Android Debug Bridge</a><span class="tooltip-anchor relative"><span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs invisible z-10"><a href="/concepts/adb/"  class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">            <span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>Android Debug Bridge (ADB)</strong></span><span class="block mt-1 text-sm 3xl:text-base">            Android Debug Bridge (abbreviated as &ldquo;ADB&rdquo; or &ldquo;adb&rdquo;) is a debugging tool that enables communication between Android devices and development...    </span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span> to trigger the shutter on the phone and transfer each frame to the computer. Then, when the day&rsquo;s frames had been captured, <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="https://ffmpeg.org/" target="_blank" rel="noopener">FFmpeg</a><span class="tooltip-anchor relative"><span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs invisible z-10"><a href="https://ffmpeg.org/" target="_blank" rel="noopener" class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">            <span class="flex gap-1 items-center text-xs mb-1">                    ffmpeg.org<svg class="h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g fill="none" fill-rule="evenodd"><path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"/></g></svg></span><span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>FFmpeg</strong></span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span> was used to create a video from the frames, and the video was uploaded with the YouTube API (though I used a script called <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="https://github.com/tokland/youtube-upload" target="_blank" rel="noopener">youtube-upload</a><span class="tooltip-anchor relative"><span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs invisible z-10"><a href="https://github.com/tokland/youtube-upload" target="_blank" rel="noopener" class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">            <span class="flex gap-1 items-center text-xs mb-1">                    GitHub<svg class="h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g fill="none" fill-rule="evenodd"><path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"/></g></svg></span><span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>GitHub - tokland/youtube-upload: Upload videos to Youtube from the command line</strong></span><span class="block mt-1 text-sm 3xl:text-base">Upload videos to Youtube from the command line. Contribute to tokland/youtube-upload development by creating an account on GitHub.</span><span class="block rounded-lg aspect-og mt-3 overflow-hidden">                    <img src="/images/links/opengraph.githubassets.com_cd9a1905fe42ba8023e58945bc522726618d74d431d003a013fb3ca0bb07716d_tokland_youtube-upload.png" alt="" class="aspect-og object-cover w-full group-hover/body:scale-110 [transition:transform_0.2s]">                </span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span> since I had no experience with APIs at the time).</p>
 <p>This version of the system was ready by New Year&rsquo;s 2020, but I had only been able to test it over short durations up to that point. When it came time to film the time-lapse for January 1st, the problems with the initial setup became apparent:</p>
 <ol>
 <li>The phone would overheat from being in the sunny window</li>
@@ -386,7 +386,10 @@
         </a>
     
 <span class="tooltip-anchor relative"><span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs invisible z-10"><a href="/projects/"  class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">
-            <span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>Projects</strong></span><span class="block mt-1 text-sm 3xl:text-base">Personal projects from the last couple years which cover a variety of technologies</span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span>
+            <span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>Projects</strong></span><span class="block mt-1 text-sm 3xl:text-base">
+
+    Personal projects from the last couple years which cover a variety of technologies
+</span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span>
                     
                     
                 </div>
@@ -402,8 +405,9 @@
     <p class="md:text-lg mb-2"><strong>ESP8266 Intervalometer</strong></p>
     <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
         
-            A ESP8266-based web app and server that uses the Canon CCAPI to trigger a series of exposures over Wi-Fi
-        
+
+    A ESP8266-based web app and server that uses the Canon CCAPI to trigger a series of exposures over Wi-Fi
+
     </p>
 </a>
                     
@@ -416,8 +420,9 @@
     <p class="md:text-lg mb-2"><strong>Webbster</strong></p>
     <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
         
-            Utility to transform raw James Webb Space Telescope data into viewable color images
-        
+
+    Utility to transform raw James Webb Space Telescope data into viewable color images
+
     </p>
 </a>
                     
@@ -430,8 +435,9 @@
     <p class="md:text-lg mb-2"><strong>GoPro Video Sync</strong></p>
     <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
         
-            Tool to sync videos from two jointly mounted GoPros using data from multiple sensors
-        
+
+    Tool to sync videos from two jointly mounted GoPros using data from multiple sensors
+
     </p>
 </a>
                     
@@ -444,8 +450,9 @@
     <p class="md:text-lg mb-2"><strong>Schema Notes</strong></p>
     <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
         
-            A notes app built using Flutter with support for offline use and real-time syncing across devices
-        
+
+    A notes app built using Flutter with support for offline use and real-time syncing across devices
+
     </p>
 </a>
                     
@@ -458,8 +465,9 @@
     <p class="md:text-lg mb-2"><strong>This Website!</strong></p>
     <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
         
-            Portfolio and blog site created with Hugo SSG, Tailwind CSS, and good old JavaScript
-        
+
+    Portfolio and blog site created with Hugo SSG, Tailwind CSS, and good old JavaScript
+
     </p>
 </a>
                     
@@ -472,8 +480,9 @@
     <p class="md:text-lg mb-2"><strong>Midi Vision</strong></p>
     <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
         
-            Visualizing midi files as a chorus of colorful lines using Tone.js and the canvas
-        
+
+    Visualizing midi files as a chorus of colorful lines using Tone.js and the canvas
+
     </p>
 </a>
                     
@@ -486,8 +495,9 @@
     <p class="md:text-lg mb-2"><strong>Feedback Palette</strong></p>
     <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
         
-            Using feedback loops and interpolation artifacts to get a color palette for a point in an image
-        
+
+    Using feedback loops and interpolation artifacts to get a color palette for a point in an image
+
     </p>
 </a>
                     
@@ -500,8 +510,9 @@
     <p class="md:text-lg mb-2"><strong>Portfolio Site v1</strong></p>
     <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
         
-            Single page static site using raw HTML, Bulma, and SASS
-        
+
+    Single page static site using raw HTML, Bulma, and SASS
+
     </p>
 </a>
                     
@@ -514,8 +525,9 @@
     <p class="md:text-lg mb-2"><strong>PseudoSun</strong></p>
     <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
         
-            Procedurally generated 3D environment using Three.js (development paused)
-        
+
+    Procedurally generated 3D environment using Three.js (development paused)
+
     </p>
 </a>
                     
