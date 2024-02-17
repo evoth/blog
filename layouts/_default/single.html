@@ -1,5 +1,5 @@
 {{ define "main" }}
     {{ $related := site.RegularPages.Related . }}
     {{ $other := complement $related site.RegularPages.ByWeight.ByLastmod.Reverse }}
-    {{ partial "pages/page.html" (dict "Page" . "Lists" (slice (dict "Title" (i18n "relatedPages") "Pages" $related) (dict "Title" (i18n "otherPages") "Pages" $other))) }}
+    {{ partial "pages/page.html" . }}
 {{ end }}

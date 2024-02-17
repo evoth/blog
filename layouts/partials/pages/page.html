@@ -1,4 +1,3 @@
-{{ $lists := .Lists }}
 {{ with .Page }}
     {{ if (and (and .Params.concepts (.Scratch.Get "conceptShortcodes")) (ne (len (complement (.Scratch.Get "conceptShortcodes") .Params.concepts)) 0)) }}
         {{ errorf `Page "%s" contains concept terms that are not used in concept shortcodes.` .Page.Title }}
@@ -9,11 +8,11 @@
     {{ if .Content }}
         {{ partial "pages/page/content.html" . | partial "pages/content/post-container.html" }}
         <div class="max-w-screen-xl mx-auto px-container pb-container">
-            {{ partial "pages/list/card-lists.html" (slice . $lists) }}
+            {{ partial "pages/list/card-lists.html" . }}
         </div>
     {{ else }}
         <div class="container-xl">
-            {{ partial "pages/list/card-lists.html" (slice . $lists) }}
+            {{ partial "pages/list/card-lists.html" . }}
         </div>
     {{ end }}
 {{ end }}
