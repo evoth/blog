@@ -25,7 +25,7 @@
                 <p class="mb-2 md:mb-4 text-lg md:text-2xl">{{ . }}</p>
             {{ end }}
             <div class="not-tooltip-container">
-                {{ range (slice "projects" "concepts" "tags") }}
+                {{ range (slice "projects" "languages" "tags" "concepts") }}
                     {{ $param := . }}
                     {{ with $page.Param . }}
                         <p class="mr-6 text-sm md:text-base leading-[2.1]"><strong>{{ i18n (strings.FirstUpper $param | printf `post%s`) (dict "Count" (len .)) }}:</strong>

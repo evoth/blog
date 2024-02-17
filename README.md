@@ -85,9 +85,6 @@ A visually appealing way to display my personal projects. I've laid the foundati
 - View all buttons for card lists?
 - When scraping link metadata, get more data if needed (image/alt text)
 - Bug when no single card in card list is the max width, meaning the list is smaller than the max and gets centered
-- Add more metadata to card?
-    - Date
-    - Taxonomy terms
 - Adding a term to a page in card lists section doesn't give the right title
 - Code block themes
     - Have the included ones, but also custom light/dark ones to match website themes
@@ -113,6 +110,11 @@ A visually appealing way to display my personal projects. I've laid the foundati
     - Meta url broken
 - Fix tooltip being italicized when coming from italicized link
 - Show PNGs instead of SVGs because performance?
+- Add tags and other metadata to all pages
+- Add more metadata to card?
+    - Date
+    - Taxonomy terms
+    - Figure out better way to do names of taxonomies in hero (should be able to derive from some sort of function instead of having to use i18n hacks)
 - Make publish script
     - Get link data
     - Start local server

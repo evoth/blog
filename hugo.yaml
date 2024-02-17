@@ -33,6 +33,7 @@ languages:
           weight: 3
 taxonomies:
   tag: tags
+  language: languages
   series: series
   concept: concepts
 related:
@@ -48,6 +49,8 @@ related:
       weight: 50
     - name: concepts
       weight: 50
+    - name: languages
+      weight: 25
 enableGitInfo: true
 markup:
   highlight:
