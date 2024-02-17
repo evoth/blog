@@ -49,8 +49,11 @@ viewAll:
 copyright:
   other: "{{ .year }} © {{ .name }}"
 
-relatedPosts:
-  other: Related Posts
+relatedPages:
+  other: Related Pages
+
+otherPages:
+  other: Other Pages
 
 metaLinks:
   one: Link

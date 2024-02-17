@@ -1,3 +1,0 @@
-{{ define "main" }}
-    {{ partial "pages/page.html" (dict "Page" . "Lists" (dict "Title" (i18n "relatedPosts") "Pages" (.Site.RegularPages.Related .))) }}
-{{ end }}

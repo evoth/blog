@@ -26,11 +26,13 @@
             {{ end }}
             <div class="not-tooltip-container">
                 {{ range (slice "projects" "concepts" "tags") }}
-                    {{ $taxonomy := . }}
-                    {{ with $page.GetTerms . }}
-                        <p class="mr-6 text-sm md:text-base leading-[2.1]"><strong>{{ i18n (strings.FirstUpper $taxonomy | printf `post%s`) (dict "Count" (len .)) }}:</strong>
+                    {{ $param := . }}
+                    {{ with $page.Param . }}
+                        <p class="mr-6 text-sm md:text-base leading-[2.1]"><strong>{{ i18n (strings.FirstUpper $param | printf `post%s`) (dict "Count" (len .)) }}:</strong>
                             {{ range . }}
-                                {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/chip" .) "page" .) }}
+                                {{ with printf "/%s/%s" $param . | site.GetPage }}
+                                    {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/chip" .) "page" .) }}
+                                {{ end }}
                             {{ end }}
                         </p>
                     {{ end }}
@@ -44,7 +46,7 @@
                     </p>
                 {{ end }}
             </div>
-            {{ if eq .Kind "page" }}
+            {{ if eq .Kind "page" | and .PublishDate }}
                 <div class="mt-2 md:mt-4">
                     <p><i>{{ i18n "postDates" (dict "Published" (.PublishDate | time.Format ":date_long") "Updated" (.Lastmod | time.Format ":date_long")) }}</i></p>
                 </div>

@@ -7,7 +7,7 @@
         </div>
     {{ end }}
     <div class="container-xl">
-        {{ partial "pages/list/card-lists.html" . }}
+        {{ partial "pages/list/card-lists.html" (slice . (slice .)) }}
     </div>
 {{ end }}
 
