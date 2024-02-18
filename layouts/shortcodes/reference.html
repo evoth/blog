@@ -5,12 +5,12 @@
 {{- end -}}
 {{- $metadata := "" -}}
 {{- if partial "utilities/link-is-external.html" $url -}}
-    {{- with (index site.Data.links.linkData $url) -}}
+    {{- with (index site.Data.linkData $url) -}}
         {{ $metadata = . }}
     {{- end -}}
 {{- else -}}
     {{- with site.GetPage $url -}}
-        {{- $metadata = (dict "title" .Title "url" .RelPermalink "description" (partial "utilities/summary.html" (dict "page" . "limit" 20))) -}}
+        {{- $metadata = (dict "title" .Title "url" .RelPermalink "description" (partial "utilities/summary.html" (dict "page" . "limit" 20 "previewContent" true))) -}}
     {{- end -}}
 {{- end -}}
 {{- .Page.Scratch.Add "references" (slice (dict "url" $url "title" (.Get 1 | default $metadata.title) "description" (.Get 2 | default $metadata.description) "page" .Page.RelPermalink "number" $number)) -}}

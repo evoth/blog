@@ -21,10 +21,18 @@
                 {{ end }}
             </div>
             <h1 class="mb-2 text-2xl md:text-4xl">{{ .Title }}</h1>
-            {{ with .Params.summary }}
+            {{ with partial "utilities/summary.html" (dict "page" .) }}
                 <p class="mb-2 md:mb-4 text-lg md:text-2xl">{{ . }}</p>
             {{ end }}
             <div class="not-tooltip-container">
+                {{ with $page.Params.links }}
+                    <p class="mr-6 text-sm md:text-base leading-[2.1]"><strong>{{ i18n "metaLinks" (dict "Count" (len .)) }}:</strong>
+                        {{ range . }}
+                            {{ $linkData := dict "Title" .title "RelPermalink" .url }}
+                            {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/chip" $linkData) "url" .url) }}
+                        {{ end }}
+                    </p>
+                {{ end }}
                 {{ range (slice "projects" "languages" "tags" "concepts") }}
                     {{ $param := . }}
                     {{ with $page.Param . }}
@@ -36,14 +44,6 @@
                             {{ end }}
                         </p>
                     {{ end }}
-                {{ end }}
-                {{ with $page.Params.links }}
-                    <p class="mr-6 text-sm md:text-base leading-[2.1]"><strong>{{ i18n "metaLinks" (dict "Count" (len .)) }}:</strong>
-                        {{ range . }}
-                            {{ $linkData := dict "Title" .title "RelPermalink" .url }}
-                            {{ partial "tooltips/tooltip.html" (dict "content" (partial "metadata/chip" $linkData) "url" .url) }}
-                        {{ end }}
-                    </p>
                 {{ end }}
             </div>
             {{ if eq .Kind "page" | and .PublishDate }}

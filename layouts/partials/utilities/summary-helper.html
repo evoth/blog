@@ -1,0 +1,27 @@
+{{ $limit := .limit }}
+{{ $summary := "" }}
+{{ $page := .page }}
+
+{{ if .previewContent }}
+    {{ with $page.Summary }}
+        {{ $summary = . }}
+    {{ end }}
+    {{ if $limit }}
+        {{ $summary = dict "text" $summary "limit" $limit | partial "utilities/short.html" }}
+    {{ end }}
+{{ end }}
+
+{{ with (index $page.Ancestors 0).Params.childrenSummary }}
+    {{ if findRE `%s` . }}
+        {{ $summary = printf . $page.Title }}
+    {{ else }}
+        {{ $summary = . }}
+    {{ end }}
+{{ end }}
+
+{{ with $page.Params.summary }}
+    {{ $summary = . }}
+{{ end }}
+
+
+{{ $summary }}

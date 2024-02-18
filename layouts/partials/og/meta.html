@@ -2,7 +2,7 @@
 <meta property="og:title" content="{{ site.Params.Title }} - {{ .Title }}" />
 <meta name="twitter:title" content="{{ site.Params.Title }} - {{ .Title }}"/>
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
-{{ with .Params.summary }}
+{{ with partial "utilities/summary.html" (dict "page" .) }}
     <meta name="description" content="{{ . }}">
     <meta property="og:description" content="{{ . }}" />
     <meta name="twitter:description" content="{{ . }}"/>

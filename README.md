@@ -115,6 +115,8 @@ A visually appealing way to display my personal projects. I've laid the foundati
     - Date
     - Taxonomy terms
     - Figure out better way to do names of taxonomies in hero (should be able to derive from some sort of function instead of having to use i18n hacks)
+- Add static version of Google fonts as fallback
+- Disable navbar disappearing on non-mobile breakpoints
 - Make publish script
     - Get link data
     - Start local server

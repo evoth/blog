@@ -101,8 +101,7 @@ def process_new(link_data: Dict[str, LinkPreview], url: str):
 
 if __name__ == "__main__":
     content_dir = join("content")
-    link_data_dir = join("data", "links")
-    link_data_file = join(link_data_dir, "linkData.json")
+    link_data_file = join("data", "linkData.json")
     link_thumb_dir = join("assets", "images", "links")
 
     filetypes = ("md",)

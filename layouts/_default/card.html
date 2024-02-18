@@ -6,8 +6,14 @@
     {{ else }}
         <div class="bg-zinc-300 dark:bg-zinc-700 group-hover/summary:bg-zinc-350 group-hover/summary:dark:bg-zinc-600 aspect-video rounded-lg mb-3"></div>
     {{ end }}
-    <p class="md:text-lg mb-2"><strong>{{ .Title }}</strong></p>
-    <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
-        {{ partial "utilities/summary.html" (dict "page" .) }}
-    </p>
+    {{ $summary := "" }}
+    {{ if ne (index .Ancestors 0).Params.hideChildrenCardSummary true }}
+        {{ $summary = partial "utilities/summary.html" (dict "page" . "limit" 12 "previewContent" true) }}
+    {{ end }}
+    <p class="md:text-lg {{ if $summary }}mb-2{{ end }}"><strong>{{ .Title }}</strong></p>
+    {{ with $summary }}
+        <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
+            {{ . }}
+        </p>
+    {{ end }}
 </a>
