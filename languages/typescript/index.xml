@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TypeScript on </title>
+    <link>https://ethanvoth.com/languages/typescript/</link>
+    <description>Recent content in TypeScript on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language><atom:link href="https://ethanvoth.com/languages/typescript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>This Website!</title>
+      <link>https://ethanvoth.com/projects/portfolio-v2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/projects/portfolio-v2/</guid>
+      <description>Portfolio and blog site created with Hugo SSG, Tailwind CSS, and good old JavaScript</description>
+    </item>
+    
+  </channel>
+</rss>

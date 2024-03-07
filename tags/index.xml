@@ -5,6 +5,205 @@
     <link>https://ethanvoth.com/tags/</link>
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language><atom:link href="https://ethanvoth.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-US</language>
+    <lastBuildDate>Thu, 07 Mar 2024 05:40:00 -0500</lastBuildDate><atom:link href="https://ethanvoth.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Astrophotography</title>
+      <link>https://ethanvoth.com/tags/astrophotography/</link>
+      <pubDate>Thu, 07 Mar 2024 05:40:00 -0500</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/astrophotography/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bulma CSS</title>
+      <link>https://ethanvoth.com/tags/bulma/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/bulma/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Canon CCAPI</title>
+      <link>https://ethanvoth.com/tags/ccapi/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/ccapi/</guid>
+      <description>Posts related to the Canon Camera Control API (CCAPI)</description>
+    </item>
+    
+    <item>
+      <title>Embedded Systems</title>
+      <link>https://ethanvoth.com/tags/embedded-systems/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/embedded-systems/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ESP8266</title>
+      <link>https://ethanvoth.com/tags/esp8266/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/esp8266/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Firebase</title>
+      <link>https://ethanvoth.com/tags/firebase/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/firebase/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Flutter</title>
+      <link>https://ethanvoth.com/tags/flutter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/flutter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GoPro Metadata Format</title>
+      <link>https://ethanvoth.com/tags/gpmf/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/gpmf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>HTML Canvas</title>
+      <link>https://ethanvoth.com/tags/html-canvas/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/html-canvas/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://ethanvoth.com/tags/hugo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Image Processing</title>
+      <link>https://ethanvoth.com/tags/image-processing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/image-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>JWST</title>
+      <link>https://ethanvoth.com/tags/jwst/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/jwst/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MP4 Parsing</title>
+      <link>https://ethanvoth.com/tags/mp4-parsing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/mp4-parsing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scikit-image</title>
+      <link>https://ethanvoth.com/tags/scikit-image/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/scikit-image/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sensor Data</title>
+      <link>https://ethanvoth.com/tags/sensor-data/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/sensor-data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Signal Processing</title>
+      <link>https://ethanvoth.com/tags/signal-processing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/signal-processing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tailwind CSS</title>
+      <link>https://ethanvoth.com/tags/tailwind/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/tailwind/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Terrain Generation</title>
+      <link>https://ethanvoth.com/tags/terrain-generation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/terrain-generation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Three.js</title>
+      <link>https://ethanvoth.com/tags/threejs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/threejs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tone.js</title>
+      <link>https://ethanvoth.com/tags/tonejs/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/tonejs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web Workers</title>
+      <link>https://ethanvoth.com/tags/web-workers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/web-workers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WebSockets</title>
+      <link>https://ethanvoth.com/tags/websockets/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/tags/websockets/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

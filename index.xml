@@ -7,13 +7,102 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language><atom:link href="https://ethanvoth.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Projects Series Intro</title>
-      <link>https://ethanvoth.com/posts/projects-intro/</link>
-      <pubDate>Tue, 27 Jun 2023 09:04:53 -0600</pubDate>
+      <title>ESP8266 Intervalometer</title>
+      <link>https://ethanvoth.com/projects/esp-intervalometer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ethanvoth.com/posts/projects-intro/</guid>
-      <description>Throughout the last decade, I&amp;rsquo;ve worked on a myriad of programming endeavors, whether it be Scratch projects, calculator games, or other &amp;ldquo;real&amp;rdquo; programming pursuits. In each instance, I&amp;rsquo;m motivated not just by the prospect of creating something cool or useful, but by the endless cycle of learning and problem solving which is at the heart of programming (or any problem solving process):
-Encounter a problem which is impossible with your current knowledge or tools.</description>
+      <guid>https://ethanvoth.com/projects/esp-intervalometer/</guid>
+      <description>A ESP8266-based web app and server that uses the Canon CCAPI to trigger a series of exposures over Wi-Fi</description>
+    </item>
+    
+    <item>
+      <title>Webbster</title>
+      <link>https://ethanvoth.com/projects/webbster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/projects/webbster/</guid>
+      <description>Utility to transform raw James Webb Space Telescope data into viewable color images</description>
+    </item>
+    
+    <item>
+      <title>GoPro Video Sync</title>
+      <link>https://ethanvoth.com/projects/gopro-video-sync/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/projects/gopro-video-sync/</guid>
+      <description>Tool to sync videos from two jointly mounted GoPros using data from multiple sensors</description>
+    </item>
+    
+    <item>
+      <title>Schema Notes</title>
+      <link>https://ethanvoth.com/projects/schema/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/projects/schema/</guid>
+      <description>A notes app built using Flutter with support for offline use and real-time syncing across devices</description>
+    </item>
+    
+    <item>
+      <title>This Website!</title>
+      <link>https://ethanvoth.com/projects/portfolio-v2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/projects/portfolio-v2/</guid>
+      <description>Portfolio and blog site created with Hugo SSG, Tailwind CSS, and good old JavaScript</description>
+    </item>
+    
+    <item>
+      <title>Perpetual Timelapse</title>
+      <link>https://ethanvoth.com/projects/ptl/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/projects/ptl/</guid>
+      <description>An automatic time-lapse creation and posting system (my first Python project)</description>
+    </item>
+    
+    <item>
+      <title>Midi Vision</title>
+      <link>https://ethanvoth.com/projects/midi-vision/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/projects/midi-vision/</guid>
+      <description>Visualizing midi files as a chorus of colorful lines using Tone.js and the canvas</description>
+    </item>
+    
+    <item>
+      <title>Feedback Palette</title>
+      <link>https://ethanvoth.com/projects/feedback-palette/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/projects/feedback-palette/</guid>
+      <description>Using feedback loops and interpolation artifacts to get a color palette for a point in an image</description>
+    </item>
+    
+    <item>
+      <title>Portfolio Site v1</title>
+      <link>https://ethanvoth.com/projects/portfolio-v1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/projects/portfolio-v1/</guid>
+      <description>Single page static site using raw HTML, Bulma, and SASS</description>
+    </item>
+    
+    <item>
+      <title>PseudoSun</title>
+      <link>https://ethanvoth.com/projects/pseudosun/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/projects/pseudosun/</guid>
+      <description>Procedurally generated 3D environment using Three.js (development paused)</description>
+    </item>
+    
+    <item>
+      <title>2024 TSE: The Plan</title>
+      <link>https://ethanvoth.com/posts/2024-tse-plan/</link>
+      <pubDate>Thu, 07 Mar 2024 05:40:00 -0500</pubDate>
+      
+      <guid>https://ethanvoth.com/posts/2024-tse-plan/</guid>
+      <description>Ever since I first heard about the eclipse back in August of last year, I knew I wanted to try to make it to the path of totality on April 8th. I also knew that, being someone interested in photography, I would probably want to photograph it somehow. What I didn&amp;rsquo;t know about was the 6+ months and hundreds of hours I would spend learning about and practicing astrophotography, embedded programming, hardware prototyping, 3D design/integration, and software application development.</description>
     </item>
     
   </channel>

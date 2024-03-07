@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2024 Total Solar Eclipse on </title>
+    <link>https://ethanvoth.com/series/2024-tse/</link>
+    <description>Recent content in 2024 Total Solar Eclipse on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 07 Mar 2024 05:40:00 -0500</lastBuildDate><atom:link href="https://ethanvoth.com/series/2024-tse/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024 TSE: The Plan</title>
+      <link>https://ethanvoth.com/posts/2024-tse-plan/</link>
+      <pubDate>Thu, 07 Mar 2024 05:40:00 -0500</pubDate>
+      
+      <guid>https://ethanvoth.com/posts/2024-tse-plan/</guid>
+      <description>Ever since I first heard about the eclipse back in August of last year, I knew I wanted to try to make it to the path of totality on April 8th. I also knew that, being someone interested in photography, I would probably want to photograph it somehow. What I didn&amp;rsquo;t know about was the 6+ months and hundreds of hours I would spend learning about and practicing astrophotography, embedded programming, hardware prototyping, 3D design/integration, and software application development.</description>
+    </item>
+    
+  </channel>
+</rss>

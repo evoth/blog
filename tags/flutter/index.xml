@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flutter on </title>
+    <link>https://ethanvoth.com/tags/flutter/</link>
+    <description>Recent content in Flutter on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language><atom:link href="https://ethanvoth.com/tags/flutter/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Schema Notes</title>
+      <link>https://ethanvoth.com/projects/schema/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/projects/schema/</guid>
+      <description>A notes app built using Flutter with support for offline use and real-time syncing across devices</description>
+    </item>
+    
+  </channel>
+</rss>

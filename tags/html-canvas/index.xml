@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTML Canvas on </title>
+    <link>https://ethanvoth.com/tags/html-canvas/</link>
+    <description>Recent content in HTML Canvas on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language><atom:link href="https://ethanvoth.com/tags/html-canvas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Midi Vision</title>
+      <link>https://ethanvoth.com/projects/midi-vision/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/projects/midi-vision/</guid>
+      <description>Visualizing midi files as a chorus of colorful lines using Tone.js and the canvas</description>
+    </item>
+    
+    <item>
+      <title>Feedback Palette</title>
+      <link>https://ethanvoth.com/projects/feedback-palette/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ethanvoth.com/projects/feedback-palette/</guid>
+      <description>Using feedback loops and interpolation artifacts to get a color palette for a point in an image</description>
+    </item>
+    
+  </channel>
+</rss>
