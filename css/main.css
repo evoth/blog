@@ -2216,10 +2216,6 @@ a:hover{
   padding-left: 1rem;
 }
 
-.pl-8{
-  padding-left: 2rem;
-}
-
 .pr-0{
   padding-right: 0px;
 }
@@ -2999,6 +2995,10 @@ a:hover{
 
 .prose-headings\:mt-6 :is(:where(h1, h2, h3, h4, h5, h6, th):not(:where([class~="not-prose"] *))){
   margin-top: 1.5rem;
+}
+
+.prose-figcaption\:text-center :is(:where(figcaption):not(:where([class~="not-prose"] *))){
+  text-align: center;
 }
 
 :is(.dark .dark\:block){
