@@ -2,6 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ethanvoth.com/projects/sequent/</loc>
+  </url><url>
     <loc>https://ethanvoth.com/projects/esp-intervalometer/</loc>
   </url><url>
     <loc>https://ethanvoth.com/projects/webbster/</loc>
@@ -40,6 +42,8 @@
     <loc>https://ethanvoth.com/posts/2024-tse-plan/</loc>
     <lastmod>2024-03-19T15:20:00-06:00</lastmod>
   </url><url>
+    <loc>https://ethanvoth.com/tags/automation/</loc>
+  </url><url>
     <loc>https://ethanvoth.com/tags/bulma/</loc>
   </url><url>
     <loc>https://ethanvoth.com/languages/cpp/</loc>
@@ -51,6 +55,8 @@
     <loc>https://ethanvoth.com/languages/dart/</loc>
   </url><url>
     <loc>https://ethanvoth.com/tags/embedded-systems/</loc>
+  </url><url>
+    <loc>https://ethanvoth.com/tags/esp32/</loc>
   </url><url>
     <loc>https://ethanvoth.com/tags/esp8266/</loc>
   </url><url>

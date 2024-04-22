@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en-US" class="hidden overflow-x-hidden h-full">
+  <head>
+    <meta charset="utf-8">
+    <title>Ethan Voth - Sequent</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <meta property="og:site_name" content="Ethan Voth" />
+<meta property="og:title" content="Ethan Voth - Sequent" />
+<meta name="twitter:title" content="Ethan Voth - Sequent"/>
+<meta property="og:type" content="article" />
+
+    <meta name="description" content="
+
+
+
+
+
+
+
+
+    
+
+
+
+A flexible tool for composing and programmatically executing complex sequences of actions">
+    <meta property="og:description" content="
+
+
+
+
+
+
+
+
+    
+
+
+
+A flexible tool for composing and programmatically executing complex sequences of actions" />
+    <meta name="twitter:description" content="
+
+
+
+
+
+
+
+
+    
+
+
+
+A flexible tool for composing and programmatically executing complex sequences of actions"/>
+
+
+    <meta property="og:url" content="https://ethanvoth.com/projects/sequent/" />
+
+
+
+    <meta name="twitter:card" content="summary"/>
+
+
+
+    
+    
+    
+
+    
+    
+    
+    
+    
+      <meta name="robots" content="index, follow">
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+    <script src="/js/theme.js" type="module"></script>
+    <script src="/js/tooltips.js" type="module" defer></script>
+    <script src="/js/side-content.js" type="module" defer></script>
+    <script src="/js/sidenotes.js" type="module" defer></script>
+    <script src="/js/navbar.js" type="module" defer></script>
+    <script src="/js/menu.js" type="module" defer></script>
+    <script src="/js/toc.js" type="module" defer></script>
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+
+  <body class="relative overflow-x-clip overflow-y-clip flex flex-col min-h-full">
+    <div id="navbar" class="bg-zinc-50 dark:bg-zinc-900 top-0 relative z-10">
+    <div id="navbar-shadow" class="absolute left-0 right-0 top-0 bottom-0 shadow-lg shadow-black/20 dark:shadow-black/50 -z-10 opacity-0"></div>
+    <nav class="flex flex-wrap items-center justify-between py-2 sm:py-3 px-4 sm:px-8 md:px-12 lg:px-6 z-10">
+        <ul class="font-rubik flex flex-row gap-x-4">
+            <li>
+                <a href="https://ethanvoth.com/" class="text-inherit dark:text-inherit block p-2 no-underline [transition:background-color_0.2s,color_0.2s] hover:bg-zinc-300 hover:dark:bg-zinc-700 hover:text-zinc-800 hover:dark:text-zinc-200 rounded-lg">
+                    <span class="font-semibold">Ethan Voth</span>
+                </a>
+            </li>
+            <li>
+                <div class="h-full flex justify-center">
+                  <button title="Switch theme" class="button theme-toggle group p-2 [transition:background-color_0.2s] hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded-lg">
+                      <svg class="hidden dark:block h-5" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path class="fill-zinc-500 [transition:fill_0.2s] group-hover:fill-zinc-800 group-hover:dark:fill-zinc-200" d="m264 480a232 232 0 0 1 -232-232c0-94 54-178.28 137.61-214.67a16 16 0 0 1 21.06 21.06c-9.6 22.04-14.67 50.27-14.67 81.61 0 110.28 89.72 200 200 200 31.34 0 59.57-5.07 81.61-14.67a16 16 0 0 1 21.06 21.06c-36.39 83.61-120.67 137.61-214.67 137.61z"/></svg>
+                      <svg class="block dark:hidden h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m0 0h24v24h-24z" class="fill-zinc-350 [transition:fill_0.2s] group-hover:fill-zinc-800 group-hover:dark:fill-zinc-200" opacity="0" transform="matrix(-1 0 0 -1 24 24)"/><g class="fill-zinc-350 [transition:fill_0.2s] group-hover:fill-zinc-800 group-hover:dark:fill-zinc-200"><path d="m12 6a1 1 0 0 0 1-1v-2a1 1 0 0 0 -2 0v2a1 1 0 0 0 1 1z"/><path d="m21 11h-2a1 1 0 0 0 0 2h2a1 1 0 0 0 0-2z"/><path d="m6 12a1 1 0 0 0 -1-1h-2a1 1 0 0 0 0 2h2a1 1 0 0 0 1-1z"/><path d="m6.22 5a1 1 0 0 0 -1.39 1.47l1.44 1.39a1 1 0 0 0 .73.28 1 1 0 0 0 .72-.31 1 1 0 0 0 0-1.41z"/><path d="m17 8.14a1 1 0 0 0 .69-.28l1.44-1.39a1 1 0 0 0 -1.35-1.47l-1.44 1.42a1 1 0 0 0 0 1.41 1 1 0 0 0 .66.31z"/><path d="m12 18a1 1 0 0 0 -1 1v2a1 1 0 0 0 2 0v-2a1 1 0 0 0 -1-1z"/><path d="m17.73 16.14a1 1 0 0 0 -1.39 1.44l1.44 1.42a1 1 0 0 0 .69.28 1 1 0 0 0 .72-.3 1 1 0 0 0 0-1.42z"/><path d="m6.27 16.14-1.44 1.39a1 1 0 0 0 0 1.42 1 1 0 0 0 .72.3 1 1 0 0 0 .67-.25l1.44-1.39a1 1 0 0 0 -1.39-1.44z"/><path d="m12 8a4 4 0 1 0 4 4 4 4 0 0 0 -4-4z"/></g></svg>
+                  </button>
+              </div>
+            </li>
+        </ul>
+        <button id="nav-menu-button" data-title-collapse="Close navigation menu" data-title-expand="Open navigation menu" class="md:hidden p-2 [transition:background-color_0.2s] hover:bg-zinc-300 hover:dark:bg-zinc-700 rounded-lg">
+            <svg class="h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line transform-origin="5 9" x1="3" y1="6" x2="21" y2="6"></line><line transform-origin="5 15" x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+        <div class="w-full md:w-auto [transition:display_0.2s]">
+            <ul id="nav-menu" class="absolute md:static font-rubik flex flex-col items-stretch p-4 md:p-0 md:flex-row xl:gap-x-4 bg-zinc-50 dark:bg-zinc-900 w-full left-0 shadow-lg shadow-black/20 dark:shadow-black/50 md:shadow-none invisible md:visible pointer-events-none -z-10 -translate-y-full opacity-0 md:pointer-events-auto md:z-auto md:translate-y-0 md:opacity-100 [transition:background-color_0.2s,transform_0.2s,opacity_0.2s]">
+                
+                <li>
+                    <a href="/" class="text-inherit dark:text-inherit text-center block p-2 no-underline [transition:background-color_0.2s,color_0.2s] hover:bg-zinc-300 hover:dark:bg-zinc-700 hover:text-zinc-800 hover:dark:text-zinc-200 rounded-lg">Home</a>
+                </li>
+                
+                <li>
+                    <a href="/projects/" class="text-inherit dark:text-inherit text-center block p-2 no-underline [transition:background-color_0.2s,color_0.2s] hover:bg-zinc-300 hover:dark:bg-zinc-700 hover:text-zinc-800 hover:dark:text-zinc-200 rounded-lg">Projects</a>
+                </li>
+                
+                <li>
+                    <a href="/posts/" class="text-inherit dark:text-inherit text-center block p-2 no-underline [transition:background-color_0.2s,color_0.2s] hover:bg-zinc-300 hover:dark:bg-zinc-700 hover:text-zinc-800 hover:dark:text-zinc-200 rounded-lg">Posts</a>
+                </li>
+                
+                <li>
+                    <a href="https://ethanvoth.com/Ethan_Voth_Resume_Spring_2024.pdf" class="text-inherit dark:text-inherit text-center block p-2 no-underline [transition:background-color_0.2s,color_0.2s] hover:bg-zinc-300 hover:dark:bg-zinc-700 hover:text-zinc-800 hover:dark:text-zinc-200 rounded-lg">Resume</a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+</div>
+    <main>
+        
+    
+    
+    
+    
+    <div class="bg-zinc-200 dark:bg-zinc-800">
+        
+
+    
+
+<div class="container-xl">
+    <div class="flex md:flex-row flex-col gap-2 sm:gap-6 md:gap-12 items-stretch">
+        <div class="not-tooltip-container flex-1 flex flex-col justify-center">
+            
+            <div class="not-tooltip-container flex flex-wrap justify-between gap-x-4">
+                
+            </div>
+            <h1 class="mb-2 text-2xl md:text-4xl">Sequent</h1>
+            
+                <p class="mb-2 md:mb-4 text-lg md:text-2xl">
+
+
+
+
+
+
+
+
+    
+
+
+
+A flexible tool for composing and programmatically executing complex sequences of actions</p>
+            
+            <div class="not-tooltip-container">
+                
+                    <p class="mr-6 text-sm md:text-base leading-[2.1]"><strong>Link:</strong>
+                        
+                            
+                            <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="https://github.com/evoth/sequent" target="_blank" rel="noopener" class="text-inherit dark:text-inherit leading-[2.1] no-underline p-1 rounded-md bg-zinc-300 dark:bg-zinc-700 group-hover/tooltip:bg-zinc-350 group-hover/tooltip:dark:bg-zinc-600 group-hover/tooltip:text-zinc-800 group-hover/tooltip:dark:text-zinc-200 [transition:background-color_0.2s,border-color_0.2s,color_0.2s]">GitHub Repository</a><span class="tooltip-anchor relative"><span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs invisible z-10"><a href="https://github.com/evoth/sequent" target="_blank" rel="noopener" class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">
+            <span class="flex gap-1 items-center text-xs mb-1">
+                    GitHub<svg class="h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g fill="none" fill-rule="evenodd"><path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"/></g></svg></span><span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>GitHub - evoth/sequent: A flexible tool for composing and programmatically executing complex...</strong></span><span class="block mt-1 text-sm 3xl:text-base">A flexible tool for composing and programmatically executing complex sequences of actions, including time-lapses, sensor readings, and more! - evoth/sequent</span><span class="block rounded-lg aspect-og mt-3 overflow-hidden">
+                    <img src="/images/links/opengraph.githubassets.com_285473d173ed666ce5b2009139e26825d09a43e2577f3b9e8661ba4d87cd8b52_evoth_sequent.png" alt="" class="aspect-og object-cover w-full group-hover/body:scale-110 [transition:transform_0.2s]">
+                </span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span>
+                        
+                    </p>
+                
+                
+                    
+                    
+                
+                    
+                    
+                        <p class="mr-6 text-sm md:text-base leading-[2.1]"><strong>Languages:</strong>
+                            
+                                
+                                    <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="/languages/cpp/"  class="text-inherit dark:text-inherit leading-[2.1] no-underline p-1 rounded-md bg-zinc-300 dark:bg-zinc-700 group-hover/tooltip:bg-zinc-350 group-hover/tooltip:dark:bg-zinc-600 group-hover/tooltip:text-zinc-800 group-hover/tooltip:dark:text-zinc-200 [transition:background-color_0.2s,border-color_0.2s,color_0.2s]">C&#43;&#43;</a><span class="tooltip-anchor relative"><span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs invisible z-10"><a href="/languages/cpp/"  class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">
+            <span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>C&#43;&#43;</strong></span><span class="block mt-1 text-sm 3xl:text-base">
+
+
+
+
+    
+    
+        
+    
+
+
+
+    
+        
+    
+
+
+
+
+
+Projects using C&#43;&#43;</span><span class="block rounded-lg aspect-og mt-3 overflow-hidden">
+                    <img src="/languages/cpp/cpp-thumb.svg" alt="" class="aspect-og object-cover w-full group-hover/body:scale-110 [transition:transform_0.2s]">
+                </span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span>
+                                
+                            
+                                
+                                    <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="/languages/svelte/"  class="text-inherit dark:text-inherit leading-[2.1] no-underline p-1 rounded-md bg-zinc-300 dark:bg-zinc-700 group-hover/tooltip:bg-zinc-350 group-hover/tooltip:dark:bg-zinc-600 group-hover/tooltip:text-zinc-800 group-hover/tooltip:dark:text-zinc-200 [transition:background-color_0.2s,border-color_0.2s,color_0.2s]">Svelte</a><span class="tooltip-anchor relative"><span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs invisible z-10"><a href="/languages/svelte/"  class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">
+            <span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>Svelte</strong></span><span class="block mt-1 text-sm 3xl:text-base">
+
+
+
+
+    
+    
+        
+    
+
+
+
+    
+        
+    
+
+
+
+
+
+Projects using Svelte</span><span class="block rounded-lg aspect-og mt-3 overflow-hidden">
+                    <img src="/languages/svelte/svelte-thumb.svg" alt="" class="aspect-og object-cover w-full group-hover/body:scale-110 [transition:transform_0.2s]">
+                </span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span>
+                                
+                            
+                                
+                                    <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="/languages/typescript/"  class="text-inherit dark:text-inherit leading-[2.1] no-underline p-1 rounded-md bg-zinc-300 dark:bg-zinc-700 group-hover/tooltip:bg-zinc-350 group-hover/tooltip:dark:bg-zinc-600 group-hover/tooltip:text-zinc-800 group-hover/tooltip:dark:text-zinc-200 [transition:background-color_0.2s,border-color_0.2s,color_0.2s]">TypeScript</a><span class="tooltip-anchor relative"><span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs invisible z-10"><a href="/languages/typescript/"  class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">
+            <span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>TypeScript</strong></span><span class="block mt-1 text-sm 3xl:text-base">
+
+
+
+
+    
+    
+        
+    
+
+
+
+    
+        
+    
+
+
+
+
+
+Projects using TypeScript</span><span class="block rounded-lg aspect-og mt-3 overflow-hidden">
+                    <img src="/languages/typescript/typescript-thumb.svg" alt="" class="aspect-og object-cover w-full group-hover/body:scale-110 [transition:transform_0.2s]">
+                </span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span>
+                                
+                            
+                        </p>
+                    
+                
+                    
+                    
+                        <p class="mr-6 text-sm md:text-base leading-[2.1]"><strong>Tags:</strong>
+                            
+                                
+                                    <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="/tags/esp32/"  class="text-inherit dark:text-inherit leading-[2.1] no-underline p-1 rounded-md bg-zinc-300 dark:bg-zinc-700 group-hover/tooltip:bg-zinc-350 group-hover/tooltip:dark:bg-zinc-600 group-hover/tooltip:text-zinc-800 group-hover/tooltip:dark:text-zinc-200 [transition:background-color_0.2s,border-color_0.2s,color_0.2s]">ESP32</a><span class="tooltip-anchor relative"><span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs invisible z-10"><a href="/tags/esp32/"  class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">
+            <span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>ESP32</strong></span><span class="block mt-1 text-sm 3xl:text-base">
+
+
+
+
+    
+    
+        
+    
+
+
+
+    
+        
+    
+
+
+
+
+
+Posts related to ESP32</span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span>
+                                
+                            
+                                
+                                    <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="/tags/embedded-systems/"  class="text-inherit dark:text-inherit leading-[2.1] no-underline p-1 rounded-md bg-zinc-300 dark:bg-zinc-700 group-hover/tooltip:bg-zinc-350 group-hover/tooltip:dark:bg-zinc-600 group-hover/tooltip:text-zinc-800 group-hover/tooltip:dark:text-zinc-200 [transition:background-color_0.2s,border-color_0.2s,color_0.2s]">Embedded Systems</a><span class="tooltip-anchor relative"><span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs invisible z-10"><a href="/tags/embedded-systems/"  class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">
+            <span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>Embedded Systems</strong></span><span class="block mt-1 text-sm 3xl:text-base">
+
+
+
+
+    
+    
+        
+    
+
+
+
+    
+        
+    
+
+
+
+
+
+Posts related to Embedded Systems</span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span>
+                                
+                            
+                                
+                                    <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="/tags/ccapi/"  class="text-inherit dark:text-inherit leading-[2.1] no-underline p-1 rounded-md bg-zinc-300 dark:bg-zinc-700 group-hover/tooltip:bg-zinc-350 group-hover/tooltip:dark:bg-zinc-600 group-hover/tooltip:text-zinc-800 group-hover/tooltip:dark:text-zinc-200 [transition:background-color_0.2s,border-color_0.2s,color_0.2s]">Canon CCAPI</a><span class="tooltip-anchor relative"><span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs invisible z-10"><a href="/tags/ccapi/"  class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">
+            <span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>Canon CCAPI</strong></span><span class="block mt-1 text-sm 3xl:text-base">
+
+
+
+
+    
+        
+    
+    
+        
+    
+
+
+
+    
+        
+    
+
+
+
+    
+
+
+
+Posts related to the Canon Camera Control API (CCAPI)</span><span class="block rounded-lg aspect-og mt-3 overflow-hidden">
+                    <img src="/tags/ccapi/ccapi-thumb.svg" alt="" class="aspect-og object-cover w-full group-hover/body:scale-110 [transition:transform_0.2s]">
+                </span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span>
+                                
+                            
+                                
+                                    <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="/tags/websockets/"  class="text-inherit dark:text-inherit leading-[2.1] no-underline p-1 rounded-md bg-zinc-300 dark:bg-zinc-700 group-hover/tooltip:bg-zinc-350 group-hover/tooltip:dark:bg-zinc-600 group-hover/tooltip:text-zinc-800 group-hover/tooltip:dark:text-zinc-200 [transition:background-color_0.2s,border-color_0.2s,color_0.2s]">WebSockets</a><span class="tooltip-anchor relative"><span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs invisible z-10"><a href="/tags/websockets/"  class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">
+            <span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>WebSockets</strong></span><span class="block mt-1 text-sm 3xl:text-base">
+
+
+
+
+    
+    
+        
+    
+
+
+
+    
+        
+    
+
+
+
+
+
+Posts related to WebSockets</span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span>
+                                
+                            
+                                
+                                    <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="/tags/automation/"  class="text-inherit dark:text-inherit leading-[2.1] no-underline p-1 rounded-md bg-zinc-300 dark:bg-zinc-700 group-hover/tooltip:bg-zinc-350 group-hover/tooltip:dark:bg-zinc-600 group-hover/tooltip:text-zinc-800 group-hover/tooltip:dark:text-zinc-200 [transition:background-color_0.2s,border-color_0.2s,color_0.2s]">Automation</a><span class="tooltip-anchor relative"><span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs invisible z-10"><a href="/tags/automation/"  class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">
+            <span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>Automation</strong></span><span class="block mt-1 text-sm 3xl:text-base">
+
+
+
+
+    
+    
+        
+    
+
+
+
+    
+        
+    
+
+
+
+
+
+Posts related to Automation</span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span>
+                                
+                            
+                        </p>
+                    
+                
+                    
+                    
+                
+            </div>
+            
+        </div>
+        
+            <div class="flex-1 aspect-video md:aspect-auto md:min-h-[16rem]">
+                <img src="/projects/sequent/sequent-thumb.svg" alt="Abstract logo consisting of yellow circle encircled by green and blue arcs." class="object-cover rounded-xl aspect-video md:aspect-auto min-h-full">
+            </div>
+        
+    </div>
+</div>
+    </div>
+    
+        <div class="w-full">
+    <div class="max-w-screen-4xl mx-auto 3xl:px-12">
+        <div id="side-content-border">
+            <div class="container-lg 3xl:px-4">
+                
+    <div id="article" class="3xl:px-12" style="--side-content-offset-left: 0px; --side-content-offset-right: 0px; --side-content-max-width: 0px;">
+        
+    
+
+    
+        
+        
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+            
+                
+            
+        
+        <div id="table-of-contents" data-title-collapse="Collapse table of contents" data-title-expand="Expand table of contents" class="3xl:block 3xl:h-0 3xl:sticky 3xl:top-28">
+            <nav class="bg-zinc-200 dark:bg-zinc-800 [transition:background-color_0.2s,border-color_0.2s] group/toc hover:bg-zinc-300 hover:dark:bg-zinc-700 border border-zinc-50 dark:border-zinc-900 hover:border-zinc-500 hover:dark:border-zinc-500 p-4 rounded-xl mb-6 3xl:mt-0 3xl:translate-x-[--side-content-offset-left] 3xl:max-w-[--side-content-max-width] 3xl:w-max">
+                <div class="flex justify-between content-center group/button">
+                    <h2 class="grow text-base md:text-lg">
+                        <a href="#" title="Back to top" class="hidden 3xl:block text-inherit dark:text-inherit w-full h-full">
+                            Table of Contents
+                        </a>
+                        <button class="toc-button block 3xl:hidden text-inherit dark:text-inherit w-full h-full text-left">
+                            Table of Contents
+                        </a>
+                    </h2>
+                    <button class="toc-button flex-none 3xl:hidden h-max bg-zinc-200 dark:bg-zinc-800 [transition:background-color_0.2s,color_0.2s] group-hover/toc:bg-zinc-300 group-hover/toc:dark:bg-zinc-700 group-hover/toc:group-hover/button:bg-zinc-350 group-hover/toc:group-hover/button:dark:bg-zinc-600 group-hover/toc:group-hover/button:text-zinc-800 group-hover/toc:group-hover/button:dark:text-zinc-200 rounded-md p-0.5 my-auto">
+                        <svg class="toc-chevron h-5 rotate-90 [transition:transform_0.2s]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                </div>
+                <div class="toc-content overflow-hidden max-h-0 3xl:max-h-none">
+                    <hr class="mt-1 mb-1 border-zinc-800 dark:border-zinc-200">
+                    <ol>
+                    
+                        <li>
+                            <a href="#sequent" data-anchor="sequent" class="toc-link block w-full h-full text-inherit dark:text-inherit text-sm md:text-base text-zinc-800 dark:text-zinc-200 py-0.5 md:py-1 pr-0.5 md:pr-1 pl--4 no-underline [transition:background-color_0.2s,border-radius_0.2s] hover:bg-zinc-350 hover:dark:bg-zinc-600 group-hover/toc:rounded-sm group-hover/toc:md:rounded-md">
+                                <span class="block pl-0.5 md:pl-1">Sequent</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="#what-is-sequent" data-anchor="what-is-sequent" class="toc-link block w-full h-full text-inherit dark:text-inherit text-sm md:text-base text-zinc-800 dark:text-zinc-200 py-0.5 md:py-1 pr-0.5 md:pr-1 pl-0 no-underline [transition:background-color_0.2s,border-radius_0.2s] hover:bg-zinc-350 hover:dark:bg-zinc-600 group-hover/toc:rounded-sm group-hover/toc:md:rounded-md">
+                                <span class="block pl-0.5 md:pl-1">What is Sequent?</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="#sequence-editor" data-anchor="sequence-editor" class="toc-link block w-full h-full text-inherit dark:text-inherit text-xs md:text-sm text-zinc-700 dark:text-zinc-300 py-0.5 md:py-1 pr-0.5 md:pr-1 pl-4 no-underline [transition:background-color_0.2s,border-radius_0.2s] hover:bg-zinc-350 hover:dark:bg-zinc-600 group-hover/toc:rounded-sm group-hover/toc:md:rounded-md">
+                                <span class="block pl-0.5 md:pl-1">Sequence editor</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="#driver-program" data-anchor="driver-program" class="toc-link block w-full h-full text-inherit dark:text-inherit text-xs md:text-sm text-zinc-700 dark:text-zinc-300 py-0.5 md:py-1 pr-0.5 md:pr-1 pl-4 no-underline [transition:background-color_0.2s,border-radius_0.2s] hover:bg-zinc-350 hover:dark:bg-zinc-600 group-hover/toc:rounded-sm group-hover/toc:md:rounded-md">
+                                <span class="block pl-0.5 md:pl-1">Driver program</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="#hardware" data-anchor="hardware" class="toc-link block w-full h-full text-inherit dark:text-inherit text-xs md:text-sm text-zinc-700 dark:text-zinc-300 py-0.5 md:py-1 pr-0.5 md:pr-1 pl-4 no-underline [transition:background-color_0.2s,border-radius_0.2s] hover:bg-zinc-350 hover:dark:bg-zinc-600 group-hover/toc:rounded-sm group-hover/toc:md:rounded-md">
+                                <span class="block pl-0.5 md:pl-1">Hardware</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="#how-can-i-use-it" data-anchor="how-can-i-use-it" class="toc-link block w-full h-full text-inherit dark:text-inherit text-sm md:text-base text-zinc-800 dark:text-zinc-200 py-0.5 md:py-1 pr-0.5 md:pr-1 pl-0 no-underline [transition:background-color_0.2s,border-radius_0.2s] hover:bg-zinc-350 hover:dark:bg-zinc-600 group-hover/toc:rounded-sm group-hover/toc:md:rounded-md">
+                                <span class="block pl-0.5 md:pl-1">How can I use it?</span>
+                            </a>
+                        </li>
+                    
+                        <li>
+                            <a href="#future-plans" data-anchor="future-plans" class="toc-link block w-full h-full text-inherit dark:text-inherit text-sm md:text-base text-zinc-800 dark:text-zinc-200 py-0.5 md:py-1 pr-0.5 md:pr-1 pl-0 no-underline [transition:background-color_0.2s,border-radius_0.2s] hover:bg-zinc-350 hover:dark:bg-zinc-600 group-hover/toc:rounded-sm group-hover/toc:md:rounded-md">
+                                <span class="block pl-0.5 md:pl-1">Future plans</span>
+                            </a>
+                        </li>
+                    
+                    </ol>
+                </div>
+            </nav>
+        </div>
+    
+
+    <div id="content" class="prose prose-sm md:prose-base prose-zinc dark:prose-invert prose-headings:mb-3 prose-headings:mt-6 prose-headings:md:mt-8 prose-h2:md:text-3xl max-w-none prose-figcaption:text-center prose-headings:[&>*:first-child]:3xl:mt-0">
+    
+
+
+
+<a href="#sequent" class="underline decoration-transparent [transition:text-decoration-color_0.2s] hover:decoration-current text-inherit dark:text-inherit">
+    <h1 id="sequent">Sequent</h1>
+</a>
+<p>A flexible tool for composing and programmatically executing complex sequences of actions, including time-lapses, sensor readings, and more!</p>
+
+
+
+
+<a href="#what-is-sequent" class="underline decoration-transparent [transition:text-decoration-color_0.2s] hover:decoration-current text-inherit dark:text-inherit">
+    <h2 id="what-is-sequent">What is Sequent?</h2>
+</a>
+<p>Sequent is a flexible automation system for designing and executing arbitrarily complex sequences of actions. These actions can range from triggering a camera shutter, to recording sensor readings, to moving a servo motor, to anything and everything that can be controlled by some sort of computer.</p>
+<p>Currently, Sequent is in early development and only supports specific hardware (the same hardware I used to photograph the 4/8/24 total solar eclipse). In the future, I hope to generalize it to a wide variety of use cases.</p>
+<p>The Sequent system consists of 3 parts:</p>
+<ul>
+<li>The <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="#sequence-editor" >sequence editor</a></span></li>
+<li>The <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="#driver-program" >driver program</a></span></li>
+<li>The <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="#hardware" >hardware</a></span> (cameras, sensors, etc.)</li>
+</ul>
+
+
+
+
+<a href="#sequence-editor" class="underline decoration-transparent [transition:text-decoration-color_0.2s] hover:decoration-current text-inherit dark:text-inherit">
+    <h3 id="sequence-editor">Sequence editor</h3>
+</a>
+<p><span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="doc_assets/editor-1_full.png" ><img src="doc_assets/editor-1.png" alt="Screenshot of Sequent web editor showing various actions on the timeline"></a></span></p>
+<p>The <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="https://sequent.ethanvoth.com" target="_blank" rel="noopener">Sequent web editor</a><span class="tooltip-anchor relative"><span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs invisible z-10"><a href="https://sequent.ethanvoth.com" target="_blank" rel="noopener" class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">            <span class="flex gap-1 items-center text-xs mb-1">                    sequent.ethanvoth.com<svg class="h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g fill="none" fill-rule="evenodd"><path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"/></g></svg></span><span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>Sequent Editor</strong></span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span> allows you to create sequences of actions by dragging and dropping them onto the timeline, where you can adjust their timing, place them onto separate layers, and edit their parameters. You can even drag other sequences onto the timeline to reuse or repeat a given sequence of actions.</p>
+<p>When you&rsquo;re done creating a sequence, you can export it to your computer. This sequence file is what will be executed by the driver program, which is what connects to and controls the hardware.</p>
+
+
+
+
+<a href="#driver-program" class="underline decoration-transparent [transition:text-decoration-color_0.2s] hover:decoration-current text-inherit dark:text-inherit">
+    <h3 id="driver-program">Driver program</h3>
+</a>
+<div class="grid grid-cols-2 gap-4 md:gap-6">
+    <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="doc_assets/driver-1.png" ><img src="doc_assets/driver-1.png" alt="Screenshot of the driver interface showing the status of various devices"></a></span>
+<span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="doc_assets/driver-2.png" ><img src="doc_assets/driver-2.png" alt="Screenshot of the driver interface showing controls for various sequences"></a></span>
+</div>
+<p>The driver program is what reads the sequence file from the web editor and executes it. The device that runs the driver program can be separate from the one that is used to design the sequence editor.</p>
+<p>In the case of the ESP32 driver (currently the only driver as a proof-of-concept), the ESP32 connects to various cameras, sensors, and even servo motors. The sequences are uploaded and controlled via a web interface which communicates with the C++ backend. Once a sequence is running, the web interface can be used to monitor the status of the sequence and connected devices, but the connection is not necessary to keep the sequence running since the ESP32 is doing all of the work.</p>
+
+
+
+
+<a href="#hardware" class="underline decoration-transparent [transition:text-decoration-color_0.2s] hover:decoration-current text-inherit dark:text-inherit">
+    <h3 id="hardware">Hardware</h3>
+</a>
+<div class="grid grid-cols-2 gap-4 md:gap-6">
+    <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="doc_assets/hardware-1.jpg" ><img src="doc_assets/hardware-1.jpg" alt="ESP32 board with a multitude of jumper cables connecting to different components on a breadboard"></a></span>
+<span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="doc_assets/hardware-2.jpg" ><img src="doc_assets/hardware-2.jpg" alt="Two cameras, each with a motorized solar filter"></a></span>
+</div>
+<p>The hardware is what is ultimately being automated. Since the impetus for this project was a system to automate my cameras for the eclipse, the system supports many eclipse-related functions. Below I&rsquo;ve listed the hardware components and how they are controlled/utilized by the ESP32.</p>
+<p><strong>Physically connected components:</strong></p>
+<ul>
+<li><strong>TF/miroSD card reader:</strong> Used to store and read sequence files, log status/error messages, and record sensor data</li>
+<li><strong>NEO6MV2 GPS module:</strong> Source of time to ensure accurate timing of actions around and during totality</li>
+<li><strong>2 x SG90 servo motors:</strong> Integrated into my custom-designed, 3D printed <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="https://github.com/evoth/motorized-solar-filter" target="_blank" rel="noopener">motorized solar filters</a><span class="tooltip-anchor relative"><span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs invisible z-10"><a href="https://github.com/evoth/motorized-solar-filter" target="_blank" rel="noopener" class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">            <span class="flex gap-1 items-center text-xs mb-1">                    GitHub<svg class="h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g fill="none" fill-rule="evenodd"><path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"/></g></svg></span><span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>GitHub - evoth/motorized-solar-filter: A 3D printed solar filter that uses an SG90...</strong></span><span class="block mt-1 text-sm 3xl:text-base">A 3D printed solar filter that uses an SG90 servo to remove the solar film from your camera during totality!...</span><span class="block rounded-lg aspect-og mt-3 overflow-hidden">                    <img src="/images/links/opengraph.githubassets.com_dba10c77f9d6350103876fa17d97f4678a7fb38a0b368babeb7f34edcde72046_evoth_motorized-solar-filter.png" alt="" class="aspect-og object-cover w-full group-hover/body:scale-110 [transition:transform_0.2s]">                </span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span>, which removed the protective solar film during totality</li>
+<li><strong>BME280 module:</strong> Used to record temperature/humidity/pressure during the eclipse for fun (it did observe a decrease in temperature during the eclipse!)</li>
+<li><strong>Optocoupler circuit:</strong> Controls the shutter release cable to manually control the shutter of a DSLR</li>
+</ul>
+<p><strong>Wirelessly connected devices:</strong></p>
+<ul>
+<li><strong>Canon EOS M200 via CCAPI:</strong> Full control of settings and shutter over WiFi in order to take a time-lapse of the partial phases and perform extreme exposure bracketing during totality</li>
+<li><strong>Canon EOS Rebel T6 via PTP/IP:</strong> Control of settings and shutter over WiFi using raw PTP packets over IP (this functionality was ultimately unused due to my second ESP32 dying)</li>
+</ul>
+<p><strong>Control devices:</strong></p>
+<ul>
+<li>Any device with WiFi and a browser can control the ESP32 over the web interface</li>
+</ul>
+
+
+
+
+<a href="#how-can-i-use-it" class="underline decoration-transparent [transition:text-decoration-color_0.2s] hover:decoration-current text-inherit dark:text-inherit">
+    <h2 id="how-can-i-use-it">How can I use it?</h2>
+</a>
+<p>Right now, this project is still in the development stage, so it may be difficult to get the system up and running without having my same hardware. At the very least, you will need an ESP32 board with an SD card reader connected via SPI. Then, you can build and run the PlatformIO project in the <code>driver_esp/driver</code> folder.</p>
+
+
+
+
+<a href="#future-plans" class="underline decoration-transparent [transition:text-decoration-color_0.2s] hover:decoration-current text-inherit dark:text-inherit">
+    <h2 id="future-plans">Future plans</h2>
+</a>
+<p>The system is built to be as flexible as possible, so that it can be generalized to a wide variety of use cases. Driver programs can be written for any device that can parse a JSON file (which is the format of the exported sequence files), which can then control just about anything! However, I suspect this system is most useful for controlling cameras, whether it&rsquo;s taking long-term time-lapses, performing exposure bracketing on a camera that doesn&rsquo;t support it (like I did during the 4/8/24 eclipse), or taking sub-exposures and calibration frames for astrophotography.</p>
+<p>I plan on improving the user interface and possibly developing generalized photography-focused driver programs for a variety of platforms. Additionally, because this system worked so well for the April 8th eclipse, I may develop eclipse-specific features in anticipation of upcoming total solar eclipses.</p>
+
+</div>
+    
+
+    </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+        <div class="max-w-screen-xl mx-auto px-container pb-container">
+            <div class="flex flex-col gap-6 md:gap-12">
+    
+    
+        
+
+
+
+
+    
+        
+    
+
+
+
+    
+    
+        
+    
+    
+    
+
+
+
+        
+            
+    
+    
+        
+            
+
+
+
+
+
+
+    
+    
+        
+    
+    
+    
+        <div class="not-tooltip-container">
+                
+                <div class="not-tooltip-container flex flex-wrap gap-4 mb-5 md:mb-6">
+                    
+                        <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0">
+    
+        <a href="/projects/" class="text-inherit dark:text-inherit">
+            <h2 class="text-xl md:text-3xl">Other project pages</h2>
+        </a>
+    
+<span class="tooltip-anchor relative"><span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs invisible z-10"><a href="/projects/"  class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">
+            <span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>Projects</strong></span><span class="block mt-1 text-sm 3xl:text-base">
+
+
+
+
+    
+        
+    
+    
+        
+    
+
+
+
+
+
+    
+
+
+
+Personal projects from the last couple years which cover a variety of technologies</span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span>
+                    
+                    
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                    
+                        <a href="/projects/esp-intervalometer/" class="card bg-zinc-200 dark:bg-zinc-800 group/summary hover:bg-zinc-300 hover:dark:bg-zinc-700 p-3 rounded-xl [transition:background-color_0.2s] no-underline text-inherit dark:text-inherit">
+    
+        <div class="rounded-lg aspect-video mb-3 overflow-hidden">
+            <img src="/projects/esp-intervalometer/esp-intervalometer-thumb.png" alt="Photorealistic vector illustration of an ESP8266 dev board." class="object-cover aspect-video w-full group-hover/summary:scale-110 [transition:transform_0.2s]">
+        </div>
+    
+    
+    
+        
+    
+    <p class="md:text-lg mb-2"><strong>ESP8266 Intervalometer</strong></p>
+    
+        <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
+            
+
+
+
+
+    
+        
+    
+    
+        
+    
+
+
+
+
+
+    
+
+
+
+A ESP8266-based web app and server that uses the Canon CCAPI to trigger a series of exposures over Wi-Fi
+        </p>
+    
+</a>
+                    
+                        <a href="/projects/webbster/" class="card bg-zinc-200 dark:bg-zinc-800 group/summary hover:bg-zinc-300 hover:dark:bg-zinc-700 p-3 rounded-xl [transition:background-color_0.2s] no-underline text-inherit dark:text-inherit">
+    
+        <div class="rounded-lg aspect-video mb-3 overflow-hidden">
+            <img src="/projects/webbster/webbster-thumb.png" alt="Artistic vector interpretation of the Southern Ring Nebula, exploding outwards from a central star." class="object-cover aspect-video w-full group-hover/summary:scale-110 [transition:transform_0.2s]">
+        </div>
+    
+    
+    
+        
+    
+    <p class="md:text-lg mb-2"><strong>Webbster</strong></p>
+    
+        <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
+            
+
+
+
+
+    
+        
+    
+    
+        
+    
+
+
+
+
+
+    
+
+
+
+Utility to transform raw James Webb Space Telescope data into viewable color images
+        </p>
+    
+</a>
+                    
+                        <a href="/projects/gopro-video-sync/" class="card bg-zinc-200 dark:bg-zinc-800 group/summary hover:bg-zinc-300 hover:dark:bg-zinc-700 p-3 rounded-xl [transition:background-color_0.2s] no-underline text-inherit dark:text-inherit">
+    
+        <div class="rounded-lg aspect-video mb-3 overflow-hidden">
+            <img src="/projects/gopro-video-sync/gopro-video-sync-thumb.svg" alt="GoPro with clapper stick on top, alluding to a clapperboard." class="object-cover aspect-video w-full group-hover/summary:scale-110 [transition:transform_0.2s]">
+        </div>
+    
+    
+    
+        
+    
+    <p class="md:text-lg mb-2"><strong>GoPro Video Sync</strong></p>
+    
+        <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
+            
+
+
+
+
+    
+        
+    
+    
+        
+    
+
+
+
+
+
+    
+
+
+
+Tool to sync videos from two jointly mounted GoPros using data from multiple sensors
+        </p>
+    
+</a>
+                    
+                        <a href="/projects/schema/" class="card bg-zinc-200 dark:bg-zinc-800 group/summary hover:bg-zinc-300 hover:dark:bg-zinc-700 p-3 rounded-xl [transition:background-color_0.2s] no-underline text-inherit dark:text-inherit">
+    
+        <div class="rounded-lg aspect-video mb-3 overflow-hidden">
+            <img src="/projects/schema/schema-thumb.svg" alt="White letter &#34;S&#34; on background divided into four quadrants in different shades of blue." class="object-cover aspect-video w-full group-hover/summary:scale-110 [transition:transform_0.2s]">
+        </div>
+    
+    
+    
+        
+    
+    <p class="md:text-lg mb-2"><strong>Schema Notes</strong></p>
+    
+        <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
+            
+
+
+
+
+    
+        
+    
+    
+        
+    
+
+
+
+
+
+    
+
+
+
+A notes app built using Flutter with support for offline use and real-time syncing across devices
+        </p>
+    
+</a>
+                    
+                        <a href="/projects/portfolio-v2/" class="card bg-zinc-200 dark:bg-zinc-800 group/summary hover:bg-zinc-300 hover:dark:bg-zinc-700 p-3 rounded-xl [transition:background-color_0.2s] no-underline text-inherit dark:text-inherit">
+    
+        <div class="rounded-lg aspect-video mb-3 overflow-hidden">
+            <img src="/projects/portfolio-v2/portfolio-v2-thumb.svg" alt="The letters &#34;EV&#34; on a dark gray background." class="object-cover aspect-video w-full group-hover/summary:scale-110 [transition:transform_0.2s]">
+        </div>
+    
+    
+    
+        
+    
+    <p class="md:text-lg mb-2"><strong>This Website!</strong></p>
+    
+        <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
+            
+
+
+
+
+    
+        
+    
+    
+        
+    
+
+
+
+
+
+    
+
+
+
+Portfolio and blog site created with Hugo SSG, Tailwind CSS, and good old JavaScript
+        </p>
+    
+</a>
+                    
+                        <a href="/projects/ptl/" class="card bg-zinc-200 dark:bg-zinc-800 group/summary hover:bg-zinc-300 hover:dark:bg-zinc-700 p-3 rounded-xl [transition:background-color_0.2s] no-underline text-inherit dark:text-inherit">
+    
+        <div class="rounded-lg aspect-video mb-3 overflow-hidden">
+            <img src="/projects/ptl/ptl-thumb.svg" alt="Circle split between sun and moon/stars, encircled by cyclic arrows." class="object-cover aspect-video w-full group-hover/summary:scale-110 [transition:transform_0.2s]">
+        </div>
+    
+    
+    
+        
+    
+    <p class="md:text-lg mb-2"><strong>Perpetual Timelapse</strong></p>
+    
+        <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
+            
+
+
+
+
+    
+        
+    
+    
+        
+    
+
+
+
+
+
+    
+
+
+
+An automatic time-lapse creation and posting system (my first Python project)
+        </p>
+    
+</a>
+                    
+                        <a href="/projects/midi-vision/" class="card bg-zinc-200 dark:bg-zinc-800 group/summary hover:bg-zinc-300 hover:dark:bg-zinc-700 p-3 rounded-xl [transition:background-color_0.2s] no-underline text-inherit dark:text-inherit">
+    
+        <div class="rounded-lg aspect-video mb-3 overflow-hidden">
+            <img src="/projects/midi-vision/midi-vision-thumb.svg" alt="Glowing aquamarine-colored zigzag shape on a black background." class="object-cover aspect-video w-full group-hover/summary:scale-110 [transition:transform_0.2s]">
+        </div>
+    
+    
+    
+        
+    
+    <p class="md:text-lg mb-2"><strong>Midi Vision</strong></p>
+    
+        <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
+            
+
+
+
+
+    
+        
+    
+    
+        
+    
+
+
+
+
+
+    
+
+
+
+Visualizing midi files as a chorus of colorful lines using Tone.js and the canvas
+        </p>
+    
+</a>
+                    
+                        <a href="/projects/feedback-palette/" class="card bg-zinc-200 dark:bg-zinc-800 group/summary hover:bg-zinc-300 hover:dark:bg-zinc-700 p-3 rounded-xl [transition:background-color_0.2s] no-underline text-inherit dark:text-inherit">
+    
+        <div class="rounded-lg aspect-video mb-3 overflow-hidden">
+            <img src="/projects/feedback-palette/feedback-palette-thumb.svg" alt="Abstract palette, dividing image into various shades of pink." class="object-cover aspect-video w-full group-hover/summary:scale-110 [transition:transform_0.2s]">
+        </div>
+    
+    
+    
+        
+    
+    <p class="md:text-lg mb-2"><strong>Feedback Palette</strong></p>
+    
+        <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
+            
+
+
+
+
+    
+        
+    
+    
+        
+    
+
+
+
+
+
+    
+
+
+
+Using feedback loops and interpolation artifacts to get a color palette for a point in an image
+        </p>
+    
+</a>
+                    
+                        <a href="/projects/portfolio-v1/" class="card bg-zinc-200 dark:bg-zinc-800 group/summary hover:bg-zinc-300 hover:dark:bg-zinc-700 p-3 rounded-xl [transition:background-color_0.2s] no-underline text-inherit dark:text-inherit">
+    
+        <div class="rounded-lg aspect-video mb-3 overflow-hidden">
+            <img src="/projects/portfolio-v1/portfolio-v1-thumb.svg" alt="The letters &#34;EV&#34; on a turquoise gradient background." class="object-cover aspect-video w-full group-hover/summary:scale-110 [transition:transform_0.2s]">
+        </div>
+    
+    
+    
+        
+    
+    <p class="md:text-lg mb-2"><strong>Portfolio Site v1</strong></p>
+    
+        <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
+            
+
+
+
+
+    
+        
+    
+    
+        
+    
+
+
+
+
+
+    
+
+
+
+Single page static site using raw HTML, Bulma, and SASS
+        </p>
+    
+</a>
+                    
+                        <a href="/projects/pseudosun/" class="card bg-zinc-200 dark:bg-zinc-800 group/summary hover:bg-zinc-300 hover:dark:bg-zinc-700 p-3 rounded-xl [transition:background-color_0.2s] no-underline text-inherit dark:text-inherit">
+    
+        <div class="rounded-lg aspect-video mb-3 overflow-hidden">
+            <img src="/projects/pseudosun/pseudosun-thumb.svg" alt="White infinity symbol on a background split between pale blue and green." class="object-cover aspect-video w-full group-hover/summary:scale-110 [transition:transform_0.2s]">
+        </div>
+    
+    
+    
+        
+    
+    <p class="md:text-lg mb-2"><strong>PseudoSun</strong></p>
+    
+        <p class="[transition:color_0.2s] hover:text-zinc-700 hover:dark:text-zinc-300">
+            
+
+
+
+
+    
+        
+    
+    
+        
+    
+
+
+
+
+
+    
+
+
+
+Procedurally generated 3D environment using Three.js (development paused)
+        </p>
+    
+</a>
+                    
+                </div>
+        </div>
+    
+
+
+
+        
+    
+
+        
+    
+</div>
+
+
+        </div>
+    
+
+
+
+
+    </main>
+    <div class="flex-1"></div>
+<div class="flex justify-center bg-zinc-200 dark:bg-zinc-800 p-6">
+    
+    
+        
+    
+        
+    
+    <span>
+        2024 © Ethan Voth / <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="https://github.com/evoth" target="_blank" rel="noopener">GitHub</a><span class="tooltip-anchor relative"><span class="tooltip-base absolute -translate-x-1/2 w-max max-w-2xs 3xl:max-w-xs invisible z-10"><a href="https://github.com/evoth" target="_blank" rel="noopener" class="tooltip-body text-zinc-800 dark:text-zinc-200 no-underline bg-zinc-50 dark:bg-zinc-800 group/body hover:bg-zinc-200 hover:dark:bg-zinc-700 border border-zinc-500 dark:border-zinc-500 shadow-lg shadow-black/20 dark:shadow-black/50 relative opacity-0 p-3 inline-block rounded-lg after:absolute after:left-0 after:right-0">            <span class="flex gap-1 items-center text-xs mb-1">                    GitHub<svg class="h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g fill="none" fill-rule="evenodd"><path d="M18 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8c0-1.1.9-2 2-2h5M15 3h6v6M10 14L20.2 3.8"/></g></svg></span><span class="block text-blue-600 dark:text-blue-400 text-sm 3xl:text-base leading-snug"><strong>evoth - Overview</strong></span><span class="block mt-1 text-sm 3xl:text-base">Hi, I'm a Computer Science major from Colorado studying at UCF and seeking a summer 2024 internship. Here you can...</span><span class="block rounded-lg aspect-og mt-3 overflow-hidden">                    <img src="/images/links/avatars.githubusercontent.com_u_87922019.jpg" alt="" class="aspect-og object-cover w-full group-hover/body:scale-110 [transition:transform_0.2s]">                </span><i class="tooltip-arrow after:bg-zinc-50 after:dark:bg-zinc-800 after:[transition:background-color_0.2s] after:group-hover/body:bg-zinc-200 after:group-hover/body:dark:bg-zinc-700 after:border after:border-zinc-500 after:dark:border-zinc-500 after:shadow-lg after:shadow-black/20 after:dark:shadow-black/50 after:w-3 after:h-3 absolute after:absolute overflow-hidden after:-translate-x-1/2 after:-translate-y-1/2 after:rotate-45 after:left-1/2 w-12 h-6 pointer-events-none"></i></a></span></span></span> / <span class="tooltip not-prose group/tooltip relative" data-counter="0" data-status="closed" data-hover="0"><a href="https://ethanvoth.com/Ethan_Voth_Resume_Spring_2024.pdf" target="_blank" rel="noopener">Resume</a></span>
+    </span>
+</div>
+  </body>
+</html>
