@@ -45,7 +45,7 @@ if __name__ == "__main__":
                 icon_bg_hex = icon_data[icon_slug]["bgHex"].lower()
                 icon_fg_hex = icon_data[icon_slug]["fgHex"].lower()
                 icon_path = join(icon_dir, f"{icon_slug}.svg")
-                icon_alt = f"{icon_title.capitalize()} logo in {icon_data[icon_slug]['fgName']} on a {icon_data[icon_slug]['bgName']} background."
+                icon_alt = f"{icon_title} logo in {icon_data[icon_slug]['fgName']} on a {icon_data[icon_slug]['bgName']} background."
 
                 if not exists(icon_path) or REFRESH:
                     print(f"- Downloading {icon_title} icon")
@@ -82,18 +82,18 @@ if __name__ == "__main__":
                         .replace("ICON_SVG", icon_svg)
                     )
 
-            print("- Updating front matter")
-            front_matter["resources"] = [
-                {
-                    "name": "thumb",
-                    "src": svg_file,
-                    "params": {"alt": icon_alt},
-                }
-            ]
+                print("- Updating front matter")
+                front_matter["resources"] = [
+                    {
+                        "name": "thumb",
+                        "src": svg_file,
+                        "params": {"alt": icon_alt},
+                    }
+                ]
 
-            with open(filepath, "w") as f:
-                f.write(
-                    md_contents.replace(
-                        yaml_match.group(1), yaml.dump(front_matter).strip()
+                with open(filepath, "w") as f:
+                    f.write(
+                        md_contents.replace(
+                            yaml_match.group(1), yaml.dump(front_matter).strip()
+                        )
                     )
-                )

@@ -23,7 +23,7 @@ languages:
           weight: 4
         - name: Resume
           url: "https://ethanvoth.com/Ethan_Voth_Resume_Spring_2024.pdf"
-          weight: 5
+          weight: 6
       footer:
         - name: GitHub
           url: "https://github.com/evoth"

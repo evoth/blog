@@ -39,6 +39,9 @@ A visually appealing way to display my personal projects. I've laid the foundati
             - post headings shouldn't be links?
             - tooltips (role="tooltip")
             - table of contents
+    - Decorative images (including most, if not all, thumbnails) should have empty alt text
+    - More useful/relevant alt text
+    - Link states
 - Metadata (and SEO by extension)
     - Schema
     - OpenGraph
@@ -128,3 +131,5 @@ A visually appealing way to display my personal projects. I've laid the foundati
     - Don't forget links and references
 - Google Search Console?
 - SEO, metadata, etc. as mentioned above
+    - Add robots.txt to pages that shouldn't show up in search results (specifically portfolio V1)
+- **Migrate to Astro**

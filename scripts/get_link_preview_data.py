@@ -6,7 +6,7 @@ from datetime import datetime
 from os import walk
 from os.path import exists, join, splitext
 from typing import Dict, Optional
-from urllib.parse import urlparse
+from urllib.parse import urlparse, unquote
 
 import requests
 from bs4 import BeautifulSoup
@@ -74,6 +74,7 @@ def process_new(link_data: Dict[str, LinkPreview], url: str):
             thumbnail_url = "://".join(urlparse(url)[0:2]) + thumbnail_url
         image_url_path = "".join(urlparse(thumbnail_url)[1:3])
         image_name, _ = splitext(image_url_path)
+        image_name = unquote(image_name)
 
         response = requests.get(thumbnail_url, headers=HEADERS)
         image_data = response.content
